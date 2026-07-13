@@ -135,6 +135,57 @@
 
   footer{padding:40px 26px 52px; text-align:center; background:var(--mist);}
   footer p{font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--gray); margin:0;}
+
+  /* ================================================
+     DESKTOP (900px+)
+     Mobile layout above stays untouched; this layer
+     only adds a wider, editorial treatment.
+     One shared content column keeps every text block
+     aligned the same way as you scroll down the page.
+     ================================================ */
+  @media (min-width: 900px){
+    .page{max-width:1120px;}
+    .inner{max-width:720px; margin:0 auto; padding:64px 40px;}
+    .back{padding:24px 40px 0;}
+
+    /* hero: gentle crop so the subject stays fully in frame */
+    .hero-photo{aspect-ratio:16/9;}
+    .hero-photo .hcap{max-width:520px; margin:0 auto; padding:0 40px 40px;}
+    .hero-photo .hcap h1{font-size:30px;}
+
+    /* body text: proportionate to the wider column, not lost in whitespace */
+    .prose{font-size:15.5px; line-height:1.85;}
+    .plain-list li{font-size:14.5px;}
+    .lede{font-size:20px;}
+
+    /* breathing tool + final CTA: buttons stay a sane width inside the shared column */
+    .cta-primary, .cta-outline{max-width:360px; margin-left:auto; margin-right:auto;}
+
+    /* plain lists -> two columns, same shared width */
+    .sage .plain-list, .paper .plain-list{
+      display:grid; grid-template-columns:1fr 1fr; column-gap:40px;
+    }
+
+    /* format cards side by side */
+    .format-cards{flex-direction:row;}
+    .format-card{flex:1;}
+
+    /* benefit / result number grids -> three columns */
+    .grid-2{grid-template-columns:repeat(3,1fr);}
+
+    /* photo breaks -> wide banners, but not so extreme they lose the subject */
+    .photo-break{aspect-ratio:21/9;}
+
+    /* author: bigger photo beside a normal flowing text block, not columns */
+    .author-wrap{display:flex; align-items:center; gap:40px; text-align:left;}
+    .author-wrap .author-photo{margin:0; flex:0 0 auto; width:220px; height:220px;}
+    .author-wrap .author-text{flex:1;}
+    .author-wrap .author-name, .author-wrap .author-creds{text-align:left;}
+    .author-wrap .author-creds{margin-bottom:14px;}
+
+    /* testimonials: show three cards without needing to scroll */
+    .review-card{flex:0 0 31%;}
+  }
 </style>
 </head>
 <body>
@@ -256,13 +307,15 @@
 
   <!-- AUTHOR -->
   <section class="mist">
-    <div class="inner">
+    <div class="inner author-wrap">
       <div class="author-photo" style="background-image:url('https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/photo6.jpg');"></div>
-      <p class="author-name">Анастасия Васильева</p>
-      <p class="author-creds">Клинический психолог · Телесно-ориентированный терапевт<br>· Тренер по сеансам релаксации</p>
-      <p class="prose">Сначала я открыла сеансы для себя. Затем, как клинический психолог, разобралась в механике этого способа расслабления, а как телесно-ориентированный терапевт выстроила понимание связи телесного ощущения и эмоционального состояния.</p>
-      <p class="prose" style="margin-top:14px;">Отдельно отучилась на тренера по сеансам релаксации и знаю алгоритм проведения, благодаря которому ваше состояние может быть похоже на парение легкого перышка в пушистых облаках.</p>
-      <p class="prose" style="margin-top:14px;">На протяжении 5 лет сопровождаю людей к восстановлению единства ума, эмоций и тела.</p>
+      <div class="author-text">
+        <p class="author-name">Анастасия Васильева</p>
+        <p class="author-creds">Клинический психолог · Телесно-ориентированный терапевт<br>· Тренер по сеансам релаксации</p>
+        <p class="prose">Сначала я открыла сеансы для себя. Затем, как клинический психолог, разобралась в механике этого способа расслабления, а как телесно-ориентированный терапевт выстроила понимание связи телесного ощущения и эмоционального состояния.</p>
+        <p class="prose" style="margin-top:14px;">Отдельно отучилась на тренера по сеансам релаксации и знаю алгоритм проведения, благодаря которому ваше состояние может быть похоже на парение легкого перышка в пушистых облаках.</p>
+        <p class="prose" style="margin-top:14px;">На протяжении 5 лет сопровождаю людей к восстановлению единства ума, эмоций и тела.</p>
+      </div>
     </div>
   </section>
 
@@ -311,7 +364,7 @@
         </div>
         <div class="acc-item">
           <button class="acc-head" aria-expanded="false">Где и как <span class="sign">+</span></button>
-          <div class="acc-body"><div class="acc-body-inner">Очно: по договоренности, в моем пространстве. Онлайн-встречи: Skype, WhatsApp, FaceTime, Zoom.</div></div>
+          <div class="acc-body"><div class="acc-body-inner">Очно: по договоренности, в моем пространстве. Онлайн-встречи: Zoom, Яндекс Телемост.</div></div>
         </div>
         <div class="acc-item">
           <button class="acc-head" aria-expanded="false">Стоимость <span class="sign">+</span></button>
