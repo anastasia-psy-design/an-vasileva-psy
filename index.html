@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Анастасия Васильева — психолог</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#111111;
+    --paper:#FFFFFF;
+    --offwhite:#F7F6F3;
+    --gray:#8A8A85;
+    --line: rgba(17,17,17,.13);
+    --soft-dark:#3E3A33;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-font-smoothing:antialiased;}
+  .page{max-width:480px; margin:0 auto;}
+  a{color:inherit; text-decoration:none;}
+  button{font-family:inherit;}
+  :focus-visible{outline:1.5px solid var(--ink); outline-offset:3px;}
+  strong{font-weight:700;}
+
+  section{position:relative;}
+  .inner{padding:44px 26px;}
+  .white{background:var(--paper);}
+  .offwhite{background:var(--offwhite);}
+  .black{background:var(--soft-dark); color:var(--paper);}
+
+  .eyebrow{font-size:10.5px; font-weight:400; text-transform:uppercase; letter-spacing:.18em; color:var(--gray);}
+  .eyebrow.on-dark{color:rgba(255,255,255,.6);}
+  .hair-under{display:inline-block; padding-bottom:11px; border-bottom:1px solid var(--line); margin-bottom:24px;}
+  .hair-under.dark{border-bottom:1px solid rgba(255,255,255,.2);}
+  .monogram{font-family:'Playfair Display',serif; font-weight:400; letter-spacing:.04em;}
+
+  /* ---------- hero photo ---------- */
+  .hero-photo{position:relative; width:100%; aspect-ratio:4/4.6; background-color:#111; background-size:cover; background-position:center 42%; background-repeat:no-repeat; display:flex; align-items:center; justify-content:center;}
+  .hero-under{padding:28px 26px 6px; text-align:center;}
+  .hero-under .monogram{font-size:22px; display:block; margin-bottom:12px;}
+  .hero-under .name{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gray);}
+
+  h1.title{font-family:'Playfair Display',serif; font-weight:500; font-size:26px; line-height:1.32; color:var(--ink); margin:0 0 16px;}
+  .subtitle{font-size:14px; color:#4a4a48; line-height:1.7; margin:0 0 20px;}
+  .creds{font-size:11.5px; letter-spacing:.02em; color:var(--gray); line-height:1.6; padding-top:16px; border-top:1px solid var(--line);}
+
+  /* ---------- lists with inline emphasis ---------- */
+  .plain-list{list-style:none; margin:0; padding:0;}
+  .plain-list li{padding:18px 0; border-top:1px solid var(--line); font-size:13.5px; line-height:1.68; color:#2a2a28;}
+  .plain-list li:last-child{border-bottom:1px solid var(--line);}
+
+  .photo-break{width:100%; aspect-ratio:5/4; background-color:#111; background-size:cover; background-position:center; background-repeat:no-repeat;}
+
+  /* ---------- soft tools ---------- */
+  .tools{display:flex; flex-direction:column; gap:1px; border-top:1px solid var(--line); margin-top:4px;}
+  .tool-panel{background:var(--paper); padding:18px 2px; border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; gap:14px;}
+  .tool-panel .t-title{font-family:'Playfair Display',serif; font-weight:500; font-size:15px; color:var(--ink); margin:0;}
+  .t-link{flex:0 0 auto; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink); border-bottom:1px solid var(--ink); padding-bottom:2px;}
+
+  .lede{font-family:'Playfair Display',serif; font-style:italic; font-size:16.5px; line-height:1.65; color:var(--ink); margin:0 0 16px; font-weight:400;}
+  .lede:last-child{margin-bottom:0;}
+
+  /* ---------- background tabs ---------- */
+  .tab-nav{display:flex; gap:0; border-bottom:1px solid var(--line); margin-bottom:24px;}
+  .tab-btn{flex:1; background:none; border:none; padding:0 0 14px; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gray); cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px;}
+  .tab-btn.active{color:var(--ink); border-bottom-color:var(--ink);}
+  .tab-panel{display:none;}
+  .tab-panel.active{display:block;}
+  .stat-row{display:flex; gap:16px; align-items:baseline; padding:14px 0; border-top:1px solid var(--line);}
+  .stat-row:last-child{border-bottom:1px solid var(--line);}
+  .stat-num{flex:0 0 auto; width:84px; font-family:'Playfair Display',serif; font-style:italic; font-size:15px; color:var(--ink);}
+  .stat-label{font-size:12.5px; color:var(--gray); line-height:1.5;}
+  .approach-item{padding:14px 0; border-top:1px solid var(--line);}
+  .approach-item:last-child{border-bottom:1px solid var(--line);}
+  .approach-item .a-title{font-family:'Playfair Display',serif; font-weight:500; font-size:14px; color:var(--ink); display:block; margin-bottom:3px;}
+  .approach-item .a-sub{font-size:11.5px; color:var(--gray); line-height:1.5;}
+
+  /* ---------- organizational rows ---------- */
+  .org-list{border-top:1px solid var(--line);}
+  .org-row{padding:16px 0; border-bottom:1px solid var(--line);}
+  .org-row .o-label{font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--gray); margin:0 0 6px;}
+  .org-row .o-value{font-size:13px; color:var(--ink); line-height:1.55; margin:0;}
+  .org-subhead{font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--gray); margin:24px 0 0; padding-top:16px;}
+
+  .accordion{border-top:1px solid var(--line);}
+  .acc-item{border-bottom:1px solid var(--line);}
+  .acc-head{width:100%; background:none; border:none; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 2px; font-family:'Playfair Display',serif; font-weight:500; font-size:13.5px; color:var(--ink); cursor:pointer; text-align:left;}
+  .acc-head .sign{flex:0 0 auto; font-size:16px; color:var(--gray); transition:transform .25s ease; font-weight:300;}
+  .acc-item.open .acc-head .sign{transform:rotate(45deg);}
+  .acc-body{max-height:0; overflow:hidden; transition:max-height .3s ease;}
+  .acc-body-inner{padding:4px 2px 18px;}
+
+  /* ---------- CTAs ---------- */
+  .final{text-align:center;}
+  .final .f-phrase{font-family:'Playfair Display',serif; font-style:italic; font-weight:400; font-size:18px; line-height:1.5; color:var(--paper); margin:0 0 26px;}
+  .cta-outline{display:block; text-align:center; border:1px solid var(--ink); color:var(--ink); padding:17px 20px; font-size:12px; letter-spacing:.16em; text-transform:uppercase;}
+  .cta-outline.on-dark{border-color:rgba(255,255,255,.6); color:var(--paper);}
+  .cta-outline span{display:block; font-size:10.5px; letter-spacing:.03em; text-transform:none; opacity:.7; margin-top:5px; font-family:'Playfair Display',serif; font-style:italic;}
+  .cta-secondary{display:block; text-align:center; padding:17px 20px; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.85); margin-top:14px; border-bottom:1px solid rgba(255,255,255,.25);}
+  .vk-note{display:block; margin-top:14px; font-size:11px; color:rgba(255,255,255,.5);}
+  .cta-pair{display:flex; gap:10px;}
+  .cta-pair .cta-outline{flex:1; padding:16px 10px;}
+
+  /* ---------- tertiary links ---------- */
+  .links{border-top:1px solid var(--line);}
+  .link-row{display:flex; align-items:center; gap:14px; padding:16px 2px; border-bottom:1px solid var(--line); font-size:12.5px; color:#4a4a48;}
+  .link-row .ic{flex:0 0 auto; width:22px; font-family:'Playfair Display',serif; font-style:italic; color:var(--gray); font-size:13px;}
+  .link-row .go{margin-left:auto; font-size:10.5px; color:var(--gray);}
+
+  footer{padding:40px 26px 52px; text-align:center; background:var(--offwhite);}
+  footer .monogram{font-size:16px; margin-bottom:12px; display:block;}
+  footer p{font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--gray); margin:0;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <section class="hero-photo" style="background-image:url('img/photo1.jpg');"></section>
+  <section class="white">
+    <div class="hero-under">
+      <span class="monogram">А · В</span>
+      <span class="name">Анастасия Васильева</span>
+    </div>
+  </section>
+
+  <!-- OFFER -->
+  <section class="white">
+    <div class="inner" style="padding-top:0; text-align:center;">
+      <h1 class="title">Психологическое взросление и обретение опор</h1>
+      <p class="subtitle">Помогаю привести в соответствие ваш психологический и паспортный возраст, чтобы вернуть себе авторство жизни</p>
+      <p class="creds">Клинический психолог · Экзистенциальный психотерапевт · Сооснователь платформы по подбору психолога InTreatment</p>
+    </div>
+  </section>
+
+  <!-- RECOGNITION -->
+  <section class="offwhite">
+    <div class="inner">
+      <span class="eyebrow hair-under">Я могу быть полезна вам, если сейчас вы проживаете</span>
+      <ul class="plain-list">
+        <li><strong>Внутренний конфликт взросления:</strong> по паспорту вы взрослый человек, но внутри постоянно ищете одобрения, боитесь сделать ошибку или чувствуете, что вами до сих пор управляет «голос родителей» в голове</li>
+        <li><strong>Кризис и потерю смыслов:</strong> кажется, что вы живёте «не свою жизнь», привычные ориентиры рухнули, старые цели больше не зажигают, а внутри поселились хроническая усталость и апатия</li>
+        <li><strong>Трудности в отношениях:</strong> вы чувствуете, что теряете себя рядом с партнёром, сталкиваетесь с созависимостью или находитесь в болезненном расставании. За этим часто стоит парализующий страх остаться в одиночестве: «А справлюсь ли я?»</li>
+        <li><strong>Выгорание от контроля:</strong> вы держите множество процессов в своём деле или жизни, вымотаны внутренней гонкой, но боитесь отпустить контроль, потому что «без меня всё развалится»</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PHOTO BREAK -->
+  <section class="photo-break" style="background-image:url('img/photo2.jpg'); background-position:center 32%;"></section>
+
+  <!-- SOFT TOOLS -->
+  <section class="white">
+    <div class="inner" style="padding-bottom:36px;">
+      <span class="eyebrow hair-under">Исследовать своё состояние</span>
+      <p style="font-size:13px; color:var(--gray); line-height:1.6; margin:-14px 0 22px;">Короткие интерактивные практики, которые помогут подсветить, что сейчас происходит внутри и в отношениях</p>
+      <div class="tools" style="flex-direction:column; gap:14px; border-top:none;">
+        <div class="tool-panel" style="flex-direction:column; align-items:flex-start; border:1px solid var(--line); border-bottom:1px solid var(--line); padding:20px;">
+          <p class="t-title" style="margin-bottom:6px;">Карта моих отношений</p>
+          <p style="font-size:12.5px; color:var(--gray); line-height:1.5; margin:0 0 14px;">Посмотреть, какие потребности удовлетворяются в партнёрстве и зоны развития</p>
+          <a class="t-link" href="https://karta-otnosheniy-tyt9.vercel.app/" style="border:1px solid var(--ink); padding:10px 16px; border-bottom:1px solid var(--ink);">Исследовать отношения</a>
+        </div>
+        <div class="tool-panel" style="flex-direction:column; align-items:flex-start; border:1px solid var(--line); border-bottom:1px solid var(--line); padding:20px;">
+          <p class="t-title" style="margin-bottom:6px;">Ведущий тип усталости</p>
+          <p style="font-size:12.5px; color:var(--gray); line-height:1.5; margin:0 0 14px;">Узнать, какого именно ресурса сейчас не хватает</p>
+          <a class="t-link" href="https://beta-vert-79.vercel.app/" style="border:1px solid var(--ink); padding:10px 16px; border-bottom:1px solid var(--ink);">Определить тип усталости</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section class="offwhite">
+    <div class="inner">
+      <span class="eyebrow hair-under">Мой подход к терапии</span>
+      <p class="lede">Смотрю на человека целостно, поэтому в процессе работы мы соединяем три уровня: чувства, мысли и тело. Тело помнит всё, оно способно стать главным союзником на пути к свободе и устойчивости.</p>
+      <p class="lede">Как экзистенциальный терапевт, приглашаю исследовать именно вашу уникальную данность, постепенно доращивать внутренние опоры и открывать вкус и радость жизни</p>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="white">
+    <div class="inner">
+      <span class="eyebrow">Что вас ждёт на той стороне?</span>
+      <p style="font-size:12.5px; color:var(--gray); margin:6px 0 22px;">Возможные результаты нашей работы</p>
+      <ul class="plain-list">
+        <li><strong>Свобода от чувства вины</strong> за то, что вы «не такие» или хотите жить иначе. Вместо стыда и страха вы почувствуете внутреннюю свободу и спокойствие</li>
+        <li><strong>Встреча с собой настоящим:</strong> увидеть свою ценность не через призму чужих взглядов, а изнутри. Вы сможете по-настоящему уважать и поддерживать себя, не оправдываясь и не сомневаясь</li>
+        <li><strong>Внутренняя опора</strong> — не абстрактную, а ощущаемую телом. Вы почувствуете: «Я могу себя защитить. Я знаю, что важно мне. Я способен(на) выбрать свой путь»</li>
+        <li><strong>Возвращение интереса к жизни:</strong> попробовать то, что давно хотелось, говорить честно и открыто, выразить себя через голос, жест, стиль, движение. Без страха быть «слишком» или «не тем»</li>
+        <li><strong>Ощущение взрослости как ресурса.</strong> Я помогу вам обрести силу быть собой, заботиться о себе и отстаивать то, что важно лично вам</li>
+        <li><strong>Состояние внутренней устойчивости:</strong> «Я справляюсь. Я не один/одна. Я и есть та поддержка, которая всегда со мной»</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- BACKGROUND TABS -->
+  <section class="offwhite">
+    <div class="inner">
+      <span class="eyebrow hair-under">Бэкграунд</span>
+      <div class="tab-nav">
+        <button class="tab-btn active" data-tab="practice">Практика</button>
+        <button class="tab-btn" data-tab="education">Образование</button>
+        <button class="tab-btn" data-tab="approach">Подходы</button>
+      </div>
+
+      <div class="tab-panel active" data-panel="practice">
+        <div class="stat-row"><span class="stat-num">С 2019</span><span class="stat-label">частная практика со взрослыми</span></div>
+        <div class="stat-row"><span class="stat-num">С 2019</span><span class="stat-label">тренер по сеансам релаксации</span></div>
+        <div class="stat-row"><span class="stat-num">С 2024</span><span class="stat-label">сооснователь платформы по подбору психолога InTreatment</span></div>
+      </div>
+
+      <div class="tab-panel" data-panel="education">
+        <div class="stat-row"><span class="stat-num">2013—19</span><span class="stat-label">КрасГМУ им. проф. В.Ф. Войно-Ясенецкого — клиническая психология, 5612 ч</span></div>
+        <div class="stat-row"><span class="stat-num">2018</span><span class="stat-label">Теория и практика психологического консультирования — Институт Консультирования</span></div>
+        <p class="org-subhead" style="margin-top:18px;">Академия трансформационных психотехнологий</p>
+        <div class="stat-row"><span class="stat-num">2019</span><span class="stat-label">Организация и проведение сеансов релаксации — 36 ч</span></div>
+        <div class="stat-row"><span class="stat-num">2019</span><span class="stat-label">Психологическое консультирование. Тренинг консультанта — 54 ч</span></div>
+        <div class="stat-row"><span class="stat-num">2020</span><span class="stat-label">Психотехники в работе консультанта и тренера — 72 ч</span></div>
+        <div class="stat-row"><span class="stat-num">2020</span><span class="stat-label">Навыки гипноза по Милтону Эриксону в сеансах релаксации — 36 ч</span></div>
+        <div class="stat-row"><span class="stat-num">2020</span><span class="stat-label">Технология работы по психологическому взрослению клиента — 72 ч</span></div>
+        <div class="stat-row"><span class="stat-num">2020</span><span class="stat-label">Психология обиды: психотехнология работы с клиентами — 72 ч</span></div>
+        <div class="stat-row"><span class="stat-num">2020</span><span class="stat-label">Смена жизненного сценария: психотехнология работы с клиентами</span></div>
+        <div class="stat-row"><span class="stat-num">2020</span><span class="stat-label">Тренинг тренеров: парадигма социально-психологического тренинга — 72 ч</span></div>
+        <div class="stat-row"><span class="stat-num">2021</span><span class="stat-label">Тренинг тренеров: личная терапия в группе</span></div>
+        <p class="org-subhead" style="margin-top:18px;">Другие программы</p>
+        <div class="stat-row"><span class="stat-num">2021</span><span class="stat-label">Телесно-ориентированная психотерапия в индивидуальном консультировании — центр «Сфера», 300 ч</span></div>
+        <div class="stat-row"><span class="stat-num">2021</span><span class="stat-label">Телесно-ориентированная психотерапия в индивидуальном консультировании — Школа Константина Дуплищева, 300 ч</span></div>
+        <div class="stat-row"><span class="stat-num">2023</span><span class="stat-label">Международные методы помощи при психической травме — Институт «Иматон», 144 ч</span></div>
+        <div class="stat-row"><span class="stat-num">2023</span><span class="stat-label">Международные методы помощи при психической травме — Психометрика, 144 ч</span></div>
+        <div class="stat-row"><span class="stat-num">2025</span><span class="stat-label">Современная взрослость: теории и практики сопровождения — 144 ч</span></div>
+        <div class="stat-row"><span class="stat-num">2026</span><span class="stat-label">«Неспешность и подлинность» — экзистенциальная терапия по Бьюдженталю, Школа Экзистенциальной практики, 512 ч</span></div>
+      </div>
+
+      <div class="tab-panel" data-panel="approach">
+        <div class="approach-item"><span class="a-title">Экзистенциальная психотерапия</span></div>
+        <div class="approach-item"><span class="a-title">Возрастная психология</span></div>
+        <div class="approach-item"><span class="a-title">Телесно-ориентированная психотерапия</span></div>
+        <div class="approach-item"><span class="a-title">Интегративный подход</span><span class="a-sub">Сочетание КПТ, эмоционально-образной терапии, транзактного анализа, травматерапии</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO BREAK 2 -->
+  <section class="photo-break" style="aspect-ratio:4/5; background-image:url('img/photo3.jpg'); background-position:center 20%;"></section>
+
+  <!-- ORGANIZATIONAL -->
+  <section class="white">
+    <div class="inner">
+      <span class="eyebrow hair-under">Организационные вопросы</span>
+      <p style="font-size:13px; color:var(--ink); line-height:1.6; margin:0 0 6px;">Очно в г. Красноярске и онлайн · сессия 60 минут · стоимость <strong>5 000 ₽</strong> <span style="color:var(--gray); font-size:11.5px;">(с 1 августа 2026 — 7 000 ₽)</span></p>
+      <div class="accordion">
+        <div class="acc-item">
+          <button class="acc-head" aria-expanded="false">Форматы, адрес и стоимость подробнее <span class="sign">+</span></button>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <div class="org-list">
+                <div class="org-row">
+                  <p class="o-label">Форматы</p>
+                  <p class="o-value">Краткосрочное психологическое консультирование (1–15 встреч) для точечных запросов или длительная терапия (от нескольких месяцев) для глубоких личностных изменений</p>
+                </div>
+                <div class="org-row">
+                  <p class="o-label">Очно</p>
+                  <p class="o-value">г. Красноярск, ул. Карла Маркса, 75а</p>
+                </div>
+                <div class="org-row">
+                  <p class="o-label">Онлайн</p>
+                  <p class="o-value">По всему миру (Zoom, Яндекс Телемост)</p>
+                </div>
+                <div class="org-row" style="border-bottom:none;">
+                  <p class="o-label">Стоимость</p>
+                  <p class="o-value">Очная сессия · 60 минут — 5 000 ₽<br>Онлайн-сессия · 60 минут — 5 000 ₽</p>
+                  <p class="o-value" style="margin-top:10px; color:var(--gray); font-size:12px;">С 1 августа 2026 стоимость сессии — 7 000 ₽</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="black">
+    <div class="inner final">
+      <p class="eyebrow on-dark hair-under dark" style="margin-bottom:20px;">Обсудить запрос — записаться на сессию, задать вопрос</p>
+      <div class="cta-pair">
+        <a class="cta-outline on-dark" href="https://t.me/Anastasia_Sibgatulina">Написать в Telegram</a>
+        <a class="cta-outline on-dark" href="https://vk.com/id_anastasiasib">Написать в VK</a>
+      </div>
+      <a class="cta-secondary" href="https://t.me/Intreatmentpsy_bot">Познакомиться с платформой InTreatment</a>
+    </div>
+  </section>
+
+  <!-- TERTIARY -->
+  <section class="offwhite">
+    <div class="inner" style="padding-bottom:32px;">
+      <div class="links">
+        <a class="link-row" href="https://www.b17.ru/a_sibgatulina/"><span class="ic">А</span><span>Анкета на сайте профессиональных психологов</span><span class="go">→</span></a>
+        <a class="link-row" href="seansy-relaksacii.html"><span class="ic">Р</span><span>Сеансы релаксации</span><span class="go">→</span></a>
+        <a class="link-row" href="https://t.me/vnutrenniy_mayak"><span class="ic">Т</span><span>Telegram-канал «Внутренний маяк»</span><span class="go">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="monogram">А · В</span>
+    <p>Внутренний маяк · Анастасия Васильева</p>
+  </footer>
+
+</div>
+
+<script>
+  document.querySelectorAll('.tab-nav').forEach(nav=>{
+    const section = nav.closest('section');
+    nav.querySelectorAll('.tab-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        nav.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        const target = btn.getAttribute('data-tab');
+        section.querySelectorAll('.tab-panel').forEach(p=>{
+          p.classList.toggle('active', p.getAttribute('data-panel') === target);
+        });
+      });
+    });
+  });  document.querySelectorAll('.acc-item').forEach(item=>{
+    const head = item.querySelector('.acc-head');
+    const body = item.querySelector('.acc-body');
+    head.addEventListener('click', ()=>{
+      const isOpen = item.classList.contains('open');
+      if(isOpen){
+        item.classList.remove('open');
+        head.setAttribute('aria-expanded','false');
+        body.style.maxHeight = null;
+      }else{
+        item.classList.add('open');
+        head.setAttribute('aria-expanded','true');
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
+</body>
+</html>
