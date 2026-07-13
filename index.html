@@ -53,6 +53,7 @@
   .plain-list li:last-child{border-bottom:1px solid var(--line);}
 
   .photo-break{width:100%; aspect-ratio:5/4; background-color:#111; background-size:cover; background-position:center; background-repeat:no-repeat;}
+  .photo-break.tall{aspect-ratio:4/5;}
 
   /* ---------- soft tools ---------- */
   .tools{display:flex; flex-direction:column; gap:1px; border-top:1px solid var(--line); margin-top:4px;}
@@ -113,6 +114,57 @@
   footer{padding:40px 26px 52px; text-align:center; background:var(--offwhite);}
   footer .monogram{font-size:16px; margin-bottom:12px; display:block;}
   footer p{font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--gray); margin:0;}
+
+  /* ================================================
+     DESKTOP (900px+)
+     Mobile layout above stays untouched; this layer
+     only adds a wider, editorial treatment.
+     One shared content column keeps every text block
+     aligned the same way as you scroll down the page.
+     ================================================ */
+  @media (min-width: 900px){
+    .page{max-width:1120px;}
+    .inner{max-width:720px; margin:0 auto; padding:64px 40px;}
+
+    /* hero: much closer to the mobile crop so the face stays safely in frame */
+    .hero-photo{aspect-ratio:3/4; background-position:center 30%;}
+    .hero-under{padding:40px 26px 12px;}
+    .hero-under .monogram{font-size:26px;}
+    .hero-under .name{font-size:13px;}
+
+    /* offer */
+    h1.title{font-size:36px;}
+    .subtitle{font-size:16px;}
+    .creds{font-size:12.5px;}
+
+    /* recognition + results lists -> two columns, same shared width */
+    .offwhite .plain-list, .white .plain-list{
+      display:grid; grid-template-columns:1fr 1fr; column-gap:40px;
+    }
+
+    /* photo breaks -> wide banners, but not so extreme they lose the subject */
+    .photo-break{aspect-ratio:21/9;}
+    .photo-break.tall{aspect-ratio:21/9;}
+
+    /* diagnostic tool cards side by side */
+    .tools{flex-direction:row !important; gap:20px !important;}
+    .tool-panel{flex:1;}
+
+    /* approach lede pair side by side, still inside the shared column */
+    section.offwhite:has(.lede) .inner{
+      display:grid; grid-template-columns:1fr 1fr; column-gap:40px; align-items:start;
+    }
+    section.offwhite:has(.lede) .eyebrow.hair-under{grid-column:1/-1;}
+    .lede{font-size:18px;}
+
+    /* organizational spec rows: label/value columns */
+    .org-row{display:grid; grid-template-columns:160px 1fr; gap:4px 24px; align-items:start; padding:18px 0;}
+    .org-row .o-label{grid-column:1; margin:0;}
+    .org-row .o-value{grid-column:2;}
+
+    /* final CTA: keep buttons a sane width inside the shared column */
+    .cta-pair{max-width:420px; margin:0 auto;}
+  }
 </style>
 </head>
 <body>
@@ -245,7 +297,7 @@
   </section>
 
   <!-- PHOTO BREAK 2 -->
-  <section class="photo-break" style="aspect-ratio:4/5; background-image:url('https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/photo3.jpg'); background-position:center 20%;"></section>
+  <section class="photo-break tall" style="background-image:url('https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/photo3.jpg'); background-position:center 20%;"></section>
 
   <!-- ORGANIZATIONAL -->
   <section class="white">
