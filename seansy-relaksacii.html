@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Сеансы релаксации — Анастасия Васильева</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#2F3A35;
+    --paper:#FBF9F4;
+    --mist:#F1EFE6;
+    --sage:#C9D6C6;
+    --sage-deep:#9DB29A;
+    --sea:#7FA098;
+    --deep:#3E5C56;
+    --deep-2:#2C4640;
+    --gray:#7C8880;
+    --line: rgba(47,58,53,.15);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-font-smoothing:antialiased;}
+  .page{max-width:480px; margin:0 auto;}
+  a{color:inherit; text-decoration:none;}
+  button{font-family:inherit;}
+  :focus-visible{outline:1.5px solid var(--deep); outline-offset:3px;}
+  strong{font-weight:700;}
+
+  section{position:relative;}
+  .inner{padding:46px 26px;}
+  .paper{background:var(--paper);}
+  .mist{background:var(--mist);}
+  .sage{background:var(--sage); color:var(--deep-2);}
+  .deep{background:var(--deep); color:var(--paper);}
+
+  .eyebrow{font-size:10.5px; font-weight:400; text-transform:uppercase; letter-spacing:.18em; color:var(--gray);}
+  .eyebrow.on-dark{color:rgba(251,249,244,.65);}
+  .hair-under{display:inline-block; padding-bottom:11px; border-bottom:1px solid var(--line); margin-bottom:24px;}
+  .hair-under.dark{border-bottom:1px solid rgba(251,249,244,.22);}
+  .back{display:inline-flex; align-items:center; gap:8px; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gray); padding:20px 26px 0;}
+
+  /* ---------- hero ---------- */
+  .hero-photo{position:relative; width:100%; aspect-ratio:4/5; background-color:var(--deep); background-size:cover; background-position:center 30%; background-repeat:no-repeat; display:flex; align-items:flex-end;}
+  .hero-photo::after{content:"";position:absolute; inset:0; background:linear-gradient(180deg, rgba(40,40,40,0) 35%, rgba(30,30,30,.72) 100%);}
+  .hero-photo .hcap{position:relative; z-index:1; color:var(--paper); text-align:center; width:100%; padding:0 26px 32px;}
+  .hero-photo .hcap .eyebrow{color:rgba(251,249,244,.7); display:block; margin-bottom:14px;}
+  .hero-photo .hcap h1{font-family:'Playfair Display',serif; font-weight:500; font-size:26px; line-height:1.36; margin:0 0 10px;}
+  .hero-photo .hcap .hsub{font-size:12.5px; opacity:.8;}
+
+  /* ---------- prose ---------- */
+  .prose{font-size:13.5px; line-height:1.75; color:#3a453f; margin:0;}
+  .lede{font-family:'Playfair Display',serif; font-style:italic; font-size:18px; line-height:1.6; color:var(--deep-2); margin:0; font-weight:400;}
+
+  .plain-list{list-style:none; margin:0; padding:0;}
+  .plain-list li{padding:17px 0; border-top:1px solid var(--line); font-size:13.5px; line-height:1.68; color:#3a453f;}
+  .plain-list li:last-child{border-bottom:1px solid var(--line);}
+
+  .photo-break{width:100%; aspect-ratio:5/4; background-color:var(--deep); background-size:cover; background-position:center; background-repeat:no-repeat;}
+
+  /* ---------- breathing tool ---------- */
+  .breath-wrap{text-align:center;}
+  .breath-stage{position:relative; width:180px; height:180px; margin:30px auto 26px; display:flex; align-items:center; justify-content:center;}
+  .breath-ring{position:absolute; inset:0; border-radius:50%; border:1px solid rgba(255,255,255,.25);}
+  .breath-circle{
+    width:120px; height:120px; border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #9DBFB6 0%, var(--sea) 45%, var(--deep-2) 100%);
+    box-shadow:0 0 50px rgba(127,160,152,.45);
+    transform:scale(1);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .breath-circle.breathing{animation:breathe 8s ease-in-out infinite;}
+  @keyframes breathe{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.38);}
+    100%{transform:scale(1);}
+  }
+  .breath-label{font-family:'Playfair Display',serif; font-style:italic; font-size:14px; color:var(--paper);}
+  .breath-btn{
+    display:inline-block; border:1px solid rgba(251,249,244,.6); color:var(--paper);
+    padding:13px 28px; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase;
+    background:none; cursor:pointer;
+  }
+  .breath-hint{font-size:11.5px; color:rgba(251,249,244,.6); margin-top:16px;}
+  @media (prefers-reduced-motion: reduce){ .breath-circle.breathing{animation:none;} }
+
+  /* ---------- format cards ---------- */
+  .format-cards{display:flex; flex-direction:column; gap:12px; margin-top:8px;}
+  .format-card{background:var(--paper); padding:24px 22px;}
+  .format-card .f-eyebrow{font-size:10.5px; letter-spacing:.13em; text-transform:uppercase; color:var(--sea); margin:0 0 10px; font-weight:700;}
+  .format-card .f-title{font-family:'Playfair Display',serif; font-weight:500; font-size:17px; color:var(--deep-2); margin:0 0 8px;}
+  .format-card .f-sub{font-size:12.5px; color:var(--gray); line-height:1.55; margin:0;}
+
+  /* ---------- benefits ---------- */
+  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:26px 20px; margin-top:14px;}
+  .grid-2 .g-item{display:flex; flex-direction:column; align-items:flex-start; gap:10px;}
+  .grid-2 .g-item .b-ic{margin:0;}
+  .grid-2 .g-item span.g-text{font-size:12px; line-height:1.5; color:#3a453f;}
+  .grid-2.on-sage .g-item{color:var(--deep-2);}
+  .grid-2.on-sage .g-item span.g-text{color:var(--deep-2);}
+
+  .benefits{list-style:none; margin:0; padding:0;}
+  .benefits li{display:flex; align-items:center; gap:16px; padding:16px 0; border-top:1px solid var(--line); font-size:13px; color:#3a453f; line-height:1.5;}
+  .benefits li:last-child{border-bottom:1px solid var(--line);}
+  .b-ic{flex:0 0 auto; width:38px; height:38px; border-radius:50%; background:var(--sage); display:flex; align-items:center; justify-content:center;}
+
+  /* ---------- author ---------- */
+  .author-photo{width:96px; height:96px; border-radius:50%; background-size:cover; background-position:center 20%; margin:0 auto 20px; border:3px solid var(--paper); box-shadow:0 8px 24px rgba(47,58,53,.15);}
+  .author-name{font-family:'Playfair Display',serif; font-weight:500; font-size:17px; color:var(--deep-2); text-align:center; margin:0 0 6px;}
+  .author-creds{font-size:11.5px; color:var(--gray); text-align:center; margin:0 0 26px; letter-spacing:.02em; line-height:1.7;}
+
+  /* ---------- accordion ---------- */
+  .accordion{border-top:1px solid var(--line);}
+  .acc-item{border-bottom:1px solid var(--line);}
+  .acc-head{width:100%; background:none; border:none; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:17px 2px; font-family:'Playfair Display',serif; font-weight:500; font-size:14px; color:var(--deep-2); cursor:pointer; text-align:left;}
+  .acc-head .sign{flex:0 0 auto; font-size:16px; color:var(--gray); transition:transform .25s ease; font-weight:300;}
+  .acc-item.open .acc-head .sign{transform:rotate(45deg);}
+  .acc-body{max-height:0; overflow:hidden; transition:max-height .3s ease;}
+  .acc-body-inner{padding:0 2px 18px; font-size:12.5px; line-height:1.65; color:var(--gray);}
+  .price-row{display:flex; justify-content:space-between; padding:6px 0; font-size:12.5px;}
+  .price-row span:last-child{color:var(--deep-2); font-weight:700;}
+
+  /* ---------- testimonials ---------- */
+  .reviews{display:flex; gap:12px; overflow-x:auto; padding:2px 0 8px; margin:0 -26px; padding-left:26px; padding-right:26px;}
+  .reviews::-webkit-scrollbar{display:none;}
+  .review-card{scroll-snap-align:start; flex:0 0 78%; background:var(--mist); padding:20px; font-size:12.5px; color:#3a453f; line-height:1.6;}
+  .review-card b{display:block; font-family:'Playfair Display',serif; font-style:italic; font-weight:500; font-size:13px; color:var(--deep-2); margin-bottom:8px;}
+  .swipe-hint{font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--gray); margin-top:10px; text-align:right;}
+
+  /* ---------- CTA ---------- */
+  .cta-primary{display:block; text-align:center; background:var(--paper); color:var(--deep-2); padding:18px 20px; font-size:12px; letter-spacing:.16em; text-transform:uppercase; font-weight:700;}
+  .cta-outline{display:block; text-align:center; border:1px solid rgba(251,249,244,.6); color:var(--paper); padding:16px 20px; font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; margin-top:12px;}
+
+  footer{padding:40px 26px 52px; text-align:center; background:var(--mist);}
+  footer p{font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--gray); margin:0;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <a class="back" href="index.html">← Внутренний маяк</a>
+
+  <!-- HERO -->
+  <section class="hero-photo" style="background-image:url('img/photo4.jpg');">
+    <div class="hcap">
+      <span class="eyebrow">Сеансы релаксации</span>
+      <h1>Погружение в состояние<br>расслабленности тела<br>и безмолвия ума</h1>
+      <p class="hsub">С психологом Анастасией Васильевой</p>
+    </div>
+  </section>
+
+  <!-- PAIN -->
+  <section class="paper">
+    <div class="inner">
+      <p class="prose" style="text-align:justify; text-align-last:left;">В моей практике я часто встречаю людей, у которых работа отнимает много сил. Может не быть выходных, а если они есть, все равно приходится закрывать рабочие задачи. Не хватает времени на отдых, накопленная усталость превращается в напряжение и раздражительность, и все сложнее почувствовать радость и удовольствие. Порой хочется убежать от людей и избавиться от навязчивых мыслей. И тогда это начинает влиять на тело.</p>
+    </div>
+  </section>
+
+  <!-- BODY CONSEQUENCES -->
+  <section class="sage">
+    <div class="inner">
+      <span class="eyebrow hair-under" style="color:var(--deep-2); opacity:.7;">Каковы последствия для тела?</span>
+      <ul class="plain-list" style="color:var(--deep-2);">
+        <li style="border-color:rgba(47,58,53,.18);">Тело как камень</li>
+        <li style="border-color:rgba(47,58,53,.18);">Сколько бы ни было сна, все недостаточно, а порой одолевает бессонница</li>
+        <li style="border-color:rgba(47,58,53,.18); border-bottom:1px solid rgba(47,58,53,.18);">Дыхание затруднено, порой ощущается, как дрожит тело</li>
+      </ul>
+      <p class="prose" style="margin-top:22px; color:var(--deep-2);">В этой точке мои клиенты часто чувствуют себя настолько истощенными, что не хватает сил даже на привычные дела и заботу о себе</p>
+    </div>
+  </section>
+
+  <!-- WHAT THEY TRIED -->
+  <section class="paper">
+    <div class="inner">
+      <span class="eyebrow hair-under">Что они пробуют</span>
+      <ul class="plain-list">
+        <li>Цифровой детокс: ставят телефон в беззвучный режим или отключают на сутки</li>
+        <li>Пробуют спорт и понимают, что нет сил</li>
+        <li>Ездят на ретриты, чтобы деться от задач, людей и просто помолчать</li>
+        <li>Меняют график, обещают себе еще один выходной, пытаются сократить рабочие часы</li>
+      </ul>
+      <p class="prose" style="margin-top:22px;">Но договоренности с собой слетают: на работе отчет, и начальника не интересует, что вы решили. Или эффект был, но временный, и все возвращалось к исходной точке. Потому что разрозненные способы не приводят к результату.</p>
+    </div>
+  </section>
+
+  <!-- TURNING POINT -->
+  <section class="mist">
+    <div class="inner" style="text-align:center;">
+      <p class="lede">А что если уже сейчас можно по-другому?</p>
+      <p class="prose" style="margin-top:18px;">Не меняя текущий ритм, внедрить в жизнь систематическую привычку сбрасывать напряжение, не выходя из дома. Что если существует специальное пространство для вашего отдыха?</p>
+    </div>
+  </section>
+
+  <!-- BREATHING TOOL -->
+  <section class="deep">
+    <div class="inner breath-wrap">
+      <span class="eyebrow on-dark">Прямо сейчас</span>
+      <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:18px; margin:14px 0 0; color:var(--paper);">Попробуйте отрегулировать дыхание</p>
+      <p style="font-size:12px; color:rgba(251,249,244,.65); margin:8px 0 0;">Тот же принцип, что и в сеансах — просто следуйте за ритмом</p>
+
+      <div class="breath-stage">
+        <div class="breath-ring"></div>
+        <div class="breath-circle" id="breathCircle"><span class="breath-label" id="breathLabel">Начать</span></div>
+      </div>
+      <button class="breath-btn" id="breathBtn">Начать</button>
+      <p class="breath-hint">4 секунды вдох · 4 секунды выдох</p>
+    </div>
+  </section>
+
+  <!-- OFFER -->
+  <section class="paper">
+    <div class="inner" style="text-align:center;">
+      <p class="prose" style="text-align:justify; text-align-last:center;">Сеансы релаксации от психолога Анастасии Васильевой — простой и доступный способ облегчить свое состояние прямо сейчас. Вы следуете за голосом психолога в сопровождении приятной музыки и постепенно погружаетесь в ощущение расслабленности тела и ума.</p>
+      <p class="lede" style="margin-top:22px;">За 50–60 минут — состояние «легкого перышка»</p>
+    </div>
+  </section>
+
+  <!-- FORMAT CHOICE -->
+  <section class="mist">
+    <div class="inner">
+      <span class="eyebrow hair-under">Вы можете выбрать удобный формат</span>
+      <div class="format-cards">
+        <div class="format-card">
+          <p class="f-eyebrow">Онлайн</p>
+          <p class="f-title">Дома, в своем темпе</p>
+          <p class="f-sub">Приходите вечером после работы, включаете часовую аудиозапись сеанса и погружаетесь в расслабление, освобождаясь от физического напряжения и путешествуя по миру образов</p>
+        </div>
+        <div class="format-card">
+          <p class="f-eyebrow">Оффлайн</p>
+          <p class="f-title">В пространстве для погружения</p>
+          <p class="f-sub">Раз в неделю приезжаете на сеанс, в пространство, где уже все готово для погружения в безмолвие ума и расслабленность тела</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="paper">
+    <div class="inner">
+      <span class="eyebrow hair-under">Сеансы помогут</span>
+      <div class="grid-2">
+        <div class="g-item"><span class="b-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2C4640" stroke-width="1.3" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span class="g-text">Отдохнуть за короткий промежуток времени</span></div>
+        <div class="g-item"><span class="b-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2C4640" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 2 6 5 6 9a6 6 0 0 1-12 0c0-4 2-7 6-9z"/><line x1="12" y1="12" x2="12" y2="21"/></svg></span><span class="g-text">Восполнить энергетический ресурс</span></div>
+        <div class="g-item"><span class="b-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2C4640" stroke-width="1.3" stroke-linecap="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg></span><span class="g-text">Сбросить физическое напряжение</span></div>
+        <div class="g-item"><span class="b-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2C4640" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c4 0 6-2.5 6-6 0-3-2-4.5-3-7-1 1.5-1.5 2.5-1.5 3.5C13.5 9 12 7 12 4c-1.5 2-4 5-4 9 0 1.5.5 2.5 1 3"/></svg></span><span class="g-text">Профилактика эмоционального выгорания</span></div>
+        <div class="g-item"><span class="b-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2C4640" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4a2 2 0 1 1 0 4 2 2 0 0 1 0-4z"/><path d="M9 21l1.5-6L8 12l1-4 3 2 3-2 1 4-2.5 3L15 21"/></svg></span><span class="g-text">Снизить уровень тревожности</span></div>
+        <div class="g-item"><span class="b-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2C4640" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-5a2 2 0 0 1 2-2h5a2 2 0 0 1 2 2v5"/><path d="M3 18h18M12 11V7a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v6"/><line x1="3" y1="21" x2="3" y2="18"/><line x1="21" y1="21" x2="21" y2="18"/></svg></span><span class="g-text">Улучшить качество сна</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO BREAK -->
+  <section class="photo-break" style="background-image:url('img/photo5.jpg'); background-position:center 60%;"></section>
+
+  <!-- AUTHOR -->
+  <section class="mist">
+    <div class="inner">
+      <div class="author-photo" style="background-image:url('img/photo6.jpg');"></div>
+      <p class="author-name">Анастасия Васильева</p>
+      <p class="author-creds">Клинический психолог · Телесно-ориентированный терапевт<br>· Тренер по сеансам релаксации</p>
+      <p class="prose">Сначала я открыла сеансы для себя. Затем, как клинический психолог, разобралась в механике этого способа расслабления, а как телесно-ориентированный терапевт выстроила понимание связи телесного ощущения и эмоционального состояния.</p>
+      <p class="prose" style="margin-top:14px;">Отдельно отучилась на тренера по сеансам релаксации и знаю алгоритм проведения, благодаря которому ваше состояние может быть похоже на парение легкого перышка в пушистых облаках.</p>
+      <p class="prose" style="margin-top:14px;">На протяжении 5 лет сопровождаю людей к восстановлению единства ума, эмоций и тела.</p>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section class="paper">
+    <div class="inner">
+      <span class="eyebrow hair-under">Результаты, которые вы получите</span>
+      <div class="grid-2">
+        <div class="g-item"><span style="font-family:'Playfair Display',serif; font-style:italic; font-size:20px; color:var(--sea);">01</span><span class="g-text">Состояние безмолвия ума, внутренней тишины</span></div>
+        <div class="g-item"><span style="font-family:'Playfair Display',serif; font-style:italic; font-size:20px; color:var(--sea);">02</span><span class="g-text">Накопление эффекта — как от витаминов</span></div>
+        <div class="g-item"><span style="font-family:'Playfair Display',serif; font-style:italic; font-size:20px; color:var(--sea);">03</span><span class="g-text">Натренированный навык напряжения-расслабления</span></div>
+        <div class="g-item"><span style="font-family:'Playfair Display',serif; font-style:italic; font-size:20px; color:var(--sea);">04</span><span class="g-text">Расслабленное тело</span></div>
+        <div class="g-item"><span style="font-family:'Playfair Display',serif; font-style:italic; font-size:20px; color:var(--sea);">05</span><span class="g-text">Обретение ресурса и энергии</span></div>
+        <div class="g-item"><span style="font-family:'Playfair Display',serif; font-style:italic; font-size:20px; color:var(--sea);">06</span><span class="g-text">Отдых за короткий промежуток времени</span></div>
+      </div>
+      <p class="prose" style="margin-top:16px; font-size:12px; color:var(--gray);">Накопление эффекта улучшает самочувствие на физическом и психоэмоциональном уровне. Натренированный навык напряжения-расслабления позволит регулировать свое состояние самостоятельно.</p>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="sage">
+    <div class="inner">
+      <span class="eyebrow hair-under" style="color:var(--deep-2); opacity:.7;">Сеанс релаксации включает в себя</span>
+      <ul class="plain-list" style="color:var(--deep-2);">
+        <li style="border-color:rgba(47,58,53,.18);">Дыхательные практики</li>
+        <li style="border-color:rgba(47,58,53,.18);">Управление тонусом мышц</li>
+        <li style="border-color:rgba(47,58,53,.18);">Визуализация, медитация, терапевтические метафоры</li>
+        <li style="border-color:rgba(47,58,53,.18); border-bottom:1px solid rgba(47,58,53,.18);">Аутотренинг</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FORMATS DETAIL -->
+  <section class="paper">
+    <div class="inner">
+      <span class="eyebrow hair-under">Возможные форматы участия</span>
+      <p class="prose">Сеансы проходят в группах и индивидуально, очно и онлайн. Можно приобрести сеансы в записи — преимущественно пакетами по 4.</p>
+      <div class="accordion" style="margin-top:22px;">
+        <div class="acc-item">
+          <button class="acc-head" aria-expanded="false">Периодичность и продолжительность <span class="sign">+</span></button>
+          <div class="acc-body"><div class="acc-body-inner">От 1 сеанса в день до 1 сеанса в неделю, в зависимости от текущего состояния и задач. Продолжительность одного сеанса — 40–60 минут.</div></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head" aria-expanded="false">Как это устроено <span class="sign">+</span></button>
+          <div class="acc-body"><div class="acc-body-inner">Дыхательные практики, упражнения по управлению тонусом мышц (нервно-мышечная релаксация), аутотренинг, визуализация, медитация, терапевтические метафоры. Проходит в спокойной, безопасной обстановке, преимущественно лежа, с закрытыми глазами. Звучит голос психолога, на фоне музыка.</div></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head" aria-expanded="false">Где и как <span class="sign">+</span></button>
+          <div class="acc-body"><div class="acc-body-inner">Очно: по договоренности, в моем пространстве. Онлайн-встречи: Skype, WhatsApp, FaceTime, Zoom.</div></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head" aria-expanded="false">Стоимость <span class="sign">+</span></button>
+          <div class="acc-body"><div class="acc-body-inner">
+            <div class="price-row"><span>Очно, индивидуально</span><span>4 000 ₽</span></div>
+            <div class="price-row"><span>Очно, в группе</span><span>2 000 ₽</span></div>
+            <div class="price-row"><span>Онлайн, индивидуально</span><span>3 000 ₽</span></div>
+            <div class="price-row"><span>Онлайн, в группе</span><span>1 500 ₽</span></div>
+            <div class="price-row"><span>Цикл из 4 сеансов в записи</span><span>по запросу</span></div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="mist">
+    <div class="inner">
+      <span class="eyebrow hair-under">Часто задаваемые вопросы</span>
+      <div class="accordion">
+        <div class="acc-item">
+          <button class="acc-head" aria-expanded="false">Мне нужно как-то специально готовиться? <span class="sign">+</span></button>
+          <div class="acc-body"><div class="acc-body-inner">Только если сеанс онлайн или в записи, позаботьтесь об уединении, отключите уведомления, займите положение лежа на ровной поверхности, приглушите свет. На очной встрече я полностью готовлю пространство: вы приходите, устраиваетесь на каремате и следуете за голосом лежа, с закрытыми глазами, 40–60 минут.</div></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head" aria-expanded="false">Это безопасно? Вдруг вы меня загипнотизируете? <span class="sign">+</span></button>
+          <div class="acc-body"><div class="acc-body-inner">Это безопасно. В некоторых сеансах используются элементы гипноза, но только для более глубокого и восстанавливающего погружения, похожего на целебный сон. Тексты не берутся из интернета, я составляю их самостоятельно и проверяю на отсутствие формулировок с частицей «не» и ограничивающих убеждений.</div></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head" aria-expanded="false">Как понять, что мне нужен этот сеанс? <span class="sign">+</span></button>
+          <div class="acc-body"><div class="acc-body-inner">Если вы заботитесь о профилактике выгорания и своем благополучии, сеансы станут хорошим дополнением. Если вы устали, заработались, и нет времени о себе позаботиться — это возможность, не выходя из дома, за час сбросить напряжение. Если просто любопытно, попробуйте хотя бы один, чтобы составить собственное впечатление.</div></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head" aria-expanded="false">Это как медитация? <span class="sign">+</span></button>
+          <div class="acc-body"><div class="acc-body-inner">Не совсем. Релаксация включает больше элементов, например, работу с тонусом мышц, чтобы расслабление было глубже. Важное отличие — сопровождение специалистом по алгоритму, это научно обоснованный подход, которому я обучалась отдельно.</div></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head" aria-expanded="false">В чем отличие индивидуального сеанса от группового? <span class="sign">+</span></button>
+          <div class="acc-body"><div class="acc-body-inner">Для группового сеанса тематику выбираю я и составляю текст под нее. В индивидуальном учитываю ваши предпочтения и использую ваши образы при составлении визуализации. На составление персонального сеанса нужно около 14 дней.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="paper">
+    <div class="inner" style="padding-bottom:20px;">
+      <span class="eyebrow hair-under">Отзывы</span>
+      <div class="reviews">
+        <div class="review-card"><b>Анна</b>Никогда не верила в релаксации, никогда не слушала до конца... Сегодня почувствовала себя маленькой счастливой девочкой в цветущем поле. С сегодняшнего дня меняю свое отношение к релаксациям.</div>
+        <div class="review-card"><b>Светлана</b>До сих пор не могу понять, как это работает, но результат налицо, тело отдохнувшее, хочется улыбаться. Хотя бы раз в неделю сеанс мне показан.</div>
+        <div class="review-card"><b>Ольга</b>Открыла глаза, как будто действительно проспала 10 часов. Такой прилив сил и легкости, который сохраняется до сих пор.</div>
+        <div class="review-card"><b>Елена</b>Тааак хорошо отдохнула, это потрясающе. И поле ощутила, и теплый дождь, и ветер. Все мысли улетели.</div>
+        <div class="review-card"><b>Татьяна</b>Быстро достигла расслабления и отключилась, видимо тембр твоего голоса совпал с моей волной.</div>
+        <div class="review-card"><b>Из отзывов</b>«По ощущениям, ты обняла и укутала сердце в одеялко. Хочу бывать на сеансах чаще»</div>
+        <div class="review-card"><b>Из отзывов</b>«Твой голос и то, как ты держишь пространство — очень тепло и сильно»</div>
+      </div>
+      <p class="swipe-hint">листайте →</p>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="deep">
+    <div class="inner" style="text-align:center;">
+      <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:19px; line-height:1.5; color:var(--paper); margin:0 0 26px;">Позвольте себе час тишины</p>
+      <a class="cta-primary" href="https://t.me/Anastasia_Sibgatulina">Записаться на сеанс</a>
+      <a class="cta-outline" href="https://t.me/Anastasia_Sibgatulina">Оставить заявку</a>
+      <a href="https://t.me/vnutrenniy_mayak/653" style="display:block; margin-top:20px; font-size:11.5px; letter-spacing:.06em; color:rgba(251,249,244,.7); text-decoration:underline; text-underline-offset:3px;">Послушать небольшую аудиопрактику бесплатно</a>
+    </div>
+  </section>
+
+  <footer>
+    <span class="monogram" style="display:block; font-family:'Playfair Display',serif; font-size:16px; margin-bottom:12px; color:var(--deep-2);">А · В</span>
+    <p>Внутренний маяк · Сеансы релаксации</p>
+  </footer>
+
+</div>
+
+<script>
+  // accordion
+  document.querySelectorAll('.acc-item').forEach(item=>{
+    const head = item.querySelector('.acc-head');
+    const body = item.querySelector('.acc-body');
+    head.addEventListener('click', ()=>{
+      const isOpen = item.classList.contains('open');
+      if(isOpen){
+        item.classList.remove('open');
+        head.setAttribute('aria-expanded','false');
+        body.style.maxHeight = null;
+      }else{
+        item.classList.add('open');
+        head.setAttribute('aria-expanded','true');
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
+    });
+  });
+
+  // breathing tool
+  const breathBtn = document.getElementById('breathBtn');
+  const breathCircle = document.getElementById('breathCircle');
+  const breathLabel = document.getElementById('breathLabel');
+  let breathing = false;
+  let breathInterval;
+  function startBreathing(){
+    breathing = true;
+    breathBtn.textContent = 'Остановить';
+    breathCircle.classList.add('breathing');
+    breathLabel.textContent = 'Вдох';
+    let phase = 'in';
+    breathInterval = setInterval(()=>{
+      phase = phase === 'in' ? 'out' : 'in';
+      breathLabel.textContent = phase === 'in' ? 'Вдох' : 'Выдох';
+    }, 4000);
+  }
+  function stopBreathing(){
+    breathing = false;
+    breathBtn.textContent = 'Начать';
+    breathCircle.classList.remove('breathing');
+    breathLabel.textContent = 'Начать';
+    clearInterval(breathInterval);
+  }
+  breathBtn.addEventListener('click', ()=> breathing ? stopBreathing() : startBreathing());
+</script>
+</body>
+</html>
