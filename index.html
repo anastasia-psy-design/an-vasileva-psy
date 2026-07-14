@@ -126,9 +126,13 @@
     .page{max-width:1120px;}
     .inner{max-width:720px; margin:0 auto; padding:64px 40px;}
 
-    /* hero: much closer to the mobile crop so the face stays safely in frame */
+    /* hero: face-safe crop as a fallback, superseded below for the reordered desktop hero */
     .hero-photo{aspect-ratio:3/4; background-position:center 30%;}
-    .hero-under{padding:40px 26px 12px;}
+
+    /* hero group: text first, photo below, using the wider crop supplied for desktop */
+    .hero-group{display:flex; flex-direction:column;}
+    .hero-photo{order:3; aspect-ratio:1638/877; background-position:center; background-image:url('https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/photo1-desktop.jpg') !important;}
+    .hero-under{padding:0 26px 12px;}
     .hero-under .monogram{font-size:26px;}
     .hero-under .name{font-size:13px;}
 
@@ -170,6 +174,7 @@
 <body>
 <div class="page">
 
+  <div class="hero-group">
   <!-- HERO -->
   <section class="hero-photo" style="background-image:url('https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/photo1.jpg');"></section>
   <section class="white">
@@ -187,6 +192,7 @@
       <p class="creds">Клинический психолог · Экзистенциальный психотерапевт · Сооснователь платформы по подбору психолога InTreatment</p>
     </div>
   </section>
+  </div>
 
   <!-- RECOGNITION -->
   <section class="offwhite">
