@@ -56,9 +56,13 @@
   .photo-break.tall{aspect-ratio:4/5;}
 
   /* ---------- soft tools ---------- */
-  .tools{display:flex; flex-direction:column; gap:1px; border-top:1px solid var(--line); margin-top:4px;}
-  .tool-panel{background:var(--paper); padding:18px 2px; border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; gap:14px;}
-  .tool-panel .t-title{font-family:'Playfair Display',serif; font-weight:500; font-size:15px; color:var(--ink); margin:0;}
+  .tools{display:flex; flex-direction:column; border-top:1px solid var(--line);}
+  .tool-row{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 2px; border-bottom:1px solid var(--line); color:var(--ink);}
+  .tool-row-text{display:flex; flex-direction:column; gap:4px;}
+  .tool-row .t-title{font-family:'Playfair Display',serif; font-weight:500; font-size:15px; color:var(--ink);}
+  .tool-row .t-desc{font-size:12.5px; color:var(--gray); line-height:1.5;}
+  .tool-row .go{flex:0 0 auto; font-size:14px; color:var(--gray); transition:transform .2s ease;}
+  .tool-row:hover .go{transform:translateX(3px);}
   .t-link{flex:0 0 auto; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink); border-bottom:1px solid var(--ink); padding-bottom:2px;}
 
   .lede{font-family:'Playfair Display',serif; font-style:italic; font-size:16.5px; line-height:1.65; color:var(--ink); margin:0 0 16px; font-weight:400;}
@@ -123,22 +127,25 @@
      aligned the same way as you scroll down the page.
      ================================================ */
   @media (min-width: 900px){
-    .page{max-width:1120px;}
+    .page{max-width:1120px; padding-top:56px;}
     .inner{max-width:720px; margin:0 auto; padding:64px 40px;}
 
     /* hero: face-safe crop as a fallback, superseded below for the reordered desktop hero */
     .hero-photo{aspect-ratio:3/4; background-position:center 30%;}
 
-    /* hero group: text first, photo below, using the wider crop supplied for desktop */
+    /* hero group: name, title, subtitle first; photo; credentials caption last */
     .hero-group{display:flex; flex-direction:column;}
-    .hero-photo{order:3; aspect-ratio:1638/870; background-position:center; background-image:url('https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/photo1-desktop.jpg') !important;}
-    .hero-under{padding:0 26px 12px;}
+    .hero-photo{order:3; aspect-ratio:1638/870; background-position:center; background-image:url('https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/photo1-desktop.jpg') !important; margin-top:36px;}
+    .hero-under{padding:0 26px 4px;}
     .hero-under .monogram{font-size:26px;}
     .hero-under .name{font-size:13px;}
+    .creds-section{order:4;}
+    .creds-section .inner{padding-top:28px !important;}
+    .creds{border-top:none; padding-top:0; max-width:520px; margin:0 auto;}
 
     /* offer */
     h1.title{font-size:36px;}
-    .subtitle{font-size:16px;}
+    .subtitle{font-size:16px; max-width:560px; margin-left:auto; margin-right:auto;}
     .creds{font-size:12.5px;}
 
     /* recognition + results lists -> two columns, same shared width */
@@ -147,19 +154,12 @@
     }
 
     /* photo breaks -> shorter banners, so more content is visible without huge photo blocks */
-    .photo-break{aspect-ratio:5/2; background-position:center 42%;}
-    .photo-break.tall{aspect-ratio:5/2; background-position:center 92%;}
+    .photo-break{aspect-ratio:4/3; background-position:center 38%;}
+    /* this particular photo (seated portrait) crops badly at any short ratio, so show it near-full */
+    .photo-break.tall{aspect-ratio:2/3; background-position:center;}
 
-    /* diagnostic tool cards side by side */
-    .tools{flex-direction:row !important; gap:20px !important;}
-    .tool-panel{flex:1;}
-
-    /* approach lede pair side by side, still inside the shared column */
-    section.offwhite:has(.lede) .inner{
-      display:grid; grid-template-columns:1fr 1fr; column-gap:40px; align-items:start;
-    }
-    section.offwhite:has(.lede) .eyebrow.hair-under{grid-column:1/-1;}
-    .lede{font-size:18px;}
+    /* approach: one calm block of text, not split columns */
+    .lede{font-size:19px; max-width:640px; margin-left:auto; margin-right:auto;}
 
     /* organizational spec rows: label/value columns */
     .org-row{display:grid; grid-template-columns:160px 1fr; gap:4px 24px; align-items:start; padding:18px 0;}
@@ -198,9 +198,15 @@
 
   <!-- OFFER -->
   <section class="white">
-    <div class="inner" style="padding-top:0; text-align:center;">
+    <div class="inner" style="padding-top:0; padding-bottom:0; text-align:center;">
       <h1 class="title">Психологическое взросление и обретение опор</h1>
       <p class="subtitle">Помогаю привести в соответствие ваш психологический и паспортный возраст, чтобы вернуть себе авторство жизни</p>
+    </div>
+  </section>
+
+  <!-- CREDS CAPTION -->
+  <section class="white creds-section">
+    <div class="inner" style="padding-top:0; text-align:center;">
       <p class="creds">Клинический психолог · Экзистенциальный психотерапевт · Сооснователь платформы по подбору психолога InTreatment</p>
     </div>
   </section>
@@ -227,17 +233,21 @@
     <div class="inner" style="padding-bottom:36px;">
       <span class="eyebrow hair-under">Исследовать своё состояние</span>
       <p style="font-size:13px; color:var(--gray); line-height:1.6; margin:-14px 0 22px;">Короткие интерактивные практики, которые помогут подсветить, что сейчас происходит внутри и в отношениях</p>
-      <div class="tools" style="flex-direction:column; gap:14px; border-top:none;">
-        <div class="tool-panel" style="flex-direction:column; align-items:flex-start; border:1px solid var(--line); border-bottom:1px solid var(--line); padding:20px;">
-          <p class="t-title" style="margin-bottom:6px;">Карта моих отношений</p>
-          <p style="font-size:12.5px; color:var(--gray); line-height:1.5; margin:0 0 14px;">Посмотреть, какие потребности удовлетворяются в партнёрстве и зоны развития</p>
-          <a class="t-link" href="https://karta-otnosheniy-tyt9.vercel.app/" style="border:1px solid var(--ink); padding:10px 16px; border-bottom:1px solid var(--ink);">Исследовать отношения</a>
-        </div>
-        <div class="tool-panel" style="flex-direction:column; align-items:flex-start; border:1px solid var(--line); border-bottom:1px solid var(--line); padding:20px;">
-          <p class="t-title" style="margin-bottom:6px;">Ведущий тип усталости</p>
-          <p style="font-size:12.5px; color:var(--gray); line-height:1.5; margin:0 0 14px;">Узнать, какого именно ресурса сейчас не хватает</p>
-          <a class="t-link" href="https://beta-vert-79.vercel.app/" style="border:1px solid var(--ink); padding:10px 16px; border-bottom:1px solid var(--ink);">Определить тип усталости</a>
-        </div>
+      <div class="tools">
+        <a class="tool-row" href="https://karta-otnosheniy-tyt9.vercel.app/">
+          <span class="tool-row-text">
+            <span class="t-title">Карта моих отношений</span>
+            <span class="t-desc">Посмотреть, какие потребности удовлетворяются в партнёрстве и зоны развития</span>
+          </span>
+          <span class="go">→</span>
+        </a>
+        <a class="tool-row" href="https://beta-vert-79.vercel.app/">
+          <span class="tool-row-text">
+            <span class="t-title">Ведущий тип усталости</span>
+            <span class="t-desc">Узнать, какого именно ресурса сейчас не хватает</span>
+          </span>
+          <span class="go">→</span>
+        </a>
       </div>
     </div>
   </section>
@@ -246,8 +256,7 @@
   <section class="offwhite">
     <div class="inner">
       <span class="eyebrow hair-under">Мой подход к терапии</span>
-      <p class="lede">Смотрю на человека целостно, поэтому в процессе работы мы соединяем три уровня: чувства, мысли и тело. Тело помнит всё, оно способно стать главным союзником на пути к свободе и устойчивости.</p>
-      <p class="lede">Как экзистенциальный терапевт, приглашаю исследовать именно вашу уникальную данность, постепенно доращивать внутренние опоры и открывать вкус и радость жизни</p>
+      <p class="lede">Смотрю на человека целостно, поэтому в процессе работы мы соединяем три уровня: чувства, мысли и тело. Тело помнит всё, оно способно стать главным союзником на пути к свободе и устойчивости.<br><br>Как экзистенциальный терапевт, приглашаю исследовать именно вашу уникальную данность, постепенно доращивать внутренние опоры и открывать вкус и радость жизни</p>
     </div>
   </section>
 
