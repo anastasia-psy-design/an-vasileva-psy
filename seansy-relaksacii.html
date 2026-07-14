@@ -161,9 +161,15 @@
     /* breathing tool + final CTA: buttons stay a sane width inside the shared column */
     .cta-primary, .cta-outline{max-width:360px; margin-left:auto; margin-right:auto;}
 
-    /* plain lists -> two columns, same shared width */
+    /* plain lists -> two columns, same shared width, no grid-of-lines look */
     .sage .plain-list, .paper .plain-list{
-      display:grid; grid-template-columns:1fr 1fr; column-gap:40px;
+      display:grid; grid-template-columns:1fr 1fr; column-gap:40px; row-gap:4px;
+    }
+    .sage .plain-list li, .paper .plain-list li{border-top:none !important; border-bottom:none !important; padding:10px 0;}
+
+    /* the closing line after each list reads as a calm, centered aside */
+    .sage .plain-list + .prose, .paper .plain-list + .prose{
+      text-align:center; font-style:italic; font-family:'Playfair Display',serif; max-width:520px; margin:22px auto 0;
     }
 
     /* format cards side by side */
@@ -173,12 +179,12 @@
     /* benefit / result number grids -> three columns */
     .grid-2{grid-template-columns:repeat(3,1fr);}
 
-    /* photo breaks -> wide banners, but not so extreme they lose the subject */
-    .photo-break{aspect-ratio:21/9;}
+    /* photo breaks -> shorter banners so more content is visible per screen */
+    .photo-break{aspect-ratio:5/2;}
 
     /* author: bigger photo beside a normal flowing text block, not columns */
     .author-wrap{display:flex; align-items:center; gap:40px; text-align:left;}
-    .author-wrap .author-photo{margin:0; flex:0 0 auto; width:220px; height:220px;}
+    .author-wrap .author-photo{margin:0; flex:0 0 auto; width:300px; height:300px; background-position:center 42%;}
     .author-wrap .author-text{flex:1;}
     .author-wrap .author-name, .author-wrap .author-creds{text-align:left;}
     .author-wrap .author-creds{margin-bottom:14px;}
@@ -419,8 +425,8 @@
         <div class="review-card"><b>Ольга</b>Открыла глаза, как будто действительно проспала 10 часов. Такой прилив сил и легкости, который сохраняется до сих пор.</div>
         <div class="review-card"><b>Елена</b>Тааак хорошо отдохнула, это потрясающе. И поле ощутила, и теплый дождь, и ветер. Все мысли улетели.</div>
         <div class="review-card"><b>Татьяна</b>Быстро достигла расслабления и отключилась, видимо тембр твоего голоса совпал с моей волной.</div>
-        <div class="review-card"><b>Из отзывов</b>«По ощущениям, ты обняла и укутала сердце в одеялко. Хочу бывать на сеансах чаще»</div>
-        <div class="review-card"><b>Из отзывов</b>«Твой голос и то, как ты держишь пространство — очень тепло и сильно»</div>
+        <div class="review-card"><b>Ирина</b>«По ощущениям, ты обняла и укутала сердце в одеялко. Хочу бывать на сеансах чаще»</div>
+        <div class="review-card"><b>Алена</b>«Твой голос и то, как ты держишь пространство — очень тепло и сильно»</div>
       </div>
       <p class="swipe-hint">листайте →</p>
     </div>
@@ -432,7 +438,10 @@
       <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:19px; line-height:1.5; color:var(--paper); margin:0 0 26px;">Позвольте себе час тишины</p>
       <a class="cta-primary" href="https://t.me/Anastasia_Sibgatulina">Записаться на сеанс</a>
       <a class="cta-outline" href="https://t.me/Anastasia_Sibgatulina">Оставить заявку</a>
-      <a href="https://t.me/vnutrenniy_mayak/653" style="display:block; margin-top:20px; font-size:11.5px; letter-spacing:.06em; color:rgba(251,249,244,.7); text-decoration:underline; text-underline-offset:3px;">Послушать небольшую аудиопрактику бесплатно</a>
+      <p style="font-size:11.5px; letter-spacing:.06em; color:rgba(251,249,244,.7); margin:20px 0 10px;">Послушайте небольшую аудиопрактику бесплатно</p>
+      <audio controls style="width:100%; max-width:360px;" src="https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/audio/istochnik-energii.mp3">
+        Ваш браузер не поддерживает аудио. <a href="https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/audio/istochnik-energii.mp3">Скачать аудио</a>
+      </audio>
     </div>
   </section>
 
