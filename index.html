@@ -131,7 +131,7 @@
 
     /* hero group: text first, photo below, using the wider crop supplied for desktop */
     .hero-group{display:flex; flex-direction:column;}
-    .hero-photo{order:3; aspect-ratio:1638/877; background-position:center; background-image:url('https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/photo1-desktop.jpg') !important;}
+    .hero-photo{order:3; aspect-ratio:1638/870; background-position:center; background-image:url('https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/photo1-desktop.jpg') !important;}
     .hero-under{padding:0 26px 12px;}
     .hero-under .monogram{font-size:26px;}
     .hero-under .name{font-size:13px;}
@@ -146,9 +146,9 @@
       display:grid; grid-template-columns:1fr 1fr; column-gap:40px;
     }
 
-    /* photo breaks -> wide banners, but not so extreme they lose the subject */
-    .photo-break{aspect-ratio:21/9;}
-    .photo-break.tall{aspect-ratio:21/9;}
+    /* photo breaks -> shorter banners, so more content is visible without huge photo blocks */
+    .photo-break{aspect-ratio:5/2; background-position:center 42%;}
+    .photo-break.tall{aspect-ratio:5/2; background-position:center 92%;}
 
     /* diagnostic tool cards side by side */
     .tools{flex-direction:row !important; gap:20px !important;}
@@ -165,6 +165,18 @@
     .org-row{display:grid; grid-template-columns:160px 1fr; gap:4px 24px; align-items:start; padding:18px 0;}
     .org-row .o-label{grid-column:1; margin:0;}
     .org-row .o-value{grid-column:2;}
+
+    /* education tab has far more rows than the others; lay it out in two columns
+       so switching tabs doesn't cause a jarring jump in page height */
+    .tab-panel[data-panel="education"]{column-count:2; column-gap:44px;}
+    .tab-panel[data-panel="education"] .stat-row,
+    .tab-panel[data-panel="education"] .org-subhead{break-inside:avoid;}
+
+    /* organizational summary: a small styled card instead of a plain line of text */
+    .org-summary{
+      display:inline-block; padding:14px 22px; border:1px solid var(--line);
+      background:var(--offwhite); margin:0 0 24px;
+    }
 
     /* final CTA: keep buttons a sane width inside the shared column */
     .cta-pair{max-width:420px; margin:0 auto;}
@@ -309,7 +321,7 @@
   <section class="white">
     <div class="inner">
       <span class="eyebrow hair-under">Организационные вопросы</span>
-      <p style="font-size:13px; color:var(--ink); line-height:1.6; margin:0 0 6px;">Очно в г. Красноярске и онлайн · сессия 60 минут · стоимость <strong>5 000 ₽</strong> <span style="color:var(--gray); font-size:11.5px;">(с 1 августа 2026 — 7 000 ₽)</span></p>
+      <p class="org-summary" style="font-size:13px; color:var(--ink); line-height:1.6;">Очно в г. Красноярске и онлайн · сессия 60 минут · стоимость <strong>5 000 ₽</strong> <span style="color:var(--gray); font-size:11.5px;">(с 1 августа 2026 — 7 000 ₽)</span></p>
       <div class="accordion">
         <div class="acc-item">
           <button class="acc-head" aria-expanded="false">Форматы, адрес и стоимость подробнее <span class="sign">+</span></button>
