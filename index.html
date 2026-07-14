@@ -153,10 +153,7 @@
       display:grid; grid-template-columns:1fr 1fr; column-gap:40px;
     }
 
-    /* photo breaks -> shorter banners, so more content is visible without huge photo blocks */
-    .photo-break{aspect-ratio:4/3; background-position:center 38%;}
-    /* this particular photo (seated portrait) crops badly at any short ratio, so show it near-full */
-    .photo-break.tall{aspect-ratio:2/3; background-position:center;}
+    /* photo breaks: keep the same crop that already works on mobile, just larger */
 
     /* approach: one calm block of text, not split columns */
     .lede{font-size:19px; max-width:640px; margin-left:auto; margin-right:auto;}
