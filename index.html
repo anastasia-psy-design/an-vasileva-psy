@@ -185,6 +185,13 @@
     /* final CTA: keep buttons a sane width inside the shared column */
     .cta-pair{max-width:420px; margin:0 auto;}
   }
+
+  /* wide desktop screens (1920px monitors etc.) — the 900px breakpoint alone
+     leaves huge empty gutters on very wide displays, so give it more room here */
+  @media (min-width: 1440px){
+    .page{max-width:1400px;}
+    .inner{max-width:860px;}
+  }
 </style>
 </head>
 <body>
