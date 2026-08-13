@@ -187,10 +187,11 @@
   }
 
   /* wide desktop screens (1920px monitors etc.) — the 900px breakpoint alone
-     leaves huge empty gutters on very wide displays, so give it more room here */
+     leaves huge empty gutters on very wide displays, so give it more room here,
+     but keep the ratio of text-to-margin close to what already reads well */
   @media (min-width: 1440px){
-    .page{max-width:1400px;}
-    .inner{max-width:860px;}
+    .page{max-width:1240px;}
+    .inner{max-width:800px;}
   }
 </style>
 </head>
