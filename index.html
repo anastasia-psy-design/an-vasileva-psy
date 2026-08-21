@@ -1,452 +1,1393 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Анастасия Васильева — психолог</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#111111;
-    --paper:#FFFFFF;
-    --offwhite:#F7F6F3;
-    --gray:#8A8A85;
-    --line: rgba(17,17,17,.13);
-    --soft-dark:#3E3A33;
-  }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{margin:0; background:var(--paper); color:var(--ink); font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-font-smoothing:antialiased;}
-  .page{max-width:480px; margin:0 auto;}
-  a{color:inherit; text-decoration:none;}
-  button{font-family:inherit;}
-  :focus-visible{outline:1.5px solid var(--ink); outline-offset:3px;}
-  strong{font-weight:700;}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f3f0e9">
+  <title>Анастасия Васильева — психологическое взросление</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Manrope:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --paper:#f7f5f1;
+      --paper-2:#fcfbf8;
+      --ink:#293330;
+      --muted:#727773;
+      --sage:#b8beb3;
+      --moss:#657168;
+      --night:#414b46;
+      --clay:#b98473;
+      --lavender:#dcdbea;
+      --sky:#dce8e9;
+      --line:rgba(39,49,45,.18);
+      --serif:"Newsreader",Georgia,serif;
+      --accent:"Cormorant Garamond",Georgia,serif;
+      --sans:"Manrope",Arial,sans-serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:82px;background:var(--paper)}
+    body{margin:0;color:var(--ink);background:var(--paper);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    body::before{content:"";position:fixed;inset:0;z-index:999;pointer-events:none;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.24'/%3E%3C/svg%3E")}
+    ::selection{background:#cfd3ca;color:var(--ink)}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit;color:inherit}
+    img{display:block;max-width:100%}
+    :focus-visible{outline:1px solid var(--clay);outline-offset:5px}
+    .progress{position:fixed;left:0;top:0;z-index:1000;height:2px;width:0;background:var(--clay)}
+    .shell{width:min(1280px,calc(100% - 80px));margin:0 auto}
+    .micro{margin:0;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+    .section-label{display:flex;align-items:center;gap:14px;margin:0 0 46px;color:var(--muted);font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+    .section-label::before{content:"";width:34px;height:1px;background:currentColor}
+    .serif{font-family:var(--serif);font-weight:400}
+    .script{font-family:var(--accent);font-style:italic;font-weight:400}
+    .keep-together{white-space:nowrap}
+    .reveal{opacity:0;transition:opacity 1.45s cubic-bezier(.22,.61,.36,1)}
+    .reveal.is-visible{opacity:1}
 
-  section{position:relative;}
-  .inner{padding:44px 26px;}
-  .white{background:var(--paper);}
-  .offwhite{background:var(--offwhite);}
-  .black{background:var(--soft-dark); color:var(--paper);}
+    .site-header{position:fixed;z-index:200;left:0;right:0;top:2px;height:94px;color:var(--ink);background:rgba(247,245,241,.84);backdrop-filter:blur(14px);border-bottom:1px solid rgba(39,49,45,.1);transition:height .28s ease,background .32s ease,backdrop-filter .32s ease,border-color .32s ease}
+    .site-header.scrolled{height:72px;background:rgba(243,240,233,.86);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+    .nav{height:100%;width:min(1360px,calc(100% - 48px));margin:auto;display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+    .brand{display:flex;align-items:center;gap:13px;justify-self:start}
+    .brand-mark{width:35px;height:35px;border:1px solid rgba(39,49,45,.55);border-radius:50%;display:grid;place-items:center;font-family:var(--accent);font-style:italic;font-size:13px}
+    .brand-text{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+    .nav-center{display:flex;gap:30px;font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase}
+    .nav-center a{position:relative;padding:12px 0}
+    .nav-center a::after{content:"";position:absolute;left:0;bottom:8px;width:100%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .3s ease}
+    .nav-center a:hover::after{transform:scaleX(1);transform-origin:left}
+    .nav-cta{justify-self:end;border:1px solid currentColor;border-radius:999px;padding:13px 20px;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;transition:background .25s ease,color .25s ease}
+    .nav-cta:hover{background:var(--ink);color:var(--paper)}
 
-  .eyebrow{font-size:10.5px; font-weight:400; text-transform:uppercase; letter-spacing:.18em; color:var(--gray);}
-  .eyebrow.on-dark{color:rgba(255,255,255,.6);}
-  .hair-under{display:inline-block; padding-bottom:11px; border-bottom:1px solid var(--line); margin-bottom:24px;}
-  .hair-under.dark{border-bottom:1px solid rgba(255,255,255,.2);}
-  .monogram{font-family:'Playfair Display',serif; font-weight:400; letter-spacing:.04em;}
+    .hero{min-height:100svh;padding:124px 0 42px;display:grid;align-items:end;position:relative;overflow:hidden;background:#f8f7f3}
+    .hero::before{content:none!important}
+    .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--line)}
+    .hero-portrait{position:absolute;z-index:0;right:4.3vw;top:126px;bottom:42px;width:min(42vw,720px);overflow:hidden;background:#d5d2cd;border-radius:48% 48% 10px 10px;box-shadow:0 28px 80px rgba(48,48,43,.07)}
+    .hero-portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 69%;filter:saturate(.78) contrast(.95);transform:scale(1.004);animation:portraitBreathe 22s ease-in-out infinite alternate}
+    .hero-portrait::after{content:"";position:absolute;inset:0;border:1px solid rgba(39,49,45,.12);border-radius:inherit}
+    .portrait-caption{display:none}
+    .hero-grid{min-height:calc(100svh - 166px);display:grid;grid-template-columns:minmax(0,1.04fr) minmax(360px,.96fr);gap:8vw;align-items:center;position:relative}
+    .hero-copy{position:relative;z-index:2;padding:5vh 0 0}
+    .hero-copy{opacity:0;animation:softAppear 1.4s .2s ease forwards}
+    .hero-kicker{margin:0 0 32px;color:var(--muted);font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+    h1{margin:0;max-width:690px;font-family:var(--serif);font-size:clamp(54px,5vw,80px);font-weight:300;line-height:.98;letter-spacing:-.047em;text-wrap:balance}
+    h1 em{position:relative;display:inline-block;margin-left:.03em;font-family:var(--accent);font-size:1.08em;font-style:italic;font-weight:400;letter-spacing:-.025em;color:var(--ink)}
+    h1 em::after{content:none}
+    .hero-subtitle{max-width:540px;margin:38px 0 0;padding-left:70px;font-size:13px;line-height:1.8;color:#59605c}
+    .hero-subtitle::before{content:"";position:absolute;width:46px;height:1px;margin-left:-70px;margin-top:.78em;background:var(--ink);opacity:.32}
+    .hero-media{position:relative;height:min(700px,68vh);min-height:500px;pointer-events:none}
+    .hero-number{display:none}
+    .hero-footer{display:none}
+    .hero-scroll{display:flex;align-items:center;gap:12px;text-transform:uppercase;letter-spacing:.18em;white-space:nowrap}
+    .hero-scroll::after{content:"↓";font-size:15px;color:var(--clay)}
 
-  /* ---------- hero photo ---------- */
-  .hero-photo{position:relative; width:100%; aspect-ratio:4/4.6; background-color:#111; background-size:cover; background-position:center 42%; background-repeat:no-repeat; display:flex; align-items:center; justify-content:center;}
-  .hero-under{padding:28px 26px 6px; text-align:center;}
-  .hero-under .monogram{font-size:22px; display:block; margin-bottom:12px;}
-  .hero-under .name{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--gray);}
+    .situations{padding:126px 0 138px;background:var(--paper-2)}
+    .situations-grid{display:grid;grid-template-columns:.7fr 1.3fr;gap:8vw;align-items:start}
+    .situation-intro{position:sticky;top:120px}
+    .situation-intro h2{margin:0 0 36px;max-width:520px;font-family:var(--serif);font-size:clamp(36px,3.7vw,59px);font-weight:300;line-height:1.03;letter-spacing:-.04em}
+    .situation-photo{display:none}
+    .situation-list{border-top:1px solid var(--line)}
+    .situation-row{display:grid;grid-template-columns:62px minmax(180px,.68fr) 1.2fr;gap:28px;padding:42px 0;border-bottom:1px solid var(--line);transition:color .5s ease,border-color .5s ease}
+    .situation-row:hover{color:var(--clay);border-color:rgba(185,132,115,.55)}
+    .situation-index{font-family:var(--accent);font-size:20px;font-style:italic;color:var(--clay)}
+    .situation-title{font-family:var(--serif);font-size:24px;line-height:1.25}
+    .situation-body{font-size:13px;line-height:1.8;color:#5d645f}
 
-  h1.title{font-family:'Playfair Display',serif; font-weight:500; font-size:26px; line-height:1.32; color:var(--ink); margin:0 0 16px;}
-  .subtitle{font-size:14px; color:#4a4a48; line-height:1.7; margin:0 0 20px;}
-  .creds{font-size:11.5px; letter-spacing:.02em; color:var(--gray); line-height:1.6; padding-top:16px; border-top:1px solid var(--line);}
+    .tools-section{position:relative;padding:126px 0 138px;color:var(--ink);background:#edf0ec;overflow:hidden}
+    .tools-section::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 8%,rgba(255,255,255,.8),transparent 38%),radial-gradient(circle at 15% 92%,rgba(216,223,218,.8),transparent 34%);pointer-events:none}
+    .tools-head{display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:end;margin-bottom:68px}
+    .tools-head h2{margin:0;font-family:var(--serif);font-size:clamp(42px,5.6vw,82px);font-weight:400;line-height:1.05;letter-spacing:-.045em}
+    .tools-head p{max-width:520px;margin:0 0 9px;font-size:13px;line-height:1.8;color:#626b66}
+    .tool-layout{display:grid;grid-template-columns:1.12fr .88fr;gap:18px}
+    .tool-feature{position:relative;min-height:555px;padding:40px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;background:#dce1dc;color:var(--ink);border-radius:46% 46% 8px 8px}
+    .tool-feature::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(246,247,243,.14),rgba(226,231,226,.8));pointer-events:none}
+    .tool-feature img{position:absolute;inset:-4%;width:108%;height:108%;object-fit:cover;filter:grayscale(.18) saturate(.42) brightness(1.03) contrast(.88) sepia(.06);transition:transform 2.4s cubic-bezier(.22,.61,.36,1)}
+    .tool-feature:hover img{transform:scale(1.035)}
+    .tool-feature>*:not(img){position:relative;z-index:2}
+    .tool-badge{align-self:flex-start;padding:8px 12px;border:1px solid rgba(39,49,45,.4);border-radius:999px;font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+    .tool-feature h3{margin:0 0 22px;font-family:var(--serif);font-size:clamp(40px,4.6vw,68px);font-weight:400;line-height:1.04;letter-spacing:-.045em}
+    .tool-feature p{max-width:540px;margin:0;font-size:12px;line-height:1.75;color:#59625d}
+    .tool-arrow{position:absolute!important;right:38px;bottom:38px;width:52px;height:52px;border:1px solid rgba(39,49,45,.45);border-radius:50%;display:grid;place-items:center;font-size:22px;transition:background .35s ease,color .35s ease}
+    .tool-feature:hover .tool-arrow{background:var(--ink);color:#fff}
+    .tool-list{display:grid;grid-template-rows:repeat(3,1fr);border-top:1px solid rgba(39,49,45,.2)}
+    .tool-row{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;padding:28px 14px 28px 4px;border-bottom:1px solid rgba(39,49,45,.2);border-radius:0 32px 32px 0;transition:background .55s ease,padding .55s ease}
+    .tool-row h3{margin:0 0 11px;font-family:var(--serif);font-size:24px;font-weight:400;line-height:1.25;transition:color .25s ease}
+    .tool-row p{margin:0;font-size:11px;line-height:1.7;color:#66706a}
+    .tool-row>span{font-size:24px;transition:transform .25s ease}
+    .tool-row:hover{padding-left:18px;background:rgba(255,255,255,.42)}.tool-row:hover h3{color:#708077}.tool-row:hover>span{transform:translateX(7px)}
 
-  /* ---------- lists with inline emphasis ---------- */
-  .plain-list{list-style:none; margin:0; padding:0;}
-  .plain-list li{padding:18px 0; border-top:1px solid var(--line); font-size:13.5px; line-height:1.68; color:#2a2a28;}
-  .plain-list li:last-child{border-bottom:1px solid var(--line);}
+    .approach{min-height:100svh;padding:112px 0 92px;display:grid;align-items:center;background:var(--paper);overflow:hidden}
+    .approach::before{content:none}
+    .approach-grid{display:grid;grid-template-columns:.34fr .86fr 1fr;gap:4.5vw;align-items:center}
+    .approach-image{position:relative;min-height:690px;overflow:hidden;border-radius:0;background:transparent}
+    .approach-image img{width:100%;height:100%;object-fit:cover;object-position:50% 52%;filter:saturate(.74) contrast(.94)}
+    .approach-image::after{content:none}
+    .approach-copy{position:relative;padding-top:40px}
+    .approach-copy::before{content:"“";position:absolute;left:-4px;top:-82px;font-family:var(--accent);font-size:150px;font-style:italic;line-height:1;color:rgba(109,123,115,.23)}
+    .approach-copy p{margin:0;font-family:var(--serif);font-size:clamp(26px,2.6vw,42px);line-height:1.34;letter-spacing:-.035em}
+    .approach-copy p+p{margin-top:42px;padding-left:8%;font-family:var(--accent);font-size:clamp(25px,2.4vw,39px);font-style:italic;line-height:1.3;color:#515c56}
 
-  .photo-break{width:100%; aspect-ratio:5/4; background-color:#111; background-size:cover; background-position:center; background-repeat:no-repeat;}
-  .photo-break.tall{aspect-ratio:4/5;}
+    .results{min-height:100svh;padding:96px 0 30px;display:grid;align-items:center;background:linear-gradient(135deg,#f2f2ee 0%,#e7e8ed 58%,#ece7e2 100%);overflow:hidden}
+    .results-head{display:grid;grid-template-columns:1fr auto;gap:6vw;align-items:end;margin-bottom:24px}
+    .results-head h2{margin:0;font-family:var(--serif);font-size:clamp(44px,4.7vw,70px);font-weight:400;line-height:1.02;letter-spacing:-.05em}
+    .results-head p{max-width:250px;margin:0 0 8px;font-size:11px;line-height:1.7;color:#5c645e;text-align:right}
+    .result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;position:relative}
+    .result-item{min-height:190px;padding:22px 25px 24px;border:1px solid rgba(39,49,45,.16);border-radius:72px 72px 18px 18px;display:flex;flex-direction:column;background:rgba(252,251,248,.55);box-shadow:0 16px 44px rgba(54,63,59,.035);transition:background .65s ease,border-color .65s ease,transform .65s cubic-bezier(.22,.61,.36,1)}
+    .result-item:nth-child(2),.result-item:nth-child(5){background:rgba(255,255,255,.7)}
+    .result-item:hover{background:rgba(247,245,241,.94);border-color:rgba(101,113,104,.32);transform:translateY(-3px)}
+    .result-num{font-family:var(--accent);font-size:18px;font-style:italic;color:var(--clay)}
+    .result-item h3{margin:auto 0 10px;font-family:var(--serif);font-size:20px;font-weight:400;line-height:1.18}
+    .result-item p{margin:0;font-size:10.5px;line-height:1.55;color:#58605a}
 
-  /* ---------- soft tools ---------- */
-  .tools{display:flex; flex-direction:column; border-top:1px solid var(--line);}
-  .tool-row{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 2px; border-bottom:1px solid var(--line); color:var(--ink);}
-  .tool-row-text{display:flex; flex-direction:column; gap:4px;}
-  .tool-row .t-title{font-family:'Playfair Display',serif; font-weight:500; font-size:15px; color:var(--ink);}
-  .tool-row .t-desc{font-size:12.5px; color:var(--gray); line-height:1.5;}
-  .tool-row .go{flex:0 0 auto; font-size:14px; color:var(--gray); transition:transform .2s ease;}
-  .tool-row:hover .go{transform:translateX(3px);}
-  .t-link{flex:0 0 auto; font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink); border-bottom:1px solid var(--ink); padding-bottom:2px;}
+    .background{min-height:100svh;padding:112px 0 100px;display:grid;align-items:center;background:linear-gradient(115deg,#f8f7f3 0 57%,#edf0eb 57% 100%)}
+    .background-layout{display:grid;grid-template-columns:390px 1fr;gap:6vw;align-items:center}
+    .background-title{position:sticky;top:120px}
+    .background-title h2{margin:0 0 28px;font-family:var(--serif);font-size:clamp(48px,5.2vw,76px);font-weight:300;line-height:1.05;letter-spacing:-.05em}
+    .background-portrait{width:100%;height:210px;margin:0 0 26px;overflow:hidden;border-radius:105px 105px 12px 12px}
+    .background-portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 47%;filter:saturate(.7) contrast(.94)}
+    .tabs{display:flex;flex-direction:column;align-items:flex-start;border-top:1px solid var(--line)}
+    .tab{position:relative;width:100%;padding:18px 42px 18px 0;border:0;border-bottom:1px solid var(--line);background:none;text-align:left;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:padding .45s ease,color .45s ease,background .45s ease}
+    .tab::after{content:"↗";position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:15px;font-weight:300;opacity:.45;transition:transform .45s ease,opacity .45s ease}
+    .tab:hover{padding-left:14px;background:rgba(184,190,179,.12)}.tab:hover::after{transform:translate(3px,-50%);opacity:1}
+    .tab.active{padding-left:18px;color:#66766d;background:rgba(184,190,179,.2)}.tab.active::after{content:"→";opacity:1}
+    .panel{display:none}.panel.active{display:block;animation:panelIn .75s cubic-bezier(.22,.61,.36,1)}
+    .background-content{position:relative;padding:38px 44px 44px;border:1px solid rgba(39,49,45,.13);border-radius:120px 120px 18px 18px;background:rgba(255,255,255,.55);box-shadow:0 22px 65px rgba(54,63,59,.04)}
+    .timeline{border-top:1px solid var(--line)}
+    .timeline-row{display:grid;grid-template-columns:118px 1fr;gap:34px;padding:21px 0;border-bottom:1px solid var(--line)}
+    .timeline-year{font-family:var(--serif);font-size:16px;color:var(--clay)}
+    .timeline-copy{font-size:12px;line-height:1.7;color:#555d57}
+    .timeline-subhead{margin:42px 0 12px;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
+    .method{padding:28px 0;border-bottom:1px solid var(--line);font-family:var(--serif);font-size:25px;line-height:1.3}
+    .method small{display:block;margin-top:10px;font-family:var(--sans);font-size:11px;line-height:1.65;color:var(--muted)}
 
-  /* featured tool row — stands out from the plain list, softly */
-  .tool-row.featured{background:var(--offwhite); border:1.5px solid var(--ink); padding:22px 16px; margin:4px 0 14px;}
-  .tool-row.featured .t-title{color:var(--ink); font-size:16px;}
-  .tool-row.featured .t-desc{color:#5a5a55;}
-  .tool-row.featured .go{color:var(--ink);}
-  .tool-row.featured .t-tag{display:inline-block; font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink); border:1px solid var(--ink); padding:3px 8px; margin-bottom:8px;}
+    .relaxation{position:relative;min-height:720px;padding:120px 0;display:grid;align-items:center;color:var(--ink);overflow:hidden;background:#e8ecec}
+    .relaxation-bg{position:absolute;inset:0}.relaxation-bg img{width:100%;height:100%;object-fit:cover;animation:heroBreathe 16s ease-in-out infinite alternate}
+    .relaxation-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(247,248,245,.96) 0%,rgba(247,248,245,.8) 48%,rgba(247,248,245,.18) 76%),linear-gradient(180deg,rgba(255,255,255,.18),rgba(226,231,231,.38))}
+    .relaxation-copy{position:relative;z-index:2;max-width:660px}
+    .relaxation h2{margin:0 0 30px;font-family:var(--serif);font-size:clamp(52px,6.2vw,92px);font-weight:400;line-height:1.02;letter-spacing:-.05em}
+    .relaxation p{max-width:540px;margin:0 0 38px;font-size:14px;line-height:1.8;color:#58625d}
+    .relaxation-link{display:inline-flex;align-items:center;gap:20px;padding:16px 23px;border:1px solid rgba(39,49,45,.5);border-radius:999px;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;transition:background .35s ease,color .35s ease}
+    .relaxation-link:hover{background:var(--ink);color:#fff}
 
-  .lede{font-family:'Playfair Display',serif; font-style:italic; font-size:16.5px; line-height:1.65; color:var(--ink); margin:0 0 16px; font-weight:400;}
-  .lede:last-child{margin-bottom:0;}
+    .organization{padding:150px 0;background:var(--paper)}
+    .organization-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:8vw;align-items:center}
+    .org-photo{position:relative;min-height:620px;overflow:hidden;background:#d8d4cf}
+    .org-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 52%;filter:saturate(.72) contrast(.94)}
+    .organization-copy h2{margin:0 0 40px;font-family:var(--serif);font-size:clamp(47px,5vw,76px);font-weight:400;line-height:1.06;letter-spacing:-.05em}
+    .org-summary{margin:0 0 54px;font-size:14px;line-height:1.8}
+    .accordion{border-top:1px solid var(--line)}
+    .accordion-head{width:100%;padding:22px 0;display:flex;justify-content:space-between;border:0;border-bottom:1px solid var(--line);background:none;text-align:left;font-size:11px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;cursor:pointer}
+    .accordion-sign{font-size:20px;font-weight:300;transition:transform .3s ease}
+    .accordion-head[aria-expanded="true"] .accordion-sign{transform:rotate(45deg)}
+    .accordion-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s cubic-bezier(.2,.7,.2,1)}
+    .accordion-body.open{grid-template-rows:1fr}
+    .accordion-inner{overflow:hidden}
+    .org-row{display:grid;grid-template-columns:110px 1fr;gap:28px;padding:22px 0;border-bottom:1px solid var(--line)}
+    .org-label{margin:0;font-size:9px;font-weight:600;letter-spacing:.17em;text-transform:uppercase;color:var(--clay)}
+    .org-value{margin:0;font-size:12px;line-height:1.75;color:#555d57}
 
-  /* ---------- background tabs ---------- */
-  .tab-nav{display:flex; gap:0; border-bottom:1px solid var(--line); margin-bottom:24px;}
-  .tab-btn{flex:1; background:none; border:none; padding:0 0 14px; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--gray); cursor:pointer; border-bottom:2px solid transparent; margin-bottom:-1px;}
-  .tab-btn.active{color:var(--ink); border-bottom-color:var(--ink);}
-  .tab-panel{display:none;}
-  .tab-panel.active{display:block;}
-  .stat-row{display:flex; gap:16px; align-items:baseline; padding:14px 0; border-top:1px solid var(--line);}
-  .stat-row:last-child{border-bottom:1px solid var(--line);}
-  .stat-num{flex:0 0 auto; width:84px; font-family:'Playfair Display',serif; font-style:italic; font-size:15px; color:var(--ink);}
-  .stat-label{font-size:12.5px; color:var(--gray); line-height:1.5;}
-  .approach-item{padding:14px 0; border-top:1px solid var(--line);}
-  .approach-item:last-child{border-bottom:1px solid var(--line);}
-  .approach-item .a-title{font-family:'Playfair Display',serif; font-weight:500; font-size:14px; color:var(--ink); display:block; margin-bottom:3px;}
-  .approach-item .a-sub{font-size:11.5px; color:var(--gray); line-height:1.5;}
+    .contact{padding:124px 0 110px;color:#f7f4ed;background:var(--night)}
+    .contact-grid{display:grid;grid-template-columns:1.28fr .72fr;gap:8vw;align-items:end}
+    .contact h2{max-width:850px;margin:0;font-family:var(--serif);font-size:clamp(50px,6.7vw,98px);font-weight:400;line-height:1.04;letter-spacing:-.05em}
+    .contact-actions{display:flex;flex-direction:column;border-top:1px solid rgba(255,255,255,.3)}
+    .contact-link{display:flex;justify-content:space-between;align-items:center;padding:23px 0;border-bottom:1px solid rgba(255,255,255,.3);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+    .contact-link span{font-size:20px;transition:transform .25s ease}.contact-link:hover span{transform:translateX(7px)}
+    .platform-link{display:inline-block;margin-top:30px;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.62);text-decoration:underline;text-underline-offset:6px}
+    .footer-links{padding:48px 0;background:#e4e2da}
+    .footer-link{display:grid;grid-template-columns:45px 1fr auto;gap:24px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line);font-size:12px}
+    .footer-link:first-child{border-top:1px solid var(--line)}
+    .footer-icon{width:32px;height:32px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;font-family:var(--serif)}
+    footer{padding:34px 40px;background:#e4e2da;display:flex;justify-content:space-between;gap:30px;border-top:1px solid var(--line);font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
 
-  /* ---------- organizational rows ---------- */
-  .org-list{border-top:1px solid var(--line);}
-  .org-row{padding:16px 0; border-bottom:1px solid var(--line);}
-  .org-row .o-label{font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--gray); margin:0 0 6px;}
-  .org-row .o-value{font-size:13px; color:var(--ink); line-height:1.55; margin:0;}
-  .org-subhead{font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--gray); margin:24px 0 0; padding-top:16px;}
+    @keyframes softAppear{to{opacity:1}}
+    @keyframes drawLine{to{transform:rotate(-2deg) scaleX(1)}}
+    @keyframes heroBreathe{from{transform:scale(1.008) translate3d(0,0,0)}to{transform:scale(1.035) translate3d(-.25%,.2%,0)}}
+    @keyframes portraitBreathe{from{transform:scale(1.008)}to{transform:scale(1.025)}}
+    @keyframes panelIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
 
-  .accordion{border-top:1px solid var(--line);}
-  .acc-item{border-bottom:1px solid var(--line);}
-  .acc-head{width:100%; background:none; border:none; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:16px 2px; font-family:'Playfair Display',serif; font-weight:500; font-size:13.5px; color:var(--ink); cursor:pointer; text-align:left;}
-  .acc-head .sign{flex:0 0 auto; font-size:16px; color:var(--gray); transition:transform .25s ease; font-weight:300;}
-  .acc-item.open .acc-head .sign{transform:rotate(45deg);}
-  .acc-body{max-height:0; overflow:hidden; transition:max-height .3s ease;}
-  .acc-body-inner{padding:4px 2px 18px;}
+    @media(max-width:980px){
+      .shell{width:min(100% - 42px,760px)}
+      .nav-center{display:none}.site-header{height:76px}.nav{width:calc(100% - 32px)}.brand-text{display:none}
+      .hero{padding-top:104px;align-items:start}.hero-portrait{position:relative;right:auto;top:auto;bottom:auto;width:calc(100% - 42px);height:58vh;min-height:540px;margin:0 21px 34px;border-radius:180px 180px 12px 12px}.hero-grid{min-height:auto;grid-template-columns:1fr}.hero-copy{padding:5vh 0 3vh}.hero-media{display:none}
+      .hero-subtitle{padding-left:0;margin-top:28px}.hero-subtitle::before{display:none}.hero-footer{display:none}.hero-scroll{display:none}
+      .situations-grid,.approach-grid,.results-head,.background-layout,.organization-grid,.contact-grid{grid-template-columns:1fr}
+      .situation-intro,.background-title{position:static}.situation-photo{display:none}.situation-row{grid-template-columns:48px 1fr}.situation-body{grid-column:2}
+      .tool-layout,.tools-head{grid-template-columns:1fr}.tool-feature{min-height:500px}.tool-list{grid-template-rows:auto}
+      .approach{min-height:auto}.approach-image{min-height:640px}.approach-copy{padding-top:48px}.approach-copy p+p{padding-left:8%}
+      .results{min-height:auto;padding:105px 0}.results-head{gap:18px;margin-bottom:38px}.results-head p{text-align:left}.result-grid{grid-template-columns:repeat(2,1fr)}.result-item:nth-child(n){grid-column:auto;transform:none;margin-top:0}
+      .background{min-height:auto;background:var(--paper-2)}.background-title h2{margin-bottom:24px}.background-portrait{height:300px}.tabs{flex-direction:row;overflow-x:auto;border-bottom:1px solid var(--line);gap:8px}.tab{width:auto;padding:13px 38px 13px 14px;border:1px solid var(--line);border-radius:999px;white-space:nowrap}.tab::after{right:14px}.tab.active{padding-left:14px;color:#66766d}.background-content{margin-top:38px;padding:34px;border-radius:80px 80px 16px 16px}
+      .org-photo{min-height:580px}.organization-copy{margin-top:30px}
+    }
+    @media(max-width:620px){
+      .shell{width:calc(100% - 32px)}
+      .nav-cta{padding:11px 14px;font-size:9px}.brand-mark{width:32px;height:32px}
+      .hero{min-height:auto;padding:94px 0 52px}.hero-portrait{height:58vh;min-height:480px;margin-bottom:18px;border-radius:120px 120px 10px 10px}.hero-portrait img{object-position:50% 69%}h1{font-size:46px;line-height:.98}.hero-kicker{margin-bottom:22px}.hero-subtitle{font-size:13px}.hero-footer{display:none}
+      .situations,.tools-section,.background,.organization{padding:100px 0}.situations-grid{gap:20px}.situation-intro h2{font-size:clamp(35px,10vw,43px)}.situation-photo{display:none}.situation-row{grid-template-columns:38px 1fr;gap:15px;padding:30px 0}.situation-title{font-size:21px}.situation-body{font-size:12px}
+      .tools-head{margin-bottom:38px}.tools-head h2{font-size:46px}.tool-feature{min-height:520px;padding:26px}.tool-feature h3{font-size:45px}.tool-arrow{right:24px;bottom:24px;width:44px;height:44px}.tool-row{padding:26px 0}.tool-row h3{font-size:21px}
+      .approach{padding:100px 0}.approach-grid{gap:16px}.approach-image{min-height:520px}.approach-copy::before{font-size:120px;top:-35px}.approach-copy p{font-size:28px}.approach-copy p+p{font-size:27px;padding-left:0;margin-top:38px}
+      .results{padding:100px 0}.results-head{gap:16px;margin-bottom:34px}.results-head h2{font-size:46px}.result-grid{grid-template-columns:1fr;gap:12px}.result-item{min-height:0;padding:25px 23px 27px;border-radius:54px 54px 15px 15px}.result-item h3{margin:28px 0 12px;font-size:22px}
+      .relaxation{min-height:650px;padding:100px 0}.relaxation h2{font-size:50px}
+      .timeline-row{grid-template-columns:78px 1fr;gap:20px}.timeline-copy{font-size:11px}.method{font-size:22px}
+      .background-portrait{height:240px}.background-content{padding:28px 22px 30px;border-radius:54px 54px 14px 14px}.org-photo{min-height:500px}.organization-copy h2{font-size:48px}.org-row{grid-template-columns:1fr;gap:10px}
+      .contact{padding:95px 0}.contact h2{font-size:49px}.contact-grid{gap:50px}
+      .footer-link{grid-template-columns:38px 1fr auto;gap:12px;font-size:11px}footer{padding:28px 16px;flex-direction:column}
+    }
+    @media(min-width:981px) and (max-height:820px){
+      .hero{padding-top:104px}.hero-portrait{top:102px;bottom:28px}.hero-grid{min-height:calc(100svh - 146px)}.hero-copy{padding-bottom:2vh}.hero-kicker{margin-bottom:22px}h1{font-size:clamp(50px,4.9vw,74px)}.hero-subtitle{margin-top:26px}.hero-footer{display:none}
+      .results{padding:78px 0 22px}.results-head{margin-bottom:18px}.results-head h2{font-size:clamp(42px,4.2vw,64px)}.result-item{min-height:168px;padding:17px 21px}.result-item h3{font-size:18px;margin-bottom:8px}.result-item p{font-size:9.5px}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.reveal,.hero-copy{opacity:1}}
 
-  /* ---------- CTAs ---------- */
-  .final{text-align:center;}
-  .final .f-phrase{font-family:'Playfair Display',serif; font-style:italic; font-weight:400; font-size:18px; line-height:1.5; color:var(--paper); margin:0 0 26px;}
-  .cta-outline{display:block; text-align:center; border:1px solid var(--ink); color:var(--ink); padding:17px 20px; font-size:12px; letter-spacing:.16em; text-transform:uppercase;}
-  .cta-outline.on-dark{border-color:rgba(255,255,255,.6); color:var(--paper);}
-  .cta-outline span{display:block; font-size:10.5px; letter-spacing:.03em; text-transform:none; opacity:.7; margin-top:5px; font-family:'Playfair Display',serif; font-style:italic;}
-  .cta-secondary{display:block; text-align:center; padding:17px 20px; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.85); margin-top:14px; border-bottom:1px solid rgba(255,255,255,.25);}
-  .vk-note{display:block; margin-top:14px; font-size:11px; color:rgba(255,255,255,.5);}
-  .cta-pair{display:flex; gap:10px;}
-  .cta-pair .cta-outline{flex:1; padding:16px 10px;}
+    /* v5 — Soft Contemporary Luxury */
+    :root{
+      --paper:#FBF9F5;
+      --paper-2:#FBF9F5;
+      --ink:#202724;
+      --muted:#747873;
+      --clay:#8d7468;
+      --line:rgba(32,39,36,.17);
+      --night:#202724;
+    }
+    body{background:var(--paper);letter-spacing:.002em}
+    body::before{opacity:.055}
+    .shell{width:min(1380px,calc(100% - 112px))}
+    .section-label{margin-bottom:38px;letter-spacing:.22em}
+    .reveal{opacity:0;transform:translate3d(0,10px,0);transition:opacity 1.05s cubic-bezier(.22,.61,.36,1),transform 1.05s cubic-bezier(.22,.61,.36,1)}
+    .reveal.is-visible{opacity:1;transform:none}
 
-  /* ---------- tertiary links ---------- */
-  .links{border-top:1px solid var(--line);}
-  .link-row{display:flex; align-items:center; gap:14px; padding:16px 2px; border-bottom:1px solid var(--line); font-size:12.5px; color:#4a4a48;}
-  .link-row .ic{flex:0 0 auto; width:22px; font-family:'Playfair Display',serif; font-style:italic; color:var(--gray); font-size:13px;}
-  .link-row .go{margin-left:auto; font-size:10.5px; color:var(--gray);}
+    .site-header{height:86px;background:rgba(251,249,245,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .site-header.scrolled{height:70px;background:rgba(251,249,245,.92)}
+    .brand-mark{border-radius:0;border-color:var(--line);font-size:12px}
+    .nav-cta{position:relative;border:0;border-radius:0;padding:13px 0}
+    .nav-cta::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:1px;background:currentColor;transform:scaleX(.32);transform-origin:left;transition:transform .55s cubic-bezier(.22,.61,.36,1)}
+    .nav-cta:hover{background:none;color:inherit}.nav-cta:hover::after{transform:scaleX(1)}
 
-  footer{padding:40px 26px 52px; text-align:center; background:var(--offwhite);}
-  footer .monogram{font-size:16px; margin-bottom:12px; display:block;}
-  footer p{font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--gray); margin:0;}
+    .hero{height:100svh;min-height:680px;padding:86px 0 0;align-items:stretch;background:var(--paper)}
+    .hero-portrait{right:0;top:86px;bottom:0;width:47vw;border-radius:0;box-shadow:none;background:#d5d2cd}
+    .hero-portrait::after{border:0;border-left:1px solid rgba(32,39,36,.12);border-radius:0}
+    .hero-portrait img{object-position:51% 66%;filter:grayscale(.82) sepia(.08) saturate(.5) contrast(.94);transform:none;animation:none}
+    .hero-grid{height:calc(100svh - 86px);min-height:594px;grid-template-columns:minmax(0,1fr) 47vw;gap:0;align-items:center}
+    .hero-copy{max-width:690px;padding:0 5vw 0 0;animation:softAppear 1.2s .12s ease forwards}
+    .hero-kicker{margin-bottom:38px;color:var(--muted)}
+    h1{max-width:650px;font-size:clamp(52px,4.8vw,78px);line-height:1.01;letter-spacing:-.045em}
+    h1 em{font-size:1.02em;color:inherit}
+    .hero-subtitle{max-width:510px;margin-top:42px;padding-left:0;font-size:13px;line-height:1.85}
+    .hero-subtitle::before{display:none}
 
-  /* ================================================
-     DESKTOP (900px+)
-     Mobile layout above stays untouched; this layer
-     only adds a wider, editorial treatment.
-     One shared content column keeps every text block
-     aligned the same way as you scroll down the page.
-     ================================================ */
-  @media (min-width: 900px){
-    .page{max-width:1120px; padding-top:56px;}
-    .inner{max-width:720px; margin:0 auto; padding:64px 40px;}
+    .situations{min-height:100svh;padding:120px 0;background:var(--paper);display:grid;align-items:center}
+    .situations-grid{grid-template-columns:.68fr 1.32fr;gap:9vw}
+    .situation-intro h2{max-width:520px;font-size:clamp(44px,4.6vw,70px);line-height:1.02}
+    .situation-row{grid-template-columns:52px minmax(210px,.72fr) 1.2fr;gap:32px;padding:34px 0;transition:border-color .6s ease}
+    .situation-row:hover{color:inherit;border-color:rgba(32,39,36,.45)}
+    .situation-title{font-size:25px;line-height:1.25}
+    .situation-body{line-height:1.75}
 
-    /* hero: face-safe crop as a fallback, superseded below for the reordered desktop hero */
-    .hero-photo{aspect-ratio:3/4; background-position:center 30%;}
+    .tools-section{min-height:100svh;padding:108px 0;background:var(--paper);display:grid;align-items:center}
+    .tools-section::before{display:none}
+    .tools-head{grid-template-columns:1.15fr .85fr;margin-bottom:54px}
+    .tools-head h2{max-width:760px;font-size:clamp(48px,5.5vw,82px);font-weight:300;line-height:1.02}
+    .tool-layout{grid-template-columns:1.05fr .95fr;gap:42px}
+    .tool-feature{min-height:510px;padding:36px;border-radius:0;background:#dfddd7;color:var(--ink)}
+    .tool-feature::after{background:linear-gradient(180deg,rgba(251,249,245,.08),rgba(230,228,222,.8))}
+    .tool-feature img{inset:0;width:100%;height:100%;filter:grayscale(1) sepia(.05) brightness(1.1) contrast(.78);transition:filter .9s ease}
+    .tool-feature:hover img{transform:none;filter:grayscale(1) sepia(.04) brightness(1.04) contrast(.85)}
+    .tool-badge{padding:0 0 8px;border:0;border-bottom:1px solid currentColor;border-radius:0}
+    .tool-feature h3{font-weight:300}
+    .tool-arrow{right:34px;bottom:34px;width:auto;height:auto;border:0;border-radius:0;font-size:25px;transition:transform .55s cubic-bezier(.22,.61,.36,1)}
+    .tool-feature:hover .tool-arrow{background:none;color:inherit;transform:translateX(7px)}
+    .tool-list{border-top:1px solid var(--line)}
+    .tool-row{border-radius:0;padding:26px 0;transition:padding .55s cubic-bezier(.22,.61,.36,1),border-color .55s ease}
+    .tool-row:hover{padding-left:12px;background:none;border-color:rgba(32,39,36,.42)}
+    .tool-row:hover h3{color:inherit}
 
-    /* hero group: name, title, subtitle first; photo; credentials caption last */
-    .hero-group{display:flex; flex-direction:column;}
-    .hero-photo{order:3; aspect-ratio:1638/870; background-position:center; background-image:url('https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/photo1-desktop.jpg') !important; margin-top:36px;}
-    .hero-under{padding:0 26px 4px;}
-    .hero-under .monogram{font-size:26px;}
-    .hero-under .name{font-size:13px;}
-    .creds-section{order:4;}
-    .creds-section .inner{padding-top:28px !important;}
-    .creds{border-top:none; padding-top:0; max-width:520px; margin:0 auto;}
+    .approach{height:100svh;min-height:720px;padding:94px 0;align-items:center;background:var(--paper)}
+    .approach-grid{grid-template-columns:.26fr .82fr 1fr;gap:5.5vw}
+    .approach-image{height:min(70vh,720px);min-height:560px}
+    .approach-image img{object-position:50% 50%;filter:grayscale(.88) sepia(.08) saturate(.45) contrast(.93)}
+    .approach-copy{padding-top:0}
+    .approach-copy::before{display:none}
+    .approach-copy p{font-size:clamp(28px,2.55vw,41px);line-height:1.42;letter-spacing:-.03em}
+    .approach-copy p+p{margin-top:46px;padding:44px 0 0 12%;border-top:1px solid var(--line);font-size:clamp(24px,2.1vw,34px);line-height:1.42;color:var(--ink)}
 
-    /* offer */
-    h1.title{font-size:36px;}
-    .subtitle{font-size:16px; max-width:560px; margin-left:auto; margin-right:auto;}
-    .creds{font-size:12.5px;}
+    .results{height:100svh;min-height:700px;padding:98px 0 52px;background:var(--paper);align-items:center}
+    .results-head{grid-template-columns:1.15fr .85fr;margin-bottom:34px;align-items:end}
+    .results-head h2{font-size:clamp(46px,5vw,76px);font-weight:300;line-height:1.02}
+    .results-head p{text-align:left;justify-self:end}
+    .result-grid{gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .result-item{min-height:190px;padding:26px 32px 28px 0;border:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:0;background:none!important;box-shadow:none;transition:border-color .6s ease}
+    .result-item:nth-child(3n+2),.result-item:nth-child(3n+3){padding-left:32px}
+    .result-item:nth-child(3n){border-right:0}
+    .result-item:nth-last-child(-n+3){border-bottom:0}
+    .result-item:hover{background:none;border-color:rgba(32,39,36,.48);transform:none}
+    .result-item h3{margin:auto 0 12px;font-size:21px;line-height:1.25}
+    .result-item p{font-size:11px;line-height:1.68}
 
-    /* recognition + results lists -> two columns, same shared width */
-    .offwhite .plain-list, .white .plain-list{
-      display:grid; grid-template-columns:1fr 1fr; column-gap:40px;
+    .background{min-height:100svh;padding:110px 0;background:var(--paper)}
+    .background-layout{grid-template-columns:.72fr 1.28fr;gap:8vw;align-items:center}
+    .background-title{position:static;display:grid;grid-template-columns:.72fr 1fr;column-gap:30px;align-items:end}
+    .background-title .section-label,.background-title h2,.background-title .tabs{grid-column:1/-1}
+    .background-title h2{font-size:clamp(54px,5.5vw,82px);font-weight:300}
+    .background-portrait{grid-column:1/-1;height:min(42vh,390px);margin:0 0 30px;border-radius:0}
+    .background-portrait img{object-position:50% 48%;filter:grayscale(.9) sepia(.07) saturate(.45) contrast(.92)}
+    .tabs{border-top:1px solid var(--line)}
+    .tab{padding:18px 34px 18px 0;transition:padding .55s cubic-bezier(.22,.61,.36,1),color .55s ease,border-color .55s ease}
+    .tab::after{content:"→";opacity:.48}
+    .tab:hover,.tab.active{padding-left:12px;background:none;color:var(--ink);border-color:rgba(32,39,36,.42)}
+    .background-content{padding:0;border:0;border-radius:0;background:none;box-shadow:none}
+    .panel.active{animation:panelIn .9s cubic-bezier(.22,.61,.36,1)}
+    .timeline-row{padding:24px 0}
+    .timeline-copy{font-size:13px;line-height:1.75}
+
+    .relaxation{min-height:100svh;padding:110px 0;background:#ececea}
+    .relaxation-bg img{filter:grayscale(.8) sepia(.03) saturate(.42) contrast(.9);animation:none}
+    .relaxation-bg::after{background:linear-gradient(90deg,rgba(251,249,245,.96) 0%,rgba(251,249,245,.78) 45%,rgba(251,249,245,.14) 72%)}
+    .relaxation-link{padding:15px 0;border:0;border-bottom:1px solid currentColor;border-radius:0}
+    .relaxation-link:hover{background:none;color:inherit}
+
+    .organization{min-height:100svh;padding:110px 0;display:grid;align-items:center}
+    .org-photo{min-height:0;height:min(68vh,710px);background:none}
+    .org-photo img{filter:grayscale(.88) sepia(.08) saturate(.42) contrast(.92)}
+    .accordion-head:hover{border-color:rgba(32,39,36,.45)}
+
+    .contact{min-height:78svh;padding:118px 0;display:grid;align-items:center;background:var(--night)}
+    .contact h2{font-weight:300;line-height:1.05}
+    .contact-link{transition:padding .55s cubic-bezier(.22,.61,.36,1)}
+    .contact-link:hover{padding-left:10px}
+    .footer-links,footer{background:var(--paper)}
+    .footer-icon{border-radius:0}
+
+    @media(max-width:980px){
+      .shell{width:min(100% - 44px,780px)}
+      .hero{height:auto;min-height:100svh;padding-top:76px;display:flex;flex-direction:column}
+      .hero-portrait{order:2;position:relative;right:auto;top:auto;bottom:auto;width:calc(100% - 44px);height:58svh;min-height:480px;margin:0 22px 0;border-radius:0}
+      .hero-grid{height:auto;min-height:0;grid-template-columns:1fr;padding:58px 0 48px}
+      .hero-copy{max-width:720px;padding:0}.hero-media{display:none}
+      .situations,.tools-section,.approach,.results,.background,.organization{height:auto;min-height:auto;padding:104px 0}
+      .situations-grid,.approach-grid,.results-head,.background-layout,.organization-grid,.contact-grid{grid-template-columns:1fr}
+      .situation-intro{position:static}.situation-row{grid-template-columns:48px minmax(190px,.7fr) 1.3fr}
+      .tool-layout,.tools-head{grid-template-columns:1fr}.tool-feature{min-height:540px}.tool-row{border-radius:0}
+      .approach-grid{gap:42px}.approach-image{height:70svh;min-height:600px}.approach-copy p+p{padding-left:0}
+      .result-grid{grid-template-columns:repeat(2,1fr)}
+      .result-item:nth-child(n){padding:28px 26px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+      .result-item:nth-child(2n){border-right:0}.result-item:nth-last-child(-n+2){border-bottom:0}
+      .background-title{display:block}.background-portrait{height:46svh}.background-content{margin-top:46px;padding:0}
+      .tabs{flex-direction:row;gap:30px;overflow:auto}.tab{width:auto;padding:14px 30px 14px 0;border:0;border-bottom:1px solid var(--line);border-radius:0}.tab:hover,.tab.active{padding-left:0;border-color:var(--ink)}
+      .org-photo{height:70svh;min-height:560px}
+    }
+    @media(max-width:620px){
+      .shell{width:calc(100% - 32px)}
+      .site-header{height:70px}.nav{width:calc(100% - 24px)}.nav-cta{padding-right:0}
+      .brand-mark{border-radius:0}.hero{padding-top:70px}.hero-grid{padding:44px 0 36px}.hero-portrait{width:calc(100% - 32px);height:55svh;min-height:420px;margin:0 16px}
+      h1{font-size:clamp(43px,13vw,57px);line-height:1.01}.hero-kicker{margin-bottom:26px;line-height:1.7}.hero-subtitle{margin-top:30px;line-height:1.75}
+      .situations,.tools-section,.approach,.results,.background,.organization{padding:88px 0}
+      .situations-grid{gap:24px}.situation-intro h2{font-size:44px}.situation-row{grid-template-columns:34px 1fr;gap:14px;padding:29px 0}.situation-body{grid-column:2;font-size:12px;line-height:1.75}
+      .tools-head h2,.results-head h2{font-size:47px}.tool-feature{min-height:480px;padding:24px}.tool-feature h3{font-size:45px}.tool-arrow{right:24px;bottom:24px}
+      .approach-grid{gap:34px}.approach-image{height:66svh;min-height:500px}.approach-copy p{font-size:28px;line-height:1.45}.approach-copy p+p{font-size:25px;line-height:1.45;padding-top:34px}
+      .results-head{margin-bottom:24px}.result-grid{grid-template-columns:1fr}.result-item:nth-child(n){min-height:0;padding:28px 0;border-right:0;border-bottom:1px solid var(--line)}.result-item:last-child{border-bottom:0}.result-item h3{margin:24px 0 10px;font-size:23px}
+      .background-title h2{font-size:56px}.background-portrait{height:50svh}.tabs{gap:22px}.timeline-row{grid-template-columns:76px 1fr;gap:18px}.timeline-copy{font-size:11px}
+      .relaxation{min-height:82svh;padding:90px 0}.relaxation h2{font-size:50px}.relaxation p{font-size:13px}
+      .org-photo{height:62svh;min-height:480px}.organization-copy h2{font-size:49px}.contact{min-height:auto;padding:90px 0}.contact h2{font-size:47px}
+      .footer-icon{border-radius:0}
+    }
+    @media(min-width:981px) and (max-height:820px){
+      .hero{padding-top:74px}.hero-portrait{top:74px}.hero-grid{height:calc(100svh - 74px);min-height:540px}.hero-copy{padding-bottom:0}h1{font-size:clamp(48px,4.4vw,68px)}.hero-kicker{margin-bottom:22px}.hero-subtitle{margin-top:28px}
+      .situations{padding:88px 0}.situation-row{padding:25px 0}.situation-intro h2{font-size:clamp(42px,4vw,60px)}
+      .tools-section{padding:82px 0}.tools-head{margin-bottom:38px}.tool-feature{min-height:440px}.tool-row{padding:20px 0}
+      .approach{padding:78px 0}.approach-image{height:66vh;min-height:480px}.approach-copy p{font-size:clamp(25px,2.2vw,34px)}.approach-copy p+p{font-size:clamp(22px,1.8vw,28px);margin-top:32px;padding-top:30px}
+      .results{padding:72px 0 28px}.results-head{margin-bottom:20px}.result-item{min-height:155px;padding-top:18px;padding-bottom:20px}.result-item h3{font-size:18px}.result-item p{font-size:9.5px;line-height:1.55}
+      .background{padding:86px 0}.background-portrait{height:35vh}.timeline-row{padding:16px 0}
+      .organization{padding:82px 0}.org-photo{height:64vh}.contact{padding:88px 0}
     }
 
-    /* photo breaks: keep the same crop that already works on mobile, just larger */
+    /* v6 — colour and hierarchy inspired by «Лестница взросления» */
+    :root{
+      --clay:#7d6d66;
+      --brown:#7d6d66;
+      --brown-deep:#5f524d;
+      --headline:#514b48;
+      --rose-wash:rgba(125,109,102,.09);
+      --sage-wash:rgba(166,178,162,.10);
+    }
+    ::selection{background:#dbc4b7;color:var(--ink)}
+    .progress{background:var(--brown)}
+    :focus-visible{outline-color:var(--brown)}
 
-    /* approach: one calm block of text, not split columns */
-    .lede{font-size:19px; max-width:640px; margin-left:auto; margin-right:auto;}
-
-    /* organizational spec rows: label/value columns */
-    .org-row{display:grid; grid-template-columns:160px 1fr; gap:4px 24px; align-items:start; padding:18px 0;}
-    .org-row .o-label{grid-column:1; margin:0;}
-    .org-row .o-value{grid-column:2;}
-
-    /* education tab has far more rows than the others; lay it out in two columns
-       so switching tabs doesn't cause a jarring jump in page height */
-    .tab-panel[data-panel="education"]{column-count:2; column-gap:44px;}
-    .tab-panel[data-panel="education"] .stat-row,
-    .tab-panel[data-panel="education"] .org-subhead{break-inside:avoid;}
-
-    /* organizational summary: a small styled card instead of a plain line of text */
-    .org-summary{
-      display:inline-block; padding:14px 22px; border:1px solid var(--line);
-      background:var(--offwhite); margin:0 0 24px;
+    .hero-portrait img,
+    .approach-image img,
+    .background-portrait img,
+    .org-photo img{
+      filter:saturate(.9) contrast(.96) brightness(1.01);
+    }
+    .hero-portrait img{object-position:51% 66%;filter:saturate(.84) contrast(.92) brightness(1.04)}
+    .hero-context{
+      display:block;
+      margin-bottom:.18em;
+      color:inherit;
+      font-size:.68em;
+      line-height:1.05;
+      letter-spacing:-.025em;
+    }
+    .hero-focus{display:block}
+    h1{color:var(--headline)}
+    h1 em{
+      color:inherit;
+      font-size:1.07em;
+      letter-spacing:-.025em;
     }
 
-    /* final CTA: keep buttons a sane width inside the shared column */
-    .cta-pair{max-width:420px; margin:0 auto;}
-  }
+    .situation-index,.result-num,.timeline-year,.org-label{color:var(--brown)}
 
-  /* wide desktop screens (1920px monitors etc.) — the 900px breakpoint alone
-     leaves huge empty gutters on very wide displays, so give it more room here,
-     but keep the ratio of text-to-margin close to what already reads well */
-  @media (min-width: 1440px){
-    .page{max-width:1240px;}
-    .inner{max-width:800px;}
-  }
-</style>
+    .tool-feature img{
+      filter:saturate(.8) contrast(.9) brightness(1.03);
+    }
+    .tool-feature:hover img{
+      transform:none;
+      filter:saturate(.8) contrast(.9) brightness(1.03);
+    }
+    .tool-feature::after{
+      background:linear-gradient(180deg,rgba(251,249,245,.04),rgba(242,231,224,.72));
+    }
+    .tool-row h3,.tool-feature h3{transition:opacity .65s cubic-bezier(.22,.61,.36,1)}
+    .tool-row:hover h3,.tool-feature:hover h3{color:inherit;opacity:.7}
+
+    .results{
+      background:
+        radial-gradient(circle at 78% 19%,var(--rose-wash),transparent 32%),
+        radial-gradient(circle at 13% 86%,var(--sage-wash),transparent 30%),
+        var(--paper);
+    }
+    .results-head{margin-bottom:46px}
+    .results-head h2{max-width:730px}
+    .results-head p{color:var(--brown-deep)}
+    .result-grid{
+      gap:42px 5vw;
+      border:0;
+    }
+    .result-item,
+    .result-item:nth-child(n){
+      min-height:178px;
+      padding:0;
+      border:0;
+      background:none!important;
+      box-shadow:none;
+      display:grid;
+      grid-template-columns:88px 1fr;
+      grid-template-rows:auto 1fr;
+      column-gap:22px;
+      align-items:start;
+    }
+    .result-num{
+      grid-row:1/3;
+      font-family:var(--accent);
+      font-size:clamp(52px,4.2vw,70px);
+      font-style:italic;
+      font-weight:400;
+      line-height:.8;
+      letter-spacing:-.05em;
+      opacity:.92;
+    }
+    .result-item h3{
+      margin:0 0 16px;
+      font-size:clamp(22px,1.65vw,27px);
+      line-height:1.18;
+      letter-spacing:-.025em;
+    }
+    .result-item p{
+      margin:0;
+      max-width:330px;
+      font-size:11px;
+      line-height:1.75;
+    }
+    .result-item:hover .result-num{color:var(--brown-deep)}
+
+    .background-portrait img{filter:saturate(.86) contrast(.95) brightness(1.01)}
+    .relaxation-bg img{filter:saturate(.78) contrast(.92) brightness(1.02)}
+    .relaxation-bg::after{background:linear-gradient(90deg,rgba(251,249,245,.94) 0%,rgba(251,249,245,.72) 45%,rgba(251,249,245,.08) 74%)}
+
+    @media(max-width:980px){
+      .hero-context{font-size:.64em}
+      .result-grid{gap:48px 7vw}
+      .result-item,.result-item:nth-child(n){grid-template-columns:78px 1fr;column-gap:18px}
+    }
+    @media(max-width:620px){
+      .hero-context{font-size:.58em;margin-bottom:.24em}
+      h1 em{font-size:1.04em}
+      .result-grid{gap:42px}
+      .result-item,.result-item:nth-child(n){grid-template-columns:66px 1fr;column-gap:16px;padding:0;border:0}
+      .result-num{font-size:52px}
+      .result-item h3{margin:0 0 12px;font-size:23px}
+      .result-item p{font-size:11.5px}
+    }
+    @media(min-width:981px) and (max-height:820px){
+      .results-head{margin-bottom:28px}
+      .result-grid{gap:27px 4vw}
+      .result-item,.result-item:nth-child(n){min-height:138px;grid-template-columns:72px 1fr;column-gap:18px}
+      .result-num{font-size:52px}
+      .result-item h3{font-size:20px;margin-bottom:9px}
+      .result-item p{font-size:9.5px;line-height:1.6}
+    }
+
+    /* v7 — tactile layer */
+    body::before{
+      opacity:.085;
+      mix-blend-mode:multiply;
+    }
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      z-index:998;
+      pointer-events:none;
+      background:
+        radial-gradient(circle at 14% 8%,rgba(149,103,80,.055),transparent 26%),
+        radial-gradient(circle at 88% 82%,rgba(150,165,151,.045),transparent 28%);
+      mix-blend-mode:multiply;
+    }
+    main{isolation:isolate}
+    a,button{transition-timing-function:cubic-bezier(.22,.61,.36,1)}
+    .site-header{
+      background:rgba(251,249,245,.82);
+      box-shadow:0 8px 32px rgba(70,53,44,.025);
+    }
+    .nav-center a::after,.nav-cta::after{background:var(--brown)}
+    .hero{
+      background:var(--paper);
+    }
+    .hero-portrait,
+    .approach-image,
+    .background-portrait,
+    .org-photo,
+    .tool-feature{
+      box-shadow:
+        0 24px 70px rgba(75,52,41,.06),
+        inset 0 0 0 1px rgba(75,52,41,.08);
+    }
+    .hero-portrait::after{
+      border-left:1px solid rgba(111,79,64,.14);
+      box-shadow:inset 0 0 90px rgba(74,52,42,.035);
+      background:linear-gradient(90deg,rgba(251,249,245,.16),transparent 16%);
+    }
+    .background-portrait{position:relative}
+    .approach-image::after,
+    .background-portrait::after,
+    .org-photo::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      box-shadow:inset 0 0 70px rgba(74,52,42,.035);
+      border:1px solid rgba(75,52,41,.07);
+    }
+    .situations{
+      background:linear-gradient(180deg,#FBF9F5 0%,#FAF8F4 58%,#F8F5F0 100%);
+    }
+    .tools-section{
+      background:
+        radial-gradient(circle at 77% 14%,rgba(181,139,118,.065),transparent 28%),
+        linear-gradient(180deg,#F8F5F0,#FBF9F5);
+    }
+    .approach{
+      background:
+        radial-gradient(circle at 70% 45%,rgba(169,181,164,.055),transparent 34%),
+        var(--paper);
+    }
+    .situation-row,.tool-row,.tab,.accordion-head,.contact-link,.footer-link{
+      transition-duration:.65s;
+    }
+    .situation-row:hover .situation-index,
+    .tool-row:hover>span,
+    .tab:hover::after,
+    .tab.active::after{
+      color:var(--brown);
+    }
+    .result-num{
+      transition:color .7s ease,transform .7s cubic-bezier(.22,.61,.36,1),opacity .7s ease;
+    }
+    .result-item:hover .result-num{
+      transform:translate3d(0,-4px,0);
+      opacity:1;
+    }
+    .background-content{position:relative}
+    .background-content::before{
+      content:"";
+      position:absolute;
+      left:-5vw;
+      top:-9vh;
+      width:34vw;
+      height:34vw;
+      z-index:-1;
+      pointer-events:none;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(176,134,112,.06),transparent 68%);
+      filter:blur(14px);
+    }
+    .relaxation{
+      background:#F4EEE8;
+    }
+    .relaxation-bg img{
+      filter:saturate(.84) contrast(.94) brightness(1.015);
+    }
+    .relaxation-bg::after{
+      background:
+        linear-gradient(90deg,rgba(251,249,245,.95) 0%,rgba(251,249,245,.72) 44%,rgba(251,249,245,.06) 75%),
+        linear-gradient(180deg,rgba(149,103,80,.025),rgba(111,79,64,.05));
+    }
+    .relaxation-link{transition:color .6s ease,border-color .6s ease,gap .6s cubic-bezier(.22,.61,.36,1)}
+    .relaxation-link:hover{gap:28px;color:var(--brown-deep);border-color:var(--brown)}
+    .organization{
+      background:
+        radial-gradient(circle at 12% 72%,rgba(155,173,159,.055),transparent 30%),
+        var(--paper);
+    }
+    .reveal{
+      transition:opacity 1.15s cubic-bezier(.22,.61,.36,1),transform 1.15s cubic-bezier(.22,.61,.36,1);
+    }
+    @media(max-width:620px){
+      body::after{opacity:.6}
+      .hero-portrait,.approach-image,.background-portrait,.org-photo,.tool-feature{box-shadow:0 18px 48px rgba(75,52,41,.055),inset 0 0 0 1px rgba(75,52,41,.07)}
+      .background-content::before{display:none}
+    }
+
+    /* v9 — unified typography, quiet motion and a continuous approach quote */
+    .hero-context{
+      font-family:var(--serif);
+      font-size:.72em;
+      font-weight:300;
+      letter-spacing:-.035em;
+    }
+    h1 em{
+      margin-left:0;
+      font-family:inherit;
+      font-size:1em;
+      font-weight:300;
+      letter-spacing:inherit;
+    }
+
+    .situation-intro h2,
+    .tools-head h2{
+      font-size:clamp(48px,4.7vw,72px);
+      font-weight:300;
+      line-height:1.02;
+      letter-spacing:-.043em;
+    }
+
+    .tools-section .reveal{
+      transform:none;
+      filter:blur(2.5px);
+      transition:
+        opacity 1.35s cubic-bezier(.22,.61,.36,1),
+        filter 1.35s cubic-bezier(.22,.61,.36,1);
+    }
+    .tools-section .reveal.is-visible{filter:blur(0)}
+    .tool-feature{
+      background:#e2e2de;
+      box-shadow:0 24px 70px rgba(60,55,52,.045),inset 0 0 0 1px rgba(65,61,58,.08);
+    }
+    .tool-feature img,
+    .tool-feature:hover img{
+      transform:none;
+      filter:grayscale(.28) saturate(.42) contrast(.94) brightness(1.025);
+      transition:opacity 1.1s cubic-bezier(.22,.61,.36,1);
+    }
+    .tool-feature::after{
+      background:linear-gradient(180deg,rgba(248,247,244,.02),rgba(231,231,227,.8));
+    }
+    .tool-row{
+      transition:border-color .8s ease,opacity .8s ease;
+    }
+    .tool-row:hover{
+      padding-left:4px;
+      background:none;
+      border-color:rgba(32,39,36,.34);
+    }
+    .tool-row h3,
+    .tool-feature h3,
+    .tool-row>span,
+    .tool-arrow{
+      transition:opacity .8s ease,transform .8s cubic-bezier(.22,.61,.36,1);
+    }
+    .tool-row:hover h3,
+    .tool-feature:hover h3{opacity:.68;color:inherit}
+    .tool-row:hover>span,
+    .tool-feature:hover .tool-arrow{
+      transform:translateX(2px);
+      opacity:.62;
+      color:inherit;
+      background:none;
+    }
+
+    .approach-grid{
+      grid-template-columns:.25fr .84fr 1.06fr;
+      gap:4vw;
+    }
+    .approach-copy{padding:0}
+    .approach-copy::before{display:none}
+    .approach-quote{
+      position:relative;
+      margin:0;
+      padding:0 0 0 42px;
+      border-left:1px solid rgba(125,109,102,.34);
+    }
+    .approach-quote::before{
+      content:"“";
+      position:absolute;
+      left:13px;
+      top:-20px;
+      font-family:var(--serif);
+      font-size:64px;
+      font-weight:300;
+      line-height:1;
+      color:var(--brown);
+      opacity:.38;
+    }
+    .approach-copy .approach-quote p{
+      margin:0;
+      padding:0;
+      border:0;
+      font-family:var(--serif);
+      font-size:clamp(27px,2.25vw,37px);
+      font-style:normal;
+      font-weight:300;
+      line-height:1.42;
+      letter-spacing:-.028em;
+      color:var(--headline);
+    }
+    .approach-copy .approach-quote p+p{
+      margin-top:24px;
+      padding:0;
+      border:0;
+      font-size:clamp(19px,1.5vw,25px);
+      line-height:1.55;
+      color:#5f5b58;
+    }
+    .approach-copy .approach-quote .approach-belief{
+      font-style:italic;
+      color:var(--brown-deep);
+    }
+
+    .relaxation h2{margin-bottom:0}
+    .relaxation .relaxation-lead{
+      max-width:590px;
+      margin:26px 0 14px;
+      font-family:var(--serif);
+      font-size:clamp(20px,1.7vw,27px);
+      font-weight:300;
+      line-height:1.38;
+      letter-spacing:-.02em;
+      color:var(--headline);
+    }
+    .relaxation .relaxation-description{margin-bottom:38px}
+
+    @media(max-width:980px){
+      .hero-context{font-size:.68em}
+      .approach-grid{grid-template-columns:1fr;gap:42px}
+      .approach-copy{padding-top:0}
+      .approach-quote{max-width:720px}
+    }
+    @media(max-width:620px){
+      .hero-context{font-size:.64em;margin-bottom:.22em}
+      h1 em{font-size:1em}
+      .situation-intro h2,.tools-head h2{font-size:clamp(42px,12vw,48px)}
+      .approach-quote{padding-left:30px}
+      .approach-quote::before{left:7px;top:-14px;font-size:52px}
+      .approach-copy .approach-quote p{font-size:27px;line-height:1.44}
+      .approach-copy .approach-quote p+p{margin-top:20px;font-size:20px;line-height:1.55}
+      .relaxation .relaxation-lead{font-size:22px}
+    }
+    @media(min-width:981px) and (max-height:820px){
+      .situation-intro h2,.tools-head h2{font-size:clamp(42px,4vw,60px)}
+      .approach-copy .approach-quote p{font-size:clamp(24px,2vw,32px)}
+      .approach-copy .approach-quote p+p{margin-top:17px;font-size:clamp(17px,1.25vw,21px);line-height:1.48}
+    }
+
+    /* v10 — editorial stories */
+    .stories{
+      min-height:100svh;
+      padding:104px 0 88px;
+      display:grid;
+      align-items:center;
+      background:
+        radial-gradient(circle at 12% 16%,rgba(125,109,102,.075),transparent 30%),
+        #f1efea;
+      overflow:hidden;
+    }
+    .stories-grid{
+      display:grid;
+      grid-template-columns:minmax(360px,.82fr) minmax(0,1.18fr);
+      gap:6vw;
+      align-items:center;
+    }
+    .stories-visual{
+      position:relative;
+      height:min(70vh,720px);
+      min-height:540px;
+      overflow:hidden;
+      box-shadow:0 26px 76px rgba(59,49,44,.07);
+    }
+    .stories-visual img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:50% 34%;
+      filter:saturate(.82) contrast(.94) brightness(1.01);
+    }
+    .stories-visual::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      border:1px solid rgba(57,53,50,.09);
+      background:linear-gradient(180deg,transparent 62%,rgba(36,33,31,.24));
+    }
+    .stories-caption{
+      position:absolute;
+      z-index:2;
+      left:28px;
+      right:28px;
+      bottom:24px;
+      display:flex;
+      justify-content:space-between;
+      gap:24px;
+      color:#fff;
+      font-size:9px;
+      font-weight:600;
+      letter-spacing:.17em;
+      text-transform:uppercase;
+    }
+    .stories-copy h2{
+      margin:0 0 22px;
+      max-width:670px;
+      font-family:var(--serif);
+      font-size:clamp(48px,5.1vw,78px);
+      font-weight:300;
+      line-height:1.02;
+      letter-spacing:-.045em;
+    }
+    .stories-intro{
+      max-width:570px;
+      margin:0 0 34px;
+      font-size:12px;
+      line-height:1.8;
+      color:#62625f;
+    }
+    .story-index{border-top:1px solid var(--line)}
+    .story-row{
+      display:grid;
+      grid-template-columns:44px 1fr auto;
+      gap:18px;
+      align-items:center;
+      padding:18px 0;
+      border-bottom:1px solid var(--line);
+    }
+    .story-num{
+      font-family:var(--serif);
+      font-size:13px;
+      font-style:italic;
+      color:var(--brown);
+    }
+    .story-row h3{
+      margin:0 0 5px;
+      font-family:var(--serif);
+      font-size:clamp(20px,1.6vw,25px);
+      font-weight:300;
+      line-height:1.2;
+      transition:opacity .75s ease;
+    }
+    .story-row p{
+      margin:0;
+      font-size:10px;
+      line-height:1.6;
+      color:#71716d;
+    }
+    .story-row>span:last-child{
+      font-size:20px;
+      transition:opacity .75s ease,transform .75s cubic-bezier(.22,.61,.36,1);
+    }
+    .story-row:hover h3{opacity:.65}
+    .story-row:hover>span:last-child{opacity:.55;transform:translateX(2px)}
+
+    @media(max-width:980px){
+      .stories{min-height:auto;padding:104px 0}
+      .stories-grid{grid-template-columns:1fr;gap:54px}
+      .stories-visual{height:72svh;min-height:580px}
+    }
+    @media(max-width:620px){
+      .stories{padding:88px 0}
+      .stories-grid{gap:42px}
+      .stories-visual{height:62svh;min-height:480px}
+      .stories-copy h2{font-size:48px}
+      .stories-intro{font-size:11.5px}
+      .story-row{grid-template-columns:34px 1fr auto;gap:12px;padding:17px 0}
+      .story-row h3{font-size:21px}
+    }
+    @media(min-width:981px) and (max-height:820px){
+      .stories{padding:78px 0 62px}
+      .stories-visual{height:68vh;min-height:480px}
+      .stories-copy h2{font-size:clamp(43px,4.5vw,64px);margin-bottom:15px}
+      .stories-intro{margin-bottom:22px}
+      .story-row{padding:13px 0}
+    }
+
+    /* v11 — continuous hero, warmer practice and a single-voice quotation */
+    h1{
+      max-width:none;
+      font-size:clamp(50px,3.75vw,68px);
+      line-height:1.01;
+    }
+    .hero-line{
+      display:block;
+      white-space:nowrap;
+    }
+    h1 em{
+      color:var(--brown);
+      font-family:inherit;
+      font-size:1em;
+      font-style:italic;
+      font-weight:300;
+    }
+
+    .tools-section{
+      background:
+        radial-gradient(circle at 78% 14%,rgba(128,106,94,.085),transparent 30%),
+        linear-gradient(180deg,#f1ede7,#faf8f4);
+    }
+    .tool-feature{
+      background:#e8e2da;
+      box-shadow:0 24px 70px rgba(74,61,53,.05),inset 0 0 0 1px rgba(76,64,57,.075);
+    }
+    .tool-feature img,
+    .tool-feature:hover img{
+      transform:none;
+      filter:grayscale(.12) sepia(.07) saturate(.64) contrast(.95) brightness(1.025);
+    }
+    .tool-feature::after{
+      background:linear-gradient(180deg,rgba(250,247,242,.02),rgba(231,224,215,.76));
+    }
+
+    .approach-quote{
+      max-width:720px;
+      padding:46px 0 0;
+      border:0;
+    }
+    .approach-quote::before{
+      left:0;
+      top:-18px;
+      font-size:72px;
+      opacity:.42;
+    }
+    .approach-copy .approach-quote p,
+    .approach-copy .approach-quote p+p,
+    .approach-copy .approach-quote .approach-belief{
+      margin:0;
+      padding:0;
+      border:0;
+      font-family:var(--serif);
+      font-size:clamp(20px,1.42vw,24px);
+      font-style:normal;
+      font-weight:300;
+      line-height:1.58;
+      letter-spacing:-.014em;
+      color:var(--headline);
+    }
+    .approach-copy .approach-quote p+p{margin-top:22px}
+
+    .stories-copy h2{
+      margin-bottom:18px;
+      font-size:clamp(42px,4.15vw,62px);
+    }
+    .stories-intro{margin-bottom:24px}
+    .story-row{padding:14px 0}
+    .story-row h3{font-size:clamp(18px,1.25vw,22px)}
+
+    @media(max-width:980px){
+      .hero-line{white-space:normal}
+      .approach-quote{padding-top:42px}
+    }
+    @media(max-width:620px){
+      h1{font-size:clamp(42px,12vw,54px)}
+      .hero-line{white-space:normal}
+      .approach-quote{padding:38px 0 0}
+      .approach-quote::before{left:0;top:-12px;font-size:58px}
+      .approach-copy .approach-quote p,
+      .approach-copy .approach-quote p+p,
+      .approach-copy .approach-quote .approach-belief{
+        font-size:20px;
+        line-height:1.55;
+      }
+      .approach-copy .approach-quote p+p{margin-top:18px}
+      .stories-copy h2{font-size:44px}
+      .story-row{padding:14px 0}
+      .story-row h3{font-size:20px}
+    }
+    @media(min-width:981px) and (max-height:820px){
+      h1{font-size:clamp(48px,3.45vw,62px)}
+      .approach-quote{padding-top:34px}
+      .approach-copy .approach-quote p,
+      .approach-copy .approach-quote p+p,
+      .approach-copy .approach-quote .approach-belief{
+        font-size:clamp(18px,1.18vw,21px);
+        line-height:1.5;
+      }
+      .approach-copy .approach-quote p+p{margin-top:15px}
+      .stories-copy h2{font-size:clamp(40px,3.8vw,56px)}
+      .story-row{padding:11px 0}
+    }
+
+    /* v12 — personal monogram, a more inviting practice and expandable methods */
+    .brand-mark{
+      width:40px;
+      height:46px;
+      border:0!important;
+      overflow:visible;
+    }
+    .brand-mark img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+    }
+
+    .tool-feature{
+      min-height:510px;
+      padding:0;
+      display:grid;
+      grid-template-columns:minmax(240px,.82fr) minmax(290px,1.18fr);
+      background:#e7dfd7;
+    }
+    .tool-feature::after{display:none}
+    .tool-feature-copy{
+      min-width:0;
+      padding:34px 30px 30px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      background:linear-gradient(145deg,#eee9e3 0%,#dfd4ca 100%);
+    }
+    .tool-feature-visual{
+      position:relative;
+      min-height:510px;
+      overflow:hidden;
+      background:#eee9e3;
+    }
+    .tool-feature-visual::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      box-shadow:inset 14px 0 40px rgba(71,55,47,.045);
+      background:linear-gradient(90deg,rgba(236,229,222,.16),transparent 24%);
+    }
+    .tool-feature .tool-feature-visual img,
+    .tool-feature:hover .tool-feature-visual img{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      object-position:50% 50%;
+      filter:saturate(.72) contrast(.93) brightness(1.025);
+      opacity:.96;
+    }
+    .tool-feature .tool-badge{margin-bottom:44px}
+    .tool-feature h3{
+      margin-bottom:18px;
+      font-size:clamp(34px,3vw,47px);
+      line-height:1.02;
+    }
+    .tool-feature p{font-size:11px;line-height:1.72}
+    .tool-feature .tool-arrow{
+      position:static!important;
+      align-self:flex-end;
+      margin-top:26px;
+      width:46px;
+      height:46px;
+    }
+
+    .methods-list{border-top:1px solid var(--line)}
+    .method-accordion{border-bottom:1px solid var(--line)}
+    .method-head{
+      width:100%;
+      padding:22px 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:26px;
+      border:0;
+      background:none;
+      color:var(--headline);
+      text-align:left;
+      cursor:pointer;
+    }
+    .method-head>span:first-child{
+      font-family:var(--serif);
+      font-size:clamp(22px,1.85vw,29px);
+      font-weight:300;
+      line-height:1.22;
+      letter-spacing:-.025em;
+    }
+    .method-sign{
+      flex:0 0 auto;
+      font-family:var(--sans);
+      font-size:22px;
+      font-weight:300;
+      line-height:1;
+      transition:transform .6s cubic-bezier(.22,.61,.36,1),opacity .6s ease;
+    }
+    .method-head:hover .method-sign{opacity:.55}
+    .method-head[aria-expanded="true"] .method-sign{transform:rotate(45deg)}
+    .method-body{
+      display:grid;
+      grid-template-rows:0fr;
+      transition:grid-template-rows .72s cubic-bezier(.22,.61,.36,1);
+    }
+    .method-body.open{grid-template-rows:1fr}
+    .method-inner{overflow:hidden}
+    .method-inner p{
+      max-width:760px;
+      margin:0;
+      padding:0 52px 22px 0;
+      font-family:var(--sans);
+      font-size:12px;
+      font-weight:300;
+      line-height:1.78;
+      color:#5e625e;
+    }
+    .method-inner p+p{padding-top:0;margin-top:-4px}
+
+    @media(max-width:980px){
+      .tool-feature{grid-template-columns:minmax(240px,.76fr) minmax(280px,1.24fr)}
+      .method-head>span:first-child{font-size:25px}
+    }
+    @media(max-width:620px){
+      .brand{gap:9px}
+      .brand-mark{width:32px;height:38px}
+      .tool-feature{
+        min-height:0;
+        grid-template-columns:1fr;
+        grid-template-rows:auto minmax(340px,46svh);
+      }
+      .tool-feature-copy{min-height:250px;padding:25px 24px 22px}
+      .tool-feature-visual{min-height:340px}
+      .tool-feature .tool-badge{margin-bottom:34px}
+      .tool-feature h3{font-size:39px}
+      .method-head{padding:19px 0}
+      .method-head>span:first-child{font-size:22px}
+      .method-inner p{padding:0 12px 20px 0;font-size:12px;line-height:1.72}
+    }
+    @media(min-width:981px) and (max-height:820px){
+      .tool-feature,.tool-feature-visual{min-height:440px}
+      .tool-feature-copy{padding:28px 26px 24px}
+      .tool-feature .tool-badge{margin-bottom:28px}
+      .tool-feature h3{font-size:37px}
+      .method-head{padding:17px 0}
+      .method-head>span:first-child{font-size:23px}
+      .method-inner p{font-size:11px;line-height:1.68;padding-bottom:16px}
+    }
+
+    /* v13 — one readable scale for explanatory copy */
+    .situation-body,
+    .tools-head p,
+    .tool-feature p,
+    .tool-row p,
+    .stories-intro,
+    .story-row p,
+    .results-head p,
+    .result-item p,
+    .timeline-copy,
+    .method-inner p,
+    .org-value{
+      font-size:13px;
+      line-height:1.78;
+    }
+  </style>
 </head>
 <body>
-<div class="page">
+  <div class="progress" aria-hidden="true"></div>
+  <header class="site-header">
+    <nav class="nav" aria-label="Основная навигация">
+      <a class="brand" href="#top"><span class="brand-mark"><img src="https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/brand-mark.webp" alt="Инициалы Анастасии Васильевой"></span><span class="brand-text">Анастасия Васильева</span></a>
+      <div class="nav-center"><a href="#situations">С чем работаю</a><a href="#tools">Практики</a><a href="#approach">Подход</a><a href="#stories">Тексты</a><a href="#background">Бэкграунд</a></div>
+      <a class="nav-cta" href="#contact">Записаться</a>
+    </nav>
+  </header>
 
-  <div class="hero-group">
-  <!-- HERO -->
-  <section class="hero-photo" style="background-image:url('https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/photo1.jpg');"></section>
-  <section class="white">
-    <div class="hero-under">
-      <span class="monogram">А · В</span>
-      <span class="name">Анастасия Васильева</span>
-    </div>
-  </section>
-
-  <!-- OFFER -->
-  <section class="white">
-    <div class="inner" style="padding-top:0; padding-bottom:0; text-align:center;">
-      <h1 class="title">Психологическое взросление и обретение опор</h1>
-      <p class="subtitle">Помогаю привести в соответствие ваш психологический и паспортный возраст, чтобы вернуть себе авторство жизни</p>
-    </div>
-  </section>
-
-  <!-- CREDS CAPTION -->
-  <section class="white creds-section">
-    <div class="inner" style="padding-top:0; text-align:center;">
-      <p class="creds">Клинический психолог · Экзистенциальный психотерапевт · Сооснователь платформы по подбору психолога <a href="https://intreatment.online/" target="_blank" rel="noopener" style="text-decoration:underline; text-underline-offset:2px;">InTreatment</a></p>
-    </div>
-  </section>
-  </div>
-
-  <!-- RECOGNITION -->
-  <section class="offwhite">
-    <div class="inner">
-      <span class="eyebrow hair-under">Я могу быть полезна вам, если сейчас вы проживаете</span>
-      <ul class="plain-list">
-        <li><strong>Внутренний конфликт взросления:</strong> по паспорту вы взрослый человек, но внутри постоянно ищете одобрения, боитесь сделать ошибку или чувствуете, что вами до сих пор управляет «голос родителей» в голове</li>
-        <li><strong>Кризис и потерю смыслов:</strong> кажется, что вы живёте «не свою жизнь», привычные ориентиры рухнули, старые цели больше не зажигают, а внутри поселились хроническая усталость и апатия</li>
-        <li><strong>Трудности в отношениях:</strong> вы чувствуете, что теряете себя рядом с партнёром, сталкиваетесь с созависимостью или находитесь в болезненном расставании. За этим часто стоит парализующий страх остаться в одиночестве: «А справлюсь ли я?»</li>
-        <li><strong>Выгорание от контроля:</strong> вы держите множество процессов в своём деле или жизни, вымотаны внутренней гонкой, но боитесь отпустить контроль, потому что «без меня всё развалится»</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- PHOTO BREAK -->
-  <section class="photo-break" style="background-image:url('https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/photo2.jpg'); background-position:center 32%;"></section>
-
-  <!-- SOFT TOOLS -->
-  <section class="white">
-    <div class="inner" style="padding-bottom:36px;">
-      <span class="eyebrow hair-under">Исследовать своё состояние</span>
-      <p style="font-size:13px; color:var(--gray); line-height:1.6; margin:-14px 0 22px;">Короткие интерактивные практики, которые помогут подсветить, что сейчас происходит внутри и в отношениях</p>
-      <div class="tools">
-        <a class="tool-row featured" href="https://lestnitsa-vzrosleniya.vercel.app/">
-          <span class="tool-row-text">
-            <span class="t-tag">Новое</span>
-            <span class="t-title">Лестница взросления</span>
-            <span class="t-desc">Пройти бесплатную диагностику и увидеть ведущую задачу взросления: 24 утверждения, займет 5-7 минут</span>
-          </span>
-          <span class="go">→</span>
-        </a>
-        <a class="tool-row" href="https://karta-otnosheniy-tyt9.vercel.app/">
-          <span class="tool-row-text">
-            <span class="t-title">Карта моих отношений</span>
-            <span class="t-desc">Бесплатный интерактивный помощник анализа 12 сфер в отношениях, показывает ресурсы, на которые можно опереться, и зоны развития</span>
-          </span>
-          <span class="go">→</span>
-        </a>
-        <a class="tool-row" href="https://beta-vert-79.vercel.app/">
-          <span class="tool-row-text">
-            <span class="t-title">Ведущий тип усталости</span>
-            <span class="t-desc">Диагностика, которая помогает понять, что сейчас утомляет сильнее всего, 12 утверждений, займет 3-4 минуты</span>
-          </span>
-          <span class="go">→</span>
-        </a>
-        <a class="tool-row" href="https://9-dney-s-telom.vercel.app/">
-          <span class="tool-row-text">
-            <span class="t-title">9 дней с телом</span>
-            <span class="t-desc">Короткие практики, которые помогают вернуть контакт с телом, сбросить напряжение и почувствовать больше легкости и спокойствия — 9 сегментов тела, для каждого текст-описание, короткое видео с объяснением и аудиопрактика 5–11 минут</span>
-          </span>
-          <span class="go">→</span>
-        </a>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-portrait">
+        <img src="https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/hero-portrait.jpg" alt="Анастасия Васильева">
+        <span class="portrait-caption">Анастасия Васильева · психолог</span>
       </div>
-    </div>
-  </section>
-
-  <!-- APPROACH -->
-  <section class="offwhite">
-    <div class="inner">
-      <span class="eyebrow hair-under">Мой подход к терапии</span>
-      <p class="lede">Смотрю на человека целостно, поэтому в процессе работы мы соединяем три уровня: чувства, мысли и тело. Тело помнит всё, оно способно стать главным союзником на пути к свободе и устойчивости.<br><br>Как экзистенциальный терапевт, приглашаю исследовать именно вашу уникальную данность, постепенно доращивать внутренние опоры и открывать вкус и радость жизни</p>
-    </div>
-  </section>
-
-  <!-- RESULTS -->
-  <section class="white">
-    <div class="inner">
-      <span class="eyebrow">Что вас ждёт на той стороне?</span>
-      <p style="font-size:12.5px; color:var(--gray); margin:6px 0 22px;">Возможные результаты нашей работы</p>
-      <ul class="plain-list">
-        <li><strong>Свобода от чувства вины</strong> за то, что вы «не такие» или хотите жить иначе. Вместо стыда и страха вы почувствуете внутреннюю свободу и спокойствие</li>
-        <li><strong>Встреча с собой настоящим:</strong> увидеть свою ценность не через призму чужих взглядов, а изнутри. Вы сможете по-настоящему уважать и поддерживать себя, не оправдываясь и не сомневаясь</li>
-        <li><strong>Внутренняя опора</strong> — не абстрактную, а ощущаемую телом. Вы почувствуете: «Я могу себя защитить. Я знаю, что важно мне. Я способен(на) выбрать свой путь»</li>
-        <li><strong>Возвращение интереса к жизни:</strong> попробовать то, что давно хотелось, говорить честно и открыто, выразить себя через голос, жест, стиль, движение. Без страха быть «слишком» или «не тем»</li>
-        <li><strong>Ощущение взрослости как ресурса.</strong> Я помогу вам обрести силу быть собой, заботиться о себе и отстаивать то, что важно лично вам</li>
-        <li><strong>Состояние внутренней устойчивости:</strong> «Я справляюсь. Я не один/одна. Я и есть та поддержка, которая всегда со мной»</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- BACKGROUND TABS -->
-  <section class="offwhite">
-    <div class="inner">
-      <span class="eyebrow hair-under">Бэкграунд</span>
-      <div class="tab-nav">
-        <button class="tab-btn active" data-tab="practice">Практика</button>
-        <button class="tab-btn" data-tab="education">Образование</button>
-        <button class="tab-btn" data-tab="approach">Подходы</button>
-      </div>
-
-      <div class="tab-panel active" data-panel="practice">
-        <div class="stat-row"><span class="stat-num">С 2019</span><span class="stat-label">частная практика со взрослыми</span></div>
-        <div class="stat-row"><span class="stat-num">С 2019</span><span class="stat-label">тренер по сеансам релаксации</span></div>
-        <div class="stat-row"><span class="stat-num">С 2024</span><span class="stat-label">сооснователь платформы по подбору психолога <a href="https://intreatment.online/" target="_blank" rel="noopener" style="text-decoration:underline; text-underline-offset:2px;">InTreatment</a></span></div>
-      </div>
-
-      <div class="tab-panel" data-panel="education">
-        <div class="stat-row"><span class="stat-num">2013—19</span><span class="stat-label">КрасГМУ им. проф. В.Ф. Войно-Ясенецкого — клиническая психология, 5612 ч</span></div>
-        <div class="stat-row"><span class="stat-num">2018</span><span class="stat-label">Теория и практика психологического консультирования — Институт Консультирования</span></div>
-        <p class="org-subhead" style="margin-top:18px;">Академия трансформационных психотехнологий</p>
-        <div class="stat-row"><span class="stat-num">2019</span><span class="stat-label">Организация и проведение сеансов релаксации — 36 ч</span></div>
-        <div class="stat-row"><span class="stat-num">2019</span><span class="stat-label">Психологическое консультирование. Тренинг консультанта — 54 ч</span></div>
-        <div class="stat-row"><span class="stat-num">2020</span><span class="stat-label">Психотехники в работе консультанта и тренера — 72 ч</span></div>
-        <div class="stat-row"><span class="stat-num">2020</span><span class="stat-label">Навыки гипноза по Милтону Эриксону в сеансах релаксации — 36 ч</span></div>
-        <div class="stat-row"><span class="stat-num">2020</span><span class="stat-label">Технология работы по психологическому взрослению клиента — 72 ч</span></div>
-        <div class="stat-row"><span class="stat-num">2020</span><span class="stat-label">Психология обиды: психотехнология работы с клиентами — 72 ч</span></div>
-        <div class="stat-row"><span class="stat-num">2020</span><span class="stat-label">Смена жизненного сценария: психотехнология работы с клиентами</span></div>
-        <div class="stat-row"><span class="stat-num">2020</span><span class="stat-label">Тренинг тренеров: парадигма социально-психологического тренинга — 72 ч</span></div>
-        <div class="stat-row"><span class="stat-num">2021</span><span class="stat-label">Тренинг тренеров: личная терапия в группе</span></div>
-        <p class="org-subhead" style="margin-top:18px;">Другие программы</p>
-        <div class="stat-row"><span class="stat-num">2021</span><span class="stat-label">Телесно-ориентированная психотерапия в индивидуальном консультировании — центр «Сфера», 300 ч</span></div>
-        <div class="stat-row"><span class="stat-num">2021</span><span class="stat-label">Телесно-ориентированная психотерапия в индивидуальном консультировании — Школа Константина Дуплищева, 300 ч</span></div>
-        <div class="stat-row"><span class="stat-num">2023</span><span class="stat-label">Международные методы помощи при психической травме — Институт «Иматон», 144 ч</span></div>
-        <div class="stat-row"><span class="stat-num">2023</span><span class="stat-label">Международные методы помощи при психической травме — Психометрика, 144 ч</span></div>
-        <div class="stat-row"><span class="stat-num">2025</span><span class="stat-label">Современная взрослость: теории и практики сопровождения — 144 ч</span></div>
-        <div class="stat-row"><span class="stat-num">2026</span><span class="stat-label">«Неспешность и подлинность» — экзистенциальная терапия по Бьюдженталю, Школа Экзистенциальной практики, 512 ч</span></div>
-      </div>
-
-      <div class="tab-panel" data-panel="approach">
-        <div class="approach-item"><span class="a-title">Экзистенциальная психотерапия</span></div>
-        <div class="approach-item"><span class="a-title">Возрастная психология</span></div>
-        <div class="approach-item"><span class="a-title">Телесно-ориентированная психотерапия</span></div>
-        <div class="approach-item"><span class="a-title">Интегративный подход</span><span class="a-sub">Сочетание КПТ, эмоционально-образной терапии, транзактного анализа, травматерапии</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PHOTO BREAK 2 -->
-  <section class="photo-break tall" style="background-image:url('https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/photo3.jpg'); background-position:center 20%;"></section>
-
-  <!-- ORGANIZATIONAL -->
-  <section class="white">
-    <div class="inner">
-      <span class="eyebrow hair-under">Организационные вопросы</span>
-      <p class="org-summary" style="font-size:13px; color:var(--ink); line-height:1.6;">Очно в г. Красноярске и онлайн · сессия 60 минут · стоимость <strong>7 000 ₽</strong></p>
-      <div class="accordion">
-        <div class="acc-item">
-          <button class="acc-head" aria-expanded="false">Форматы, адрес и стоимость подробнее <span class="sign">+</span></button>
-          <div class="acc-body">
-            <div class="acc-body-inner">
-              <div class="org-list">
-                <div class="org-row">
-                  <p class="o-label">Форматы</p>
-                  <p class="o-value">Краткосрочное психологическое консультирование (1–15 встреч) для точечных запросов или длительная терапия (от нескольких месяцев) для глубоких личностных изменений</p>
-                </div>
-                <div class="org-row">
-                  <p class="o-label">Очно</p>
-                  <p class="o-value">г. Красноярск, ул. Карла Маркса, 75а</p>
-                </div>
-                <div class="org-row">
-                  <p class="o-label">Онлайн</p>
-                  <p class="o-value">По всему миру (Zoom, Яндекс Телемост)</p>
-                </div>
-                <div class="org-row" style="border-bottom:none;">
-                  <p class="o-label">Стоимость</p>
-                  <p class="o-value">Очная сессия · 60 минут — 7 000 ₽<br>Онлайн-сессия · 60 минут — 7 000 ₽</p>
-                </div>
-              </div>
-            </div>
+      <div class="shell">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="hero-kicker">Клинический психолог · Экзистенциальный психотерапевт</p>
+            <h1><span class="hero-line">Психологическое <em>взросление</em></span><span class="hero-line">и обретение <em>опор</em></span></h1>
+            <p class="hero-subtitle">Помогаю привести в соответствие ваш психологический и паспортный возраст, чтобы вернуть себе авторство жизни</p>
+          </div>
+          <div class="hero-media" aria-hidden="true">
+            <span class="hero-number">01 / ВНУТРЕННИЙ МАЯК</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FINAL CTA -->
-  <section class="black">
-    <div class="inner final">
-      <p class="eyebrow on-dark hair-under dark" style="margin-bottom:20px;">Обсудить запрос — записаться на сессию, задать вопрос</p>
-      <div class="cta-pair">
-        <a class="cta-outline on-dark" href="https://t.me/Anastasia_Sibgatulina">Написать в Telegram</a>
-        <a class="cta-outline on-dark" href="https://vk.com/id_anastasiasib">Написать в VK</a>
+    <section class="situations" id="situations">
+      <div class="shell situations-grid">
+        <div class="situation-intro reveal">
+          <p class="section-label">Я могу быть полезна вам</p>
+          <h2>Если сейчас <span class="keep-together">вы проживаете</span></h2>
+        </div>
+        <div class="situation-list">
+          <article class="situation-row reveal"><span class="situation-index">01</span><div class="situation-title">Внутренний конфликт взросления</div><div class="situation-body">По паспорту вы взрослый человек, но внутри постоянно ищете одобрения, боитесь сделать ошибку или чувствуете, что вами до сих пор управляет «голос родителей» в голове</div></article>
+          <article class="situation-row reveal"><span class="situation-index">02</span><div class="situation-title">Кризис и потерю смыслов</div><div class="situation-body">Кажется, что вы живете «не свою жизнь», привычные ориентиры рухнули, старые цели больше не зажигают, а внутри поселились хроническая усталость и апатия</div></article>
+          <article class="situation-row reveal"><span class="situation-index">03</span><div class="situation-title">Трудности в отношениях</div><div class="situation-body">Вы чувствуете, что теряете себя рядом с партнером, сталкиваетесь с созависимостью или находитесь в болезненном расставании. За этим часто стоит парализующий страх остаться в одиночестве: «А справлюсь ли я?»</div></article>
+          <article class="situation-row reveal"><span class="situation-index">04</span><div class="situation-title">Выгорание от контроля</div><div class="situation-body">Вы держите множество процессов в своем деле или жизни, вымотаны внутренней гонкой, но боитесь отпустить контроль, потому что «без меня все развалится»</div></article>
+        </div>
       </div>
-      <a class="cta-secondary" href="https://intreatment.online/" target="_blank" rel="noopener">Познакомиться с платформой InTreatment</a>
-    </div>
-  </section>
+    </section>
 
-  <!-- TERTIARY -->
-  <section class="offwhite">
-    <div class="inner" style="padding-bottom:32px;">
-      <div class="links">
-        <a class="link-row" href="https://www.b17.ru/a_sibgatulina/"><span class="ic">А</span><span>Анкета на сайте профессиональных психологов</span><span class="go">→</span></a>
-        <a class="link-row" href="seansy-relaksacii.html"><span class="ic">Р</span><span>Сеансы релаксации</span><span class="go">→</span></a>
-        <a class="link-row" href="https://t.me/vnutrenniy_mayak"><span class="ic">Т</span><span>Telegram-канал «Внутренний маяк»</span><span class="go">→</span></a>
+    <section class="tools-section" id="tools">
+      <div class="shell">
+        <div class="tools-head reveal"><h2>Исследовать свое состояние</h2><p>Короткие интерактивные практики, которые помогут подсветить, что сейчас происходит внутри и в отношениях</p></div>
+        <div class="tool-layout">
+          <a class="tool-feature reveal" href="https://lestnitsa-vzrosleniya.vercel.app/" target="_blank" rel="noopener"><div class="tool-feature-copy"><span class="tool-badge">Новое</span><div><h3>Лестница взросления</h3><p>Пройти бесплатную диагностику и увидеть ведущую задачу взросления: 24 утверждения, займет 5-7 минут</p></div><span class="tool-arrow">→</span></div><div class="tool-feature-visual"><img src="https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/tool-lestnitsa.jpg" alt="Восемь ступеней психологического взросления"></div></a>
+          <div class="tool-list">
+            <a class="tool-row reveal" href="https://karta-otnosheniy-tyt9.vercel.app/" target="_blank" rel="noopener"><div><h3>Карта моих отношений</h3><p>Бесплатный интерактивный помощник анализа 12 сфер в отношениях, показывает ресурсы, на которые можно опереться, и зоны развития</p></div><span>→</span></a>
+            <a class="tool-row reveal" href="https://beta-vert-79.vercel.app/" target="_blank" rel="noopener"><div><h3>Ведущий тип усталости</h3><p>Диагностика, которая помогает понять, что сейчас утомляет сильнее всего, 12 утверждений, займет 3-4 минуты</p></div><span>→</span></a>
+            <a class="tool-row reveal" href="https://9-dney-s-telom.vercel.app/" target="_blank" rel="noopener"><div><h3>9 дней с телом</h3><p>Короткие практики, которые помогают вернуть контакт с телом, сбросить напряжение и почувствовать больше легкости и спокойствия — 9 сегментов тела, для каждого текст-описание, короткое видео с объяснением и аудиопрактика 5–11 минут</p></div><span>→</span></a>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    <span class="monogram">А · В</span>
-    <p>Внутренний маяк · Анастасия Васильева</p>
-  </footer>
+    <section class="approach" id="approach">
+      <div class="shell approach-grid">
+        <p class="section-label reveal">Мой подход к терапии</p>
+        <div class="approach-image reveal"><img src="https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/approach-image.jpg" alt="Анастасия Васильева в движении"></div>
+        <div class="approach-copy reveal"><blockquote class="approach-quote"><p>Смотрю на человека целостно, поэтому в процессе работы мы соединяем три уровня: чувства, мысли и тело. Тело помнит все, оно способно стать главным союзником на пути к свободе и устойчивости.</p><p>Как экзистенциальный терапевт, приглашаю исследовать именно вашу уникальную данность, постепенно доращивать внутренние опоры и открывать вкус и радость жизни.</p><p class="approach-belief">Верю, что изменения человека возможны, когда рядом есть другой, способный выдержать его живость, боль, противоречия и силу.</p></blockquote></div>
+      </div>
+    </section>
 
-</div>
+    <section class="stories" id="stories">
+      <div class="shell stories-grid">
+        <a class="stories-visual reveal" href="teksty-full.html#presence">
+          <img src="https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/stories-visual.jpg" alt="Анастасия Васильева и Ирина Млодик">
+          <span class="stories-caption"><span>Ирина Млодик и Анастасия Васильева</span><span>01 / 05</span></span>
+        </a>
+        <div class="stories-copy reveal">
+          <p class="section-label">Личное и профессиональное</p>
+          <h2>Тексты о живом присутствии</h2>
+          <p class="stories-intro">Пять историй, через которые можно узнать меня не только как специалиста: как я думаю, что замечаю в людях и во что верю в нашей работе.</p>
+          <div class="story-index">
+            <a class="story-row" href="teksty-full.html#presence"><span class="story-num">01</span><div><h3>Живое присутствие</h3><p>О мастерстве, вере в другого и экзистенциальной терапии</p></div><span>→</span></a>
+            <a class="story-row" href="teksty-full.html#boundaries"><span class="story-num">02</span><div><h3>Разговор в кафе</h3><p>О боли, недоверии и границах помощи</p></div><span>→</span></a>
+            <a class="story-row" href="teksty-full.html#chair"><span class="story-num">03</span><div><h3>Мягкое кресло</h3><p>Об обычном человеческом разговоре</p></div><span>→</span></a>
+            <a class="story-row" href="teksty-full.html#parent"><span class="story-num">04</span><div><h3>Любящий родитель</h3><p>О тепле, которое можно дать себе</p></div><span>→</span></a>
+            <a class="story-row" href="teksty-full.html#child"><span class="story-num">05</span><div><h3>Девочка-куколка</h3><p>О пробудившейся любви к маленькой себе</p></div><span>→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<script>
-  document.querySelectorAll('.tab-nav').forEach(nav=>{
-    const section = nav.closest('section');
-    nav.querySelectorAll('.tab-btn').forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        nav.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-        const target = btn.getAttribute('data-tab');
-        section.querySelectorAll('.tab-panel').forEach(p=>{
-          p.classList.toggle('active', p.getAttribute('data-panel') === target);
-        });
+    <section class="results">
+      <div class="shell">
+        <div class="results-head reveal"><h2>Что вас ждет<br>на той стороне?</h2><p>Возможные результаты нашей работы</p></div>
+        <div class="result-grid">
+          <article class="result-item reveal"><span class="result-num">01</span><h3>Свобода от чувства вины</h3><p>За то, что вы «не такие» или хотите жить иначе. Вместо стыда и страха вы почувствуете внутреннюю свободу и спокойствие</p></article>
+          <article class="result-item reveal"><span class="result-num">02</span><h3>Встреча с собой настоящим</h3><p>Увидеть свою ценность не через призму чужих взглядов, а изнутри. Вы сможете по-настоящему уважать и поддерживать себя, не оправдываясь и не сомневаясь</p></article>
+          <article class="result-item reveal"><span class="result-num">03</span><h3>Внутренняя опора</h3><p>Не абстрактную, а ощущаемую телом. Вы почувствуете: «Я могу себя защитить. Я знаю, что важно мне. Я способен(на) выбрать свой путь»</p></article>
+          <article class="result-item reveal"><span class="result-num">04</span><h3>Возвращение интереса к жизни</h3><p>Попробовать то, что давно хотелось, говорить честно и открыто, выразить себя через голос, жест, стиль, движение. Без страха быть «слишком» или «не тем»</p></article>
+          <article class="result-item reveal"><span class="result-num">05</span><h3>Ощущение взрослости как ресурса</h3><p>Я помогу вам обрести силу быть собой, заботиться о себе и отстаивать то, что важно лично вам</p></article>
+          <article class="result-item reveal"><span class="result-num">06</span><h3>Состояние внутренней устойчивости</h3><p>«Я справляюсь. Я не один/одна. Я и есть та поддержка, которая всегда со мной»</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="background" id="background">
+      <div class="shell background-layout">
+        <div class="background-title reveal"><p class="section-label">Профессиональная опора</p><h2>Бэкграунд</h2><div class="background-portrait"><img src="https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/background-portrait.jpg" alt="Анастасия Васильева"></div><div class="tabs" role="tablist" aria-label="Разделы профессионального бэкграунда"><button class="tab active" data-tab="practice" role="tab" aria-selected="true">Практика</button><button class="tab" data-tab="education" role="tab" aria-selected="false">Образование</button><button class="tab" data-tab="methods" role="tab" aria-selected="false">Подходы</button></div></div>
+        <div class="background-content">
+          <div class="panel active" data-panel="practice"><div class="timeline"><div class="timeline-row"><span class="timeline-year">С 2019</span><span class="timeline-copy">частная практика со взрослыми</span></div><div class="timeline-row"><span class="timeline-year">С 2019</span><span class="timeline-copy">тренер по сеансам релаксации</span></div><div class="timeline-row"><span class="timeline-year">С 2024</span><span class="timeline-copy">сооснователь платформы по подбору психолога <a href="https://intreatment.online/" target="_blank" rel="noopener"><u>InTreatment</u></a></span></div></div></div>
+          <div class="panel" data-panel="education"><div class="timeline">
+            <div class="timeline-row"><span class="timeline-year">2013—19</span><span class="timeline-copy">КрасГМУ им. проф. В.Ф. Войно-Ясенецкого — клиническая психология, 5612 ч</span></div>
+            <div class="timeline-row"><span class="timeline-year">2018</span><span class="timeline-copy">Теория и практика психологического консультирования — Институт Консультирования</span></div>
+            <p class="timeline-subhead">Академия трансформационных психотехнологий</p>
+            <div class="timeline-row"><span class="timeline-year">2019</span><span class="timeline-copy">Организация и проведение сеансов релаксации — 36 ч</span></div>
+            <div class="timeline-row"><span class="timeline-year">2019</span><span class="timeline-copy">Психологическое консультирование. Тренинг консультанта — 54 ч</span></div>
+            <div class="timeline-row"><span class="timeline-year">2020</span><span class="timeline-copy">Психотехники в работе консультанта и тренера — 72 ч</span></div>
+            <div class="timeline-row"><span class="timeline-year">2020</span><span class="timeline-copy">Навыки гипноза по Милтону Эриксону в сеансах релаксации — 36 ч</span></div>
+            <div class="timeline-row"><span class="timeline-year">2020</span><span class="timeline-copy">Технология работы по психологическому взрослению клиента — 72 ч</span></div>
+            <div class="timeline-row"><span class="timeline-year">2020</span><span class="timeline-copy">Психология обиды: психотехнология работы с клиентами — 72 ч</span></div>
+            <div class="timeline-row"><span class="timeline-year">2020</span><span class="timeline-copy">Смена жизненного сценария: психотехнология работы с клиентами</span></div>
+            <div class="timeline-row"><span class="timeline-year">2020</span><span class="timeline-copy">Тренинг тренеров: парадигма социально-психологического тренинга — 72 ч</span></div>
+            <div class="timeline-row"><span class="timeline-year">2021</span><span class="timeline-copy">Тренинг тренеров: личная терапия в группе</span></div>
+            <p class="timeline-subhead">Другие программы</p>
+            <div class="timeline-row"><span class="timeline-year">2021</span><span class="timeline-copy">Телесно-ориентированная психотерапия в индивидуальном консультировании — центр «Сфера», 300 ч</span></div>
+            <div class="timeline-row"><span class="timeline-year">2021</span><span class="timeline-copy">Телесно-ориентированная психотерапия в индивидуальном консультировании — Школа Константина Дуплищева, 300 ч</span></div>
+            <div class="timeline-row"><span class="timeline-year">2023</span><span class="timeline-copy">Международные методы помощи при психической травме — Институт «Иматон», 144 ч</span></div>
+            <div class="timeline-row"><span class="timeline-year">2023</span><span class="timeline-copy">Международные методы помощи при психической травме — Психометрика, 144 ч</span></div>
+            <div class="timeline-row"><span class="timeline-year">2025</span><span class="timeline-copy">Современная взрослость: теории и практики сопровождения — 144 ч</span></div>
+            <div class="timeline-row"><span class="timeline-year">2026</span><span class="timeline-copy">«Неспешность и подлинность» — экзистенциальная терапия по Бьюдженталю, Школа Экзистенциальной практики, 512 ч</span></div>
+          </div></div>
+          <div class="panel" data-panel="methods"><div class="methods-list">
+            <div class="method-accordion"><button class="method-head" aria-expanded="false"><span>Экзистенциальная психотерапия</span><span class="method-sign">+</span></button><div class="method-body"><div class="method-inner"><p>В работе мы можем говорить о непростых, но важных темах: одиночестве, свободе, выборе, ответственности, конечности жизни, смыслах и том, как вы хотите проживать свою жизнь. Мы исследуем, как вы обходитесь с этими данностями, какие решения принимаете, на что опираетесь и где сталкиваетесь с внутренними ограничениями</p></div></div></div>
+            <div class="method-accordion"><button class="method-head" aria-expanded="false"><span>Возрастная психология</span><span class="method-sign">+</span></button><div class="method-body"><div class="method-inner"><p>В работе мы исследуем, какие задачи взросления сейчас актуальны именно для вас и что могло остаться незавершенным на предыдущих этапах. Смотрим, как это проявляется сегодня - в сепарации от родителей, способности опираться на себя, выдерживать близость, выбирать, проявляться, занимать свое место и проходить возрастные кризисы</p></div></div></div>
+            <div class="method-accordion"><button class="method-head" aria-expanded="false"><span>Телесно-ориентированная психотерапия</span><span class="method-sign">+</span></button><div class="method-body"><div class="method-inner"><p>Обращаем внимание не только на мысли и слова, но и на реакции тела: напряжение, дыхание, импульсы, привычные телесные реакции. Через тело часто становятся заметны переживания, которые трудно сразу сформулировать «головой». При необходимости я могу давать телесные практики, которые помогают лучше чувствовать себя, замечать напряжение и постепенно освобождаться от привычных зажимов</p></div></div></div>
+            <div class="method-accordion"><button class="method-head" aria-expanded="false"><span>Интегративный подход</span><span class="method-sign">+</span></button><div class="method-body"><div class="method-inner"><p>Я не подстраиваю человека под один метод, а подбираю способы работы под конкретный запрос и этап терапии. В зависимости от ситуации могу использовать элементы КПТ, эмоционально-образной терапии, транзактного анализа и травматерапии</p><p>Для меня важно, чтобы работа оставалась живой и целостной: можно одновременно исследовать глубинные темы, замечать телесные реакции, разбираться в привычных сценариях и пробовать новые способы действовать</p></div></div></div>
+          </div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="organization">
+      <div class="shell organization-grid">
+        <div class="org-photo reveal"><img src="https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/org-photo.jpg" alt="Деталь образа Анастасии Васильевой"></div>
+        <div class="organization-copy reveal"><h2>Организационные<br>вопросы</h2><p class="org-summary">Очно в г. Красноярске и онлайн · сессия 60 минут · стоимость <strong>7 000 ₽</strong></p>
+          <div class="accordion"><button class="accordion-head" aria-expanded="false">Форматы, адрес и стоимость подробнее <span class="accordion-sign">+</span></button><div class="accordion-body"><div class="accordion-inner">
+            <div class="org-row"><p class="org-label">Форматы</p><p class="org-value">Краткосрочное психологическое консультирование (1–15 встреч) для точечных запросов или длительная терапия (от нескольких месяцев) для глубоких личностных изменений</p></div>
+            <div class="org-row"><p class="org-label">Очно</p><p class="org-value">г. Красноярск, ул. Карла Маркса, 75а</p></div>
+            <div class="org-row"><p class="org-label">Онлайн</p><p class="org-value">По всему миру (Zoom, Яндекс Телемост)</p></div>
+            <div class="org-row"><p class="org-label">Стоимость</p><p class="org-value">Очная сессия · 60 минут — 7 000 ₽<br>Онлайн-сессия · 60 минут — 7 000 ₽</p></div>
+          </div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="relaxation" id="relaxation">
+      <div class="relaxation-bg"><img src="https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/relaxation-bg.png" alt="Воздушное пространство для расслабления"></div>
+      <div class="shell"><div class="relaxation-copy reveal"><p class="section-label">Практики глубокого расслабления</p><h2>В объятиях<br><span class="script">тишины</span></h2><p class="relaxation-lead">Погружение в состояние расслабленности тела и безмолвия ума</p><p class="relaxation-description">Пространство для расслабления, телесного восстановления и мягкого контакта с собой.</p><a class="relaxation-link" href="seansy-relaksacii-full.html">Перейти к практикам <span>→</span></a></div></div>
+    </section>
+
+    <section class="contact" id="contact"><div class="shell contact-grid"><div class="reveal"><p class="section-label" style="color:rgba(255,255,255,.6)">Контакты</p><h2>Обсудить запрос — записаться на сессию, задать вопрос</h2></div><div class="reveal"><div class="contact-actions"><a class="contact-link" href="https://t.me/Anastasia_Sibgatulina">Написать в Telegram <span>→</span></a><a class="contact-link" href="https://vk.com/id_anastasiasib">Написать в VK <span>→</span></a><a class="contact-link" href="tel:+79082080248">+7 908 208-02-48 <span>→</span></a><a class="contact-link" href="mailto:a.sibgatulina@mail.ru">a.sibgatulina@mail.ru <span>→</span></a></div><a class="platform-link" href="https://intreatment.online/" target="_blank" rel="noopener">Познакомиться с платформой InTreatment</a></div></div></section>
+
+    <section class="footer-links"><div class="shell"><a class="footer-link" href="https://www.b17.ru/a_sibgatulina/"><span class="footer-icon">А</span><span>Анкета на сайте профессиональных психологов</span><span>→</span></a><a class="footer-link" href="https://t.me/vnutrenniy_mayak"><span class="footer-icon">Т</span><span>Telegram-канал «Внутренний маяк»</span><span>→</span></a><a class="footer-link" href="https://www.youtube.com/@anastasia_sibgatulina" target="_blank" rel="noopener"><span class="footer-icon">Y</span><span>YouTube-канал Анастасии Васильевой</span><span>→</span></a></div></section>
+  </main>
+
+  <footer><span>А · В</span><span>Внутренний маяк · Анастасия Васильева</span></footer>
+  <script>
+    const progress=document.querySelector('.progress');
+    const header=document.querySelector('.site-header');
+    const updateScroll=()=>{const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max>0?scrollY/max*100:0)+'%';header.classList.toggle('scrolled',scrollY>40)};
+    addEventListener('scroll',updateScroll,{passive:true});updateScroll();
+
+    const io=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');io.unobserve(entry.target)}}),{threshold:.08,rootMargin:'0px 0px -2%'});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    document.querySelectorAll('.tab').forEach(tab=>tab.addEventListener('click',()=>{
+      document.querySelectorAll('.tab').forEach(btn=>{btn.classList.toggle('active',btn===tab);btn.setAttribute('aria-selected',btn===tab?'true':'false')});
+      document.querySelectorAll('.panel').forEach(panel=>panel.classList.toggle('active',panel.dataset.panel===tab.dataset.tab));
+    }));
+
+    document.querySelectorAll('.method-head').forEach(head=>head.addEventListener('click',()=>{
+      const open=head.getAttribute('aria-expanded')==='true';
+      document.querySelectorAll('.method-head').forEach(other=>{
+        other.setAttribute('aria-expanded','false');
+        other.nextElementSibling.classList.remove('open');
       });
-    });
-  });  document.querySelectorAll('.acc-item').forEach(item=>{
-    const head = item.querySelector('.acc-head');
-    const body = item.querySelector('.acc-body');
-    head.addEventListener('click', ()=>{
-      const isOpen = item.classList.contains('open');
-      if(isOpen){
-        item.classList.remove('open');
-        head.setAttribute('aria-expanded','false');
-        body.style.maxHeight = null;
-      }else{
-        item.classList.add('open');
-        head.setAttribute('aria-expanded','true');
-        body.style.maxHeight = body.scrollHeight + 'px';
-      }
-    });
-  });
-</script>
+      if(!open){head.setAttribute('aria-expanded','true');head.nextElementSibling.classList.add('open')}
+    }));
+
+    const accHead=document.querySelector('.accordion-head');
+    const accBody=document.querySelector('.accordion-body');
+    accHead.addEventListener('click',()=>{const open=accHead.getAttribute('aria-expanded')==='true';accHead.setAttribute('aria-expanded',String(!open));accBody.classList.toggle('open',!open)});
+  </script>
 </body>
 </html>
