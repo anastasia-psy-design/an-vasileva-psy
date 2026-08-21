@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#FBF9F5">
+  <title>Тексты — Анастасия Васильева</title><link rel="preload" as="image" href="https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/story-anastasia.webp" fetchpriority="high"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --paper:#FBF9F5;
+      --paper-deep:#F1EFEA;
+      --ink:#29302e;
+      --headline:#514b48;
+      --muted:#6e716d;
+      --brown:#7d6d66;
+      --line:rgba(41,48,46,.17);
+      --serif:"Newsreader",Georgia,serif;
+      --sans:"Manrope",Arial,sans-serif;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:86px;background:var(--paper);overflow-x:hidden;overscroll-behavior-x:none;width:100%}
+    body{margin:0;color:var(--ink);background:var(--paper);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden;overscroll-behavior-x:none;width:100%;max-width:100vw}
+    body::before{content:"";position:fixed;inset:0;z-index:30;pointer-events:none;opacity:.075;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E")}
+    ::selection{background:#d8cec8;color:var(--ink)}
+    a{color:inherit;text-decoration:none}
+    img{display:block;width:100%;height:100%;object-fit:cover}
+    .shell{width:min(1380px,calc(100% - 112px));margin:auto}
+    .progress{position:fixed;z-index:60;left:0;top:0;width:0;height:2px;background:var(--brown)}
+    header{position:fixed;z-index:50;inset:2px 0 auto;height:84px;background:rgba(251,249,245,.86);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border-bottom:1px solid rgba(41,48,46,.1)}
+    nav{height:100%;display:flex;align-items:center;justify-content:space-between}
+    .brand,.back{font-size:10px;font-weight:600;letter-spacing:.17em;text-transform:uppercase}
+    .back{position:relative;padding:12px 0}
+    .back::after{content:"";position:absolute;left:0;bottom:7px;width:100%;height:1px;background:currentColor;transform:scaleX(.35);transform-origin:left;transition:transform .65s cubic-bezier(.22,.61,.36,1)}
+    .back:hover::after{transform:scaleX(1)}
+    .reveal{opacity:0;transition:opacity 1.25s cubic-bezier(.22,.61,.36,1)}
+    .reveal.is-visible{opacity:1}
+
+    .stories-hero{min-height:100svh;padding:126px 0 50px;display:grid;align-items:end;background:radial-gradient(circle at 10% 10%,rgba(125,109,102,.08),transparent 30%),var(--paper)}
+    .hero-grid{display:grid;grid-template-columns:1fr .78fr;gap:8vw;align-items:center}
+    .hero-copy{padding:4vh 0}
+    .eyebrow{display:flex;align-items:center;gap:14px;margin:0 0 44px;color:var(--muted);font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase}
+    .eyebrow::before{content:"";width:34px;height:1px;background:currentColor}
+    h1{margin:0;color:var(--headline);font-family:var(--serif);font-size:clamp(74px,9vw,138px);font-weight:300;line-height:.86;letter-spacing:-.055em}
+    h1 em{font-weight:300;color:var(--brown)}
+    .hero-intro{max-width:560px;margin:46px 0 0;font-size:13px;line-height:1.85;color:#5f625e}
+    .hero-photo{height:calc(100svh - 176px);min-height:650px;overflow:hidden;box-shadow:0 28px 80px rgba(56,47,43,.075)}
+    .hero-photo img{object-position:50% 44%;filter:saturate(.82) contrast(.95) brightness(1.01)}
+    .text-nav{grid-column:1/-1;display:grid;grid-template-columns:repeat(5,1fr);margin-top:34px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .text-nav a{min-height:82px;padding:17px 20px;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;font-family:var(--serif);font-size:17px;line-height:1.2;transition:opacity .65s ease}
+    .text-nav a:last-child{border-right:0}
+    .text-nav small{font-family:var(--sans);font-size:8px;letter-spacing:.16em;color:var(--brown)}
+    .text-nav a:hover{opacity:.58}
+
+    .essay{padding:124px 0;border-top:1px solid var(--line)}
+    .essay:nth-of-type(even){background:var(--paper-deep)}
+    .essay-grid{display:grid;grid-template-columns:minmax(360px,.82fr) minmax(0,1.18fr);gap:8vw;align-items:start}
+    .essay--reverse .essay-photo{order:2}
+    .essay--reverse .essay-copy{order:1}
+    .essay-photo{position:sticky;top:116px;height:calc(100svh - 152px);min-height:620px;overflow:hidden;box-shadow:0 22px 68px rgba(54,47,43,.06)}
+    .essay-photo img{filter:saturate(.82) contrast(.95) brightness(1.01)}
+    .essay-photo--irina img{object-position:50% 32%}
+    .essay-photo--cafe img{object-position:50% 50%}
+    .essay-photo--card img{object-position:50% 48%}
+    .essay-photo--portrait img{object-position:50% 48%}
+    .essay-copy{max-width:760px;padding:10px 0 80px}
+    .article-meta{display:flex;align-items:center;gap:16px;margin:0 0 40px;font-size:9px;font-weight:600;letter-spacing:.19em;text-transform:uppercase;color:var(--brown)}
+    .article-meta::after{content:"";width:70px;height:1px;background:currentColor;opacity:.55}
+    h2{margin:0 0 52px;color:var(--headline);font-family:var(--serif);font-size:clamp(48px,5.4vw,82px);font-weight:300;line-height:.98;letter-spacing:-.045em}
+    .essay-copy p{margin:0 0 25px;font-family:var(--serif);font-size:clamp(20px,1.55vw,25px);font-weight:300;line-height:1.72;letter-spacing:-.012em}
+    .essay-copy p:last-child{margin-bottom:0}
+    .essay-copy strong{font-weight:400;color:var(--headline)}
+    .essay-copy em{font-weight:300;color:var(--brown)}
+    .dialogue{padding-left:28px;border-left:1px solid rgba(125,109,102,.32)}
+    .dialogue p{margin-bottom:15px}
+    .dot-divider{margin:44px 0!important;color:var(--brown);font-family:var(--sans)!important;font-size:10px!important;letter-spacing:.55em}
+    blockquote{margin:38px 0;padding:32px 0 32px 38px;border-left:1px solid var(--brown)}
+    blockquote p{font-size:clamp(25px,2.1vw,34px)!important;line-height:1.5!important;color:var(--headline)}
+
+    .essay--wide .essay-grid{grid-template-columns:1fr}
+    .essay--wide .essay-photo{position:relative;top:auto;height:66vh;min-height:520px}
+    .essay--wide .essay-copy{width:min(830px,68%);margin-left:auto;margin-right:8vw;padding-top:72px}
+    .essay--wide .essay-photo img{object-position:50% 58%}
+
+    .closing{padding:120px 0;background:#3f4844;color:#f7f4ee}
+    .closing-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:9vw;align-items:end}
+    .closing h2{max-width:800px;margin:0;color:inherit;font-size:clamp(48px,6.2vw,92px)}
+    .closing-actions{border-top:1px solid rgba(255,255,255,.28)}
+    .closing-actions a{display:flex;justify-content:space-between;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.28);font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase}
+    footer{padding:30px 56px;display:flex;justify-content:space-between;gap:20px;background:var(--paper);border-top:1px solid var(--line);font-size:9px;font-weight:600;letter-spacing:.15em;text-transform:uppercase}
+
+    @media(max-width:900px){
+      .shell{width:min(100% - 44px,780px)}
+      header{height:72px}.stories-hero{padding-top:102px}
+      .hero-grid,.essay-grid,.closing-grid{grid-template-columns:1fr}
+      .hero-photo{height:70svh;min-height:580px}
+      .text-nav{grid-template-columns:1fr;margin-top:16px}
+      .text-nav a{min-height:62px;border-right:0;border-bottom:1px solid var(--line);flex-direction:row;align-items:center}
+      .text-nav a:last-child{border-bottom:0}
+      .essay{padding:96px 0}
+      .essay--reverse .essay-photo,.essay--reverse .essay-copy{order:initial}
+      .essay-photo{position:relative;top:auto;height:70svh;min-height:560px;margin-bottom:54px}
+      .essay--wide .essay-copy{width:100%;margin:0;padding-top:54px}
+      .closing-grid{gap:54px}
+    }
+    @media(max-width:560px){
+      .shell{width:calc(100% - 32px)}
+      .brand{max-width:160px;line-height:1.5}.back{font-size:9px}
+      .stories-hero{min-height:auto;padding:104px 0 34px}
+      .hero-copy{padding:0 0 34px}.eyebrow{margin-bottom:30px}
+      h1{font-size:clamp(66px,21vw,92px)}
+      .hero-intro{font-size:12px;margin-top:34px}
+      .hero-photo{height:62svh;min-height:500px}
+      .essay{padding:78px 0}
+      .essay-photo{height:62svh;min-height:490px;margin-bottom:42px}
+      .essay-copy{padding-bottom:20px}
+      .article-meta{margin-bottom:28px}
+      h2{margin-bottom:38px;font-size:48px}
+      .essay-copy p{font-size:20px;line-height:1.68}
+      .dialogue{padding-left:18px}
+      blockquote{padding-left:24px}
+      .closing{padding:88px 0}.closing h2{font-size:48px}
+      footer{padding:26px 16px;flex-direction:column}
+    }
+
+    /* Compact editorial reading scale: more of each story fits in one viewport. */
+    h1{font-size:clamp(60px,7.2vw,106px);line-height:.91}
+    .essay{padding:90px 0}
+    .essay-photo{height:calc(100svh - 150px);min-height:560px}
+    .essay-copy{padding-top:4px;padding-bottom:48px}
+    .article-meta{margin-bottom:26px}
+    h2{margin-bottom:32px;font-size:clamp(38px,3.7vw,56px);line-height:1.01}
+    .essay-copy p{margin-bottom:17px;font-size:clamp(16px,1.02vw,18.5px);line-height:1.7}
+    .dialogue p{margin-bottom:11px}
+    .dot-divider{margin:30px 0!important}
+    blockquote{margin:28px 0;padding:24px 0 24px 30px}
+    blockquote p{font-size:clamp(20px,1.45vw,24px)!important;line-height:1.55!important}
+    .essay--wide .essay-copy{padding-top:46px}
+
+    @media(max-width:900px){
+      .essay{padding:82px 0}
+      .essay-photo{height:64svh;min-height:520px;margin-bottom:46px}
+      .essay--wide .essay-copy{padding-top:42px}
+    }
+    @media(max-width:560px){
+      h1{font-size:clamp(56px,17vw,76px)}
+      .essay{padding:68px 0}
+      .essay-photo{height:58svh;min-height:450px;margin-bottom:36px}
+      h2{margin-bottom:27px;font-size:38px}
+      .essay-copy p{font-size:17px;line-height:1.66}
+      blockquote p{font-size:21px!important}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}.reveal{opacity:1}}
+  </style>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"></div>
+  <header><nav class="shell"><a class="brand" href="index.html">Анастасия Васильева</a><a class="back" href="index.html#stories">Вернуться на сайт</a></nav></header>
+
+  <main>
+    <section class="stories-hero">
+      <div class="shell hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Личное и профессиональное</p>
+          <h1>Тексты<br><em>о живом</em></h1>
+          <p class="hero-intro">Истории о встречах, границах, мастерстве и тех моментах, когда рядом с другим человеком становится возможно чуть больше жизни.</p>
+        </div>
+        <figure class="hero-photo reveal"><img src="https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/story-anastasia.webp" fetchpriority="high" alt="Анастасия Васильева за рабочим столом"></figure>
+        <nav class="text-nav" aria-label="Тексты">
+          <a href="#presence"><small>01</small>Живое присутствие</a>
+          <a href="#boundaries"><small>02</small>Разговор в кафе</a>
+          <a href="#chair"><small>03</small>Мягкое кресло</a>
+          <a href="#parent"><small>04</small>Любящий родитель</a>
+          <a href="#child"><small>05</small>Девочка-куколка</a>
+        </nav>
+      </div>
+    </section>
+
+    <article class="essay" id="presence">
+      <div class="shell essay-grid">
+        <figure class="essay-photo essay-photo--irina reveal"><img src="https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/anastasia-irina.webp" loading="lazy" decoding="async" alt="Ирина Млодик и Анастасия Васильева"></figure>
+        <div class="essay-copy reveal">
+          <p class="article-meta">Текст 01 · о мастерстве</p>
+          <h2>Живое присутствие</h2>
+          <p>Удостоверение о завершении двухгодовой программы «Неспешность и подлинность» Ирина Млодик мне вручила со словами: <em>«Глубокому, нежному и по-настоящему женственному экзистенциальному психотерапевту»</em></p>
+          <p>До сих пор баюкаю их внутри🤍</p>
+          <p>Бывает экспертность, когда человек много знает и правильно говорит. А бывает Мастерство. Когда за два дня Мастер успевает разглядеть твою суть. Когда за самой простой формулировкой чувствуется тектонический пласт: десятки лет ежедневной практики, огромная насмотренность, опора на ценности, авторский стиль и огромный масштаб личности.</p>
+          <p>А во взгляде столько веры в другого, сколько, может быть, этот другой сам в себя никогда не вмещал.</p>
+          <p>Мимолетное соприкосновение — и ты уже богат ✨</p>
+          <p>У великого экзистенциалиста Джеймса Бьюдженталя есть <strong>идея о «живом присутствии»</strong>. Это способность быть тотально, честно и глубоко здесь и сейчас рядом с другим. <em>Со-перебывать, откликаться всей душой.</em> Смотря на Ирину Юрьевну, я видела это присутствие. Благодарю за такой опыт 🙏🏻</p>
+          <p class="dot-divider">● ● ●</p>
+          <p><strong>Я экзистенциальный терапевт.</strong></p>
+          <p>Это значит, что ко мне можно приходить, если вам кажется, что вы <strong>потеряли свою подлинность.</strong> Запутались в чужих ожиданиях, <strong>застряли в экзистенциальном кризисе</strong>, проживаете потерю, тупик, одиночество или <strong>не понимаете, кто вы теперь.</strong> Ко мне можно приходить со своей уязвимостью, страхом, неидеальностью и даже с тем, что кажется «неправильным» или стыдным.</p>
+          <p>Мы будем <strong>исследовать, как вы живете свою жизнь</strong>, где вы <strong>отказываетесь от себя</strong> и как вам снова стать автором своей судьбы. Я буду рядом, чтобы помочь вам заметить вашу собственную силу, опереться на нее и развернуться к своей подлинной жизни🤍</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="essay essay--reverse" id="boundaries">
+      <div class="shell essay-grid">
+        <figure class="essay-photo essay-photo--cafe reveal"><img src="https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/story-cafe.webp" loading="lazy" decoding="async" alt="Интерьер кафе"></figure>
+        <div class="essay-copy reveal">
+          <p class="article-meta">Текст 02 · о границах помощи</p>
+          <h2>Разговор в кафе</h2>
+          <div class="dialogue">
+            <p>— Девушка, отлично выглядите, давайте познакомимся!<br>— Я замужем, не знакомлюсь.</p>
+            <p>Он невозмутимо отодвигает стул. Скрип ножек по кафелю звучит как вызов моему спокойствию.</p>
+            <p>— Вы здесь работаете?<br>— Работаю.<br>— В кафе? Кем?<br>— В этом здании, психологом.<br>— И что, клиенты есть? Не понимаю, кто вообще к психологам обращается — кривит губы в усмешке.<br>— Обращаются те, кто готов, чтобы ему помогли и доверяет специалисту. Но, похоже, это не вы, — не скрываю раздражения. Злость, как сторожевой пес, поднимается на обесценивание и проламывание границ.<br>— Как психолог поможет разговорами, если от тебя уходит жена?</p>
+            <p>Смотрю внимательнее.</p>
+            <p>— Мне очень жаль, это больно…<br>— Столько лет вместе... стараюсь постоянно занимать себя делами, чтобы не одолевали мысли. Можно ли вообще словами спасти ситуацию?<br>— Знакомствами с другими девушками точно не спасти..</p>
+            <p>Передо мной больше не заносчивый незнакомец. Мужчина, испытывающий боль предательства. За его обесцениванием — недоверие. Вряд ли у него был опыт, когда можно открыто делиться чувствами. «Мужчины не плачут и не жалуются» — отсюда типичная стратегия избегания.</p>
+            <p>— Ну, так что мне поможет? Зайти могу к вам? Завтра будете здесь?</p>
+            <p>Я могла бы рассказать о стадиях проживания горя, важности выражения чувств и вреде, который наносит подавление эмоций. Но помощь не случается в кафе, между делом. Это требует специально организованого пространства и мужества человека остановиться и самому признать: «Мне больно».</p>
+            <p>— Я не беру в работу тех, кто активно проявляет симпатию ко мне, как к женщине. Но вот визитка, напишите, порекомендую надежных коллег.</p>
+            <p>Он взял карточку. Кивнул коротко и поспешил попрощаться.</p>
+            <p>Не знаю, напишет ли. Но верю, что наш разговор чего-то коснулся внутри него💚</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="essay essay--wide" id="chair">
+      <div class="shell essay-grid">
+        <figure class="essay-photo reveal"><img src="https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/story-office.webp" loading="lazy" decoding="async" alt="Кабинет с двумя креслами"></figure>
+        <div class="essay-copy reveal">
+          <p class="article-meta">Текст 03 · о человеческом разговоре</p>
+          <h2>Мягкое кресло</h2>
+          <p>Телефоны звенели в обеих руках одновременно — кнопочное полешко в правой, новенький смартфон в левой. Жонглируя ими, мужчина спешно вошел в кабинет.</p>
+          <p>— Николай Николаевич?<br>— Так точно, Анастасия — расплылся в улыбке.</p>
+          <p>Он ловко отмахивался от звонков, раздавая команды подчиненным.</p>
+          <p>У стены ждали кресла, еще не занявшие свое место. Пригласила его присесть. Радостно плюхнулся и смущенно пробормотал:<br>— Сейчас, Настенька, сейчас все расскажу… только отвечу — шеф!</p>
+          <p>Уже знаю, что это главный инженер бизнес-центра, в котором будет мой новый кабинет. С любопытством наблюдала за ним: мужчина лет 50-ти, низкий тембр, поучительный тон. Аккуратный голубой воротничок выглядывает из-под серого джемпера. Стилевый.</p>
+          <p>— Ничего, что я тут поотвечаю на звонки? Кресло такое удобное.</p>
+          <p>— Ничего, я жду ребят из химчистки.</p>
+          <p>— Кстати, можно сказать, что это я строил здание.</p>
+          <p>— Ух ты!</p>
+          <p>Про себя улыбнусь. Это кресло творит чудеса. Занятой, серьезный, неприступный вдруг становится улыбчивым, разговорчивым, открытым.</p>
+          <p>Между звонками он успевал вставить:<br>— Завтра в девять придут ставить кондиционер.<br>— Еще заглянет управляющий, Алексей… отчество не помню, я-то его зову Леха.</p>
+          <p>— Угу, записала, — киваю.</p>
+          <p>На миг телефоны замолчали.</p>
+          <p>— Даже не по себе, — признался он, — когда никто не звонит. Хотя конец дня, обычно всем что-то нужно…<br>А, я ж с понедельника в отпуск! К родным махну, погуляееем!</p>
+          <p>Мы болтали еще минут сорок — о заимке на Байкале, Ергаках, натяжных потолках. Чужая жизнь раскрывалась щедро и просто.</p>
+          <p>Поднялся, наконец, улыбнулся:<br>— Хорошо у вас, Анастасия. Но я пойду. Если что-то будет нужно — говорите всем, что вы от меня.</p>
+          <p>— Всего вам доброго и хорошего отпуска.</p>
+          <p>Когда за ним закрылась дверь, я порадовалась: первый день в новом кабинете — а пространство уже оживляет. Встретив химчистку, оставила мебель их заботам и вышла на кофе. И подумалось: всем нам, как Николаю Николаичу, иногда нужно всего лишь удобное мягкое кресло и обычный человеческий разговор❤️</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="essay" id="parent">
+      <div class="shell essay-grid">
+        <figure class="essay-photo essay-photo--card reveal"><img src="https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/story-card.webp" loading="lazy" decoding="async" alt="Открытка с мамой и ребенком"></figure>
+        <div class="essay-copy reveal">
+          <p class="article-meta">Текст 04 · о внутренней опоре</p>
+          <h2>Любящий родитель</h2>
+          <p>— Я к тебе с подарком сегодня</p>
+          <p>Напряглась. В нашей профессии подарки не приветствуются, за этим всегда что-то стоит. Предупреждаю клиентов, что мне подарки дарить не нужно. А здесь еще и начало встречи.</p>
+          <p>Порывшись в своей сумочке, девушка достает открытку.</p>
+          <p>— Вот, смотри. Я теперь так умею, научилась в нашей работе.</p>
+          <p>Разглядываю милейшую картинку. Трогательные грибочки — мама и ребеночек. Но, конечно, еще трогательнее надпись:</p>
+          <blockquote><p>— Ты ведь знаешь, что я очень тобой горжусь?<br>— Даже когда у меня ничего не получается?…<br>— Всегда.</p></blockquote>
+          <p>— Порой я не могла объяснить другим, что такое — быть себе любящим родителем. Увидела картинку и почувствовала «Вот оно!». Захотелось принести сюда.</p>
+          <p>От такого подарка я выбрала не отказаться.</p>
+          <p>Смотрю на открытку.</p>
+          <p>Тепло💗</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="essay essay--reverse" id="child">
+      <div class="shell essay-grid">
+        <figure class="essay-photo essay-photo--portrait reveal"><img src="https://raw.githubusercontent.com/anastasia-psy-design/an-vasileva-psy/main/img/story-anastasia.webp" loading="lazy" decoding="async" alt="Анастасия Васильева у окна"></figure>
+        <div class="essay-copy reveal">
+          <p class="article-meta">Текст 05 · о любви к себе</p>
+          <h2>Девочка-куколка</h2>
+          <p>— А я тебе такое покажу, что я придумала! Только телефон достану.</p>
+          <p>Она потянулась к сумке, напоминающей плитку молочного шоколада. Я с любопытством ждала.</p>
+          <p>— Так, сейчас, разблокирую.</p>
+          <p>Торопливо провела по экрану. Я видела ее волнение — чуть дрожащие пальцы, порозовевшие щеки, ерзанье в кресле.</p>
+          <p>— Вот, смотри, какой пупс!</p>
+          <p>Она повернула ко мне телефон. На экране чудесная светловолосая девчушка лет 4, в платьице и с желтым шариком.</p>
+          <p>— Это ты?<br>— Да, — сказала она с улыбкой.</p>
+          <p>В груди у меня потеплело. Я почувствовала, как чуть увлажнились глаза.</p>
+          <p>— Ты чудо.<br>— Вообще, я насмотреться не могу на этого пупса! Смотрю с обожанием. Это же просто кукла.</p>
+          <p>Я вглядывалась в молодую женщину, сидящую передо мной. Ее образ всегда необычный — интересный принт, сложные цвета, сочетание разных фактур. Оригинальные броши в виде животных, причудливой формы сережки, сумочки под образ. Сегодня свитер цвета куркумы подчеркивал ее глаза-изумруды, которые светились пробудившейся любовью к маленькой себе.</p>
+          <p>Когда мы только начинали работать, своего внутреннего ребенка она представляла бесполым человечком, к которому особых чувств не было.</p>
+          <p>Сегодня она с распирающей гордостью любуется девочкой-куколкой на своем детском фото☀️</p>
+          <p>А я любуюсь ею.</p>
+        </div>
+      </div>
+    </article>
+
+    <section class="closing">
+      <div class="shell closing-grid">
+        <h2>Если что-то из прочитанного откликнулось</h2>
+        <div class="closing-actions"><a href="https://t.me/Anastasia_Sibgatulina">Написать в Telegram <span>→</span></a><a href="index.html#contact">Перейти к записи <span>→</span></a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><span>А · В</span><span>Тексты · Анастасия Васильева</span></footer>
+  <script>
+    const progress=document.querySelector('.progress');
+    let scrollTicking=false;
+    const updateProgress=()=>{const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max>0?scrollY/max*100:0)+'%';scrollTicking=false};
+    const onProgressScroll=()=>{if(!scrollTicking){requestAnimationFrame(updateProgress);scrollTicking=true}};
+    addEventListener('scroll',onProgressScroll,{passive:true});updateProgress();
+    const io=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');io.unobserve(entry.target)}}),{threshold:.08,rootMargin:'0px 0px -5%'});
+    document.querySelectorAll('.reveal').forEach(element=>io.observe(element));
+  </script>
+</body>
+</html>
